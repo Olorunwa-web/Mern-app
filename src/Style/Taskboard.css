@@ -1,0 +1,295 @@
+.taskboard-flex{
+    border: 1px solid #F1F2F3;
+    padding: 19px 17px;
+    width: 23%;
+    border-radius: 5px;
+}
+
+.task-h1{
+    font-family: "DM Sans", sans-serif;
+    font-weight: 500;
+    font-size: 28px;
+    line-height: 42px;
+    color: #161E54;
+}
+
+.dash-h4{
+    font-family: "DM Sans", sans-serif;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 28px;
+    color: #404040;
+   
+}
+
+.namess{
+    font-family: "DM Sans", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 20.83px;
+    color:  #2F2B2BB0;
+    
+}
+
+.numbers{
+    font-family: "DM Sans", sans-serif;
+    font-weight: 700;
+    font-size: 50px;
+    /* line-height: 65.1px; */
+    color: #1E1E1E;
+}
+
+.dashboard-tasks{
+    border: 1px solid #F1F2F3;
+    border-radius: 14px;
+
+}
+
+.new-task{
+    height: 40px;
+    width: 132px;
+    background-color:#3439CA;
+    color:#F3F2FB ;
+    font-family: neurial-grotesk;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    border-radius: 4px;
+    border: none;
+}
+
+.if{
+    background-color: rgb(113, 116, 218);
+    border-radius: 1%;
+    width: 30px;
+    height: 30px;
+    
+}
+
+.textA{
+    resize: none;
+    width:100%;
+    border-radius: 5px;
+    border: 1px solid #959595;
+    outline: none;
+    padding-left: 10px;
+    padding-top: 10px;
+    padding-right: 10px;
+}
+
+.title{
+    padding: 0 10px;
+}
+
+.create-h1{
+    font-family: "DM Sans", sans-serif;
+    font-weight: 600;
+    font-size: 25.57px;
+    line-height: 33.29px;
+}
+
+.website-width{
+    width: 60%;
+    /* border: 1px solid ; */
+    gap: 10px !important;
+}
+
+.team-width{
+    width: 30%;
+    /* border: 1px solid red; */
+    gap: 40px;
+}
+
+.assigned-member{
+    font-family: neurial-grotesk;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    /* background-color: #EBEBEB; */
+}
+
+.assigned-members{
+    background-color: #EBEBEB;
+    /* width: 100%; */
+    border-radius: 8px;
+    padding: 4px 8px;
+    
+}
+
+.assigned-memb{
+    width: 100%;
+}
+
+.assigned-memberss{
+    background-color: #3439CA;
+    border-radius: 8px;
+    padding: 4px 8px;
+}
+
+.assigned-membe{
+    font-family: neurial-grotesk;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    color:  #EBEBEB;
+}
+
+@media(max-width:765px){
+    .fixed{
+        flex-direction: column;
+        gap: 14px !important;
+        
+    }
+
+    .website-width{
+        width:100%;
+        gap: 5px;
+        margin-bottom: 1px !important;
+    }
+
+    .team-width{
+        width: 100%;
+        gap: 10px;
+    
+    }
+
+    .task-h1{
+        font-size: 24px;
+    }
+
+    .dash-h4{
+        font-size: 17px;
+    }
+
+    .new-task{
+        font-size: 14px;
+    }
+
+    .numbers{
+        font-size: 35px;
+    }
+
+    .create-h1{
+        font-size: 22px;
+    }
+
+    .grid-space{
+        width: 140px;
+    }
+
+}
+
+
+
+@media(max-width:768px){
+    .taskboard-flex{
+        width: 100%;
+    }
+
+    .taskboard-flexx{
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .title{
+        padding: 0 !important;
+    }
+    .new-task{
+        width: 100%;
+    }
+
+
+}
+
+@media (min-width:768px) and (max-width:1023px){
+    .taskboard-flex{
+        width: 48%;
+        margin-bottom: 13px;
+        
+    }
+
+   
+
+    .fixed{
+        gap: 29px !important;
+    }
+
+
+    .website-width{
+        width:50%;
+        gap: 10px;
+        margin-bottom: 1px !important;
+    }
+
+    .team-width{
+        width: 50%;
+        gap: 10px;
+    
+    }
+
+    .task-h1{
+        font-size: 23px;
+    }
+
+    .dash-h4 {
+        font-size: 18px;
+    }
+
+    .numbers {
+        font-size: 39px;
+    }
+
+   
+
+}
+
+@media (min-width:1024px) and (max-width:1200px){
+    .taskboard-flex{
+        width: 49%;
+        margin-bottom: 20px;
+    }
+
+    .taskboard-flexx{
+        margin: 0 auto;
+    }
+
+}
+
+@media (min-width:766px) and (max-width:768px){
+    .fixed{
+        gap: 29px !important;
+    }
+
+
+    .website-width{
+        width:50%;
+        gap: 10px;
+        margin-bottom: 1px !important;
+    }
+
+    .team-width{
+        width: 50%;
+        gap: 10px;
+    
+    }
+
+    .taskboard-flex{
+        width: 100%; 
+    }
+
+    .task-h1{
+        font-size: 23px;
+    }
+
+    .dash-h4 {
+        font-size: 18px;
+    }
+
+    .numbers {
+        font-size: 39px;
+    }
+
+    
+  
+
+}

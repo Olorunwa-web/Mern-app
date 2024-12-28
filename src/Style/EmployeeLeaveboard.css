@@ -1,0 +1,152 @@
+.leave-flex{
+    border: 1.29px solid #F1F2F3;
+    padding: 24.48px 21.9px;
+    width: 28%;
+    height: 159.95px;
+    border-radius: 6.44px;
+    
+}
+
+.leave-h4{
+    font-family: "DM Sans", sans-serif;
+    font-weight: 500;
+    font-size: 20.61px;
+    line-height: 26.84px;
+    color:  #2F2B2BB0;
+}
+
+
+.leave-h1{
+    font-family: "DM Sans", sans-serif;
+    font-weight: 700;
+    font-size: 64.41px;
+    line-height: 83.87px;
+    color: #1E1E1E;
+}
+
+
+.leave-span{
+    font-family: "DM Sans", sans-serif;
+    font-weight: 600;
+    font-size: 34px;
+    line-height: 44.27px;
+    color: #4D4D4D;
+}
+
+.leave-his{
+    font-family: "DM Sans", sans-serif;
+    font-weight: 500;
+    font-size: 28px;
+    line-height: 42px;
+    color: #161E54;
+
+}
+
+.leave-name{
+    font-family: "DM Sans", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 20.83px;
+    color:#292929 ;
+}
+
+.leave-style{
+    background-color: #F7F9FB;
+}
+
+.leave-emp-h1{
+    font-family: "DM Sans", sans-serif;
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 33.29px;
+    color:#292929 ;
+}
+
+
+@media(max-width:765px){
+    .leave-emp-space{
+        padding: 0 !important;
+    }
+
+    .leave-name{
+        font-size: 15px;
+    }
+
+    .leave-h4{
+        font-size: 17px;
+
+    }
+
+    .leave-h1{
+        font-size: 55px;
+    }
+
+    .leave-span{
+        font-size: 30px;
+    }
+
+    .leave-his{
+        font-size: 22px;
+    }
+
+    .employee-width{
+        width: 190px;
+    }
+
+    .employee-date{
+        width: 160px;
+    }
+
+    .employee-end{
+        width: 160px;
+    }
+
+    .employee-days{
+        width: 130px;
+    }
+
+    
+
+}
+
+@media(max-width:768px){
+    .leave-flex{
+        width: 100%;
+       
+    }
+
+    .leave-flexx{
+        flex-direction: column;
+        gap: 14px;
+    }
+
+    .leave-emp-space{
+        padding: 0 !important;
+    }
+
+    
+
+}
+
+
+@media (min-width:768px) and (max-width:1023px){
+    .leave-flex{
+        width: 49%;
+        margin-bottom: 14px;
+    }
+
+    .leave-emp-space{
+        padding:  0 4px !important;
+    }
+
+}
+
+
+@media (min-width:1024px) and (max-width:1200px){
+    .leave-flex{
+        width: 48%;
+        margin-bottom: 10px;
+    }
+
+}
+

@@ -1,0 +1,461 @@
+.teams{
+    width: 50%;
+    border: 1px solid #EEEEEE;
+    border-radius: 6px;
+}
+
+.product h1{
+    font-family: "DM Sans", sans-serif;
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 28px;
+    color: #404040;
+    
+}
+
+
+.product p{
+    font-family: "DM Sans", sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 18.23px;
+    color:#7F7F7F;
+    margin-top: -5px;
+
+}
+
+.view p{
+    font-family: "DM Sans", sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 18.23px;
+    color:#3439CA;
+    cursor: pointer;
+}
+
+
+.aisha h3{
+    font-family: "DM Sans", sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 20.83px;
+    color:#050505;
+}
+
+
+.aisha p {
+    font-family: "DM Sans", sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 15.83px;
+    color:#7F7F7F;
+    margin-top: -6px;
+}
+
+.buttonsss{
+    height: 40px;
+    width: 139px;
+    border-radius: 4px;
+    background-color: #3439CA;
+    color: #F3F2FB;
+    font-family: neurial-grotesk;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px;
+    background-image: url("../assets/Stockholm-icons (8).svg");
+    background-repeat: no-repeat;
+    background-position: 11% 50%;
+    /* padding-left: 27px; */
+    padding: 8px 10px 8px 27px;
+    border: none;
+}
+
+.product-team{
+    width: 94%;
+}
+
+
+
+.product-team h2{
+    font-family: "DM Sans", sans-serif;
+    font-size: 21px;
+    font-weight: 600;
+    line-height: 33.29px;
+    color: #292929;
+}
+
+.product-team button{
+    width: 130px;
+    height: 40px;
+    border: 1.5px solid #3439CA ;
+    border-radius: 4px;
+    background-color: white;
+    font-family: "DM Sans", sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 24px;
+    color: #3439CA;
+}
+
+.profile-h1{
+    font-family: "DM Sans", sans-serif;
+    font-size: 28px;
+    font-weight: 600;
+    line-height: 36.46px;
+    color: #292929;
+
+}
+
+.temilade h2{
+    font-family: "DM Sans", sans-serif;
+    font-size: 28px;
+    font-weight: 600;
+    line-height: 27.59px;
+    color: #0E0A2D;
+}
+
+.temilade p {
+    font-family: "DM Sans", sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 17.25px;
+    color: #747474;
+}
+
+.image-temi {
+    width: 70px;
+    height: 70px;
+}
+
+.imgg{
+    width: 100%;
+    height: 100%;
+}
+
+.edit-profile{
+    width: 174px;
+    height: 40px;
+    border: none;
+    background-color: #3439CA;
+    color: #F3F2FB;
+    font-family: "DM Sans", sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px;
+    border-radius: 4px;
+}
+
+.personal{
+    font-family: "DM Sans", sans-serif;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 31.25px;
+    color: #1A1A1A;
+}
+
+.Arrow{
+    margin-top: -10px;
+}
+
+.mobile-num {
+    font-family: "DM Sans", sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 17.25px;
+    color: #747474;
+}
+
+
+.mobile-numm  {
+    font-family: "DM Sans", sans-serif;
+    font-size: 19px;
+    font-weight: 500;
+    line-height: 26.04px;
+    color: #1A1A1A;
+    margin-top: -3px;
+}
+
+.mobile-number{
+    width: 25%;
+    
+}
+
+.mobile-numbers{
+    width:30%;
+}
+
+.mobile-numberss{
+    width: 63%;
+}
+
+.borderd-line{
+    border: 2px solid #EEEEEE;
+    border-radius: 7px;
+}
+
+
+.mobile-nummm{
+    font-family: "DM Sans", sans-serif;
+    font-size: 19px;
+    font-weight: 500;
+    line-height: 26.04px;
+    color: #1A1A1A;
+    width: 54%;
+}
+
+
+.view-all{
+    font-family: "DM Sans", sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 18.23px;
+    color:#3439CA;
+}
+
+
+.aishas h3{
+    font-family: "DM Sans", sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 20.83px;
+    color:#050505;
+    margin-top: 13px;
+}
+
+.aishas p {
+    font-family: "DM Sans", sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 15.83px;
+    color:#7F7F7F;
+    margin-top: -6px;
+}
+
+.dash-b{
+    font-family: "Inter", sans-serif;
+    font-weight: 500;
+    font-size: 17px;
+    line-height: 24.2px;
+    color: #292929;
+}
+
+
+.image-wrapper {
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+
+}
+
+
+@media(max-width:765px){
+    .teams{
+        width: 100%;
+    }
+
+    .product-gap{
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .buttonsss{
+        width: 100%;
+        font-size: 14px;
+        /* height: 100%; */
+        background-position: 4% 50%;
+        padding: 8px 7px 8px 24px ;
+    }
+
+    .product-team button{
+        width:100%;
+    }
+
+    .product-team h2{
+        font-size: 20px;
+    }
+
+    .image-temi {
+        width: 40px;
+        height: 40px;
+    }
+
+    .temilade h2{
+        font-size: 15px;
+        
+    }
+
+    .temilade p {
+        font-size: 14px;
+        margin-top: -10px;
+    }
+    
+
+    .edit-profile{
+        width:100%;
+        font-size: 14px;
+    }
+
+    .mobile-num{
+        font-size: 16px;
+    }
+
+    .mobile-numm{
+        font-size: 15px;
+        font-weight: 600;
+        
+    } 
+
+    .mobile-nummm{
+        font-size: 16px;
+        font-weight: 600;
+        width: 34%;
+    }
+
+    .padd{
+        padding: 0 !important;
+    }
+
+    .mobile-number{
+        width: 100% !important;
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 10px;
+        /* border: 2px solid; */
+    }
+
+    .mobile-numbers{
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 10px;
+
+    }
+
+    .mobile-numberss{
+        width: 100% !important;
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 10px;
+        /* border: 2px solid; */
+
+    }
+
+    .profile-h1{
+        font-size: 27px;
+    }
+
+    .personal{
+        font-size: 23px;
+    }
+
+
+    .dash-b{
+        font-size: 15px;
+    }
+
+
+    .product h1{
+        font-size: 19px;
+    }
+
+    .aisha h3{
+        font-size: 15px;
+
+    }
+
+    .aishas h3{
+        font-size: 15px;
+
+    }
+
+
+}
+
+
+@media (min-width:992px) and (max-width:1023px){
+    .mobile-number{
+        width: 25% !important; 
+    }
+    
+    .mobile-numbers{
+        width:30% !important;
+    }
+    
+    .mobile-numberss{
+        width: 63% !important;
+    }
+
+    .well-space{
+        display: flex !important;
+        justify-content: space-between !important;
+    }
+
+    
+
+}
+
+
+
+@media (min-width:766px) and (max-width:1023px){
+    .teams{
+        width: 100%;
+        margin-bottom: 14px;
+    }
+
+    .image-temi{
+        width: 50px;
+        height: 50px;
+    }
+
+    .temilade h2{
+        font-size: 21px;
+    }
+
+    .temilade p {
+        font-size: 17px;
+        margin-top: -7px;
+    }
+
+    .edit-profile{
+        width: 100%;
+    }
+
+    .profile-h1{
+        padding: 0 4px !important;
+    }
+
+    .padd{
+        padding: 0 4px !important;
+    }
+
+    .mobile-number{
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 10px;
+
+    }
+
+    
+    .mobile-numbers{
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 10px;
+
+    }
+
+    .mobile-numberss{
+        width: 100% !important;
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 10px;
+        /* border: 2px solid; */
+
+    }
+
+    .mobile-nummm{
+        width: 30%;
+    }
+    
+}

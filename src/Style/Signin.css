@@ -1,0 +1,201 @@
+.sign-in{
+    background-image: url('../assets/1881 1.svg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    
+}
+
+.sign-in-container{
+    background-color: #FFFFFF;
+    width: 640px;
+    border: 2px solid red;
+    border-radius: 8px;
+    padding: 32px 48px;
+    border: none;
+}
+
+.sign-in-hr{
+    margin: 0 auto;
+}
+
+.sign-in-hr h1{
+    font-family:"Bricolage Grotesque", sans-serif;
+    font-size: 27.03px;
+    line-height: 32.44px;
+    font-weight: 700;
+    padding-top: 10px;
+}
+
+.manager h2{
+    font-family: "Inter", sans-serif;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 32px;
+}
+
+label{
+    font-size: 16px;
+    font-weight: 500;
+    font-family: "Inter", sans-serif;
+    line-height: 24px;
+}
+
+input{
+    height: 48px;
+    border: none;
+    border-radius: 8px;
+    background-color: #F3F3F3;
+    padding-left: 13px;
+    outline: none;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    font-family: "Inter", sans-serif;
+}
+input::placeholder{
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    font-family: "Inter", sans-serif;
+}
+
+.WORD{
+    margin-bottom: -8px;
+}
+
+.WORD p {
+    font-family: "Inter", sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    color:  #3439CA;
+}
+
+.password{
+    margin-top: 24px;
+    padding-bottom: 19px;
+}
+
+.email{
+    padding-bottom: 7px;
+}
+
+.btns{
+    height: 48px;
+    background-color: #3439CA;
+    border: none;
+    border-radius: 4px;
+    color: #FFFFFF;
+    font-family: neurial-grotesk;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+}
+
+
+.btnss{
+    height: 48px;
+    border: 1px solid  #3439CA;
+    border-radius: 4px;
+    background-color: #FFFFFF;
+    color: #3439CA;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px;
+    font-family: neurial-grotesk;
+}
+
+.account {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    font-family: neurial-grotesk;
+    color:  #878789;
+}
+
+.create{
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    font-family: neurial-grotesk;
+    color:  #3439CA;
+}
+
+.input-password{
+    background-image: url('../assets/Stockholm-icons.svg');
+    background-repeat: no-repeat;
+    background-position: 97% 50%;
+}
+
+.spans {
+    color: #EC5E5E;
+    font-size: 14px;
+    font-weight: 600;
+    margin-top: 0px;
+  }
+
+.sign-in-containers{
+    background-color: #FFFFFF;
+    width: 640px;
+    border-radius: 8px;
+    padding: 36px 48px;
+    border: none;
+    /* border: 1px solid blue; */
+}
+
+.forgot-pass h2{
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 40px;
+    font-family: "Inter", sans-serif;
+    color: #28282B;
+    padding-bottom: 7px;
+}
+
+.forgot-pass p {
+    font-family: "Inter", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    color: #878789;
+    padding-bottom: 15px;
+}
+
+.bttn{
+    height: 48px;
+    background-color: #3439CA;
+    border: none;
+    border-radius: 4px;
+    color: #FFFFFF;
+    font-family: "Inter", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+}
+
+
+@media(max-width:765px){
+    .sign-in{
+        background-image: none;
+        margin: 20px 0;
+
+    }
+
+    .sign-in-container{
+        width: 100%;
+        padding: 13px;
+    }
+
+    .sign-in-containers{
+        width: 100%;
+        padding: 13px;
+    }
+
+    .sign-in-hr h1 {
+        font-size: 24px;
+    }
+
+   
+
+}

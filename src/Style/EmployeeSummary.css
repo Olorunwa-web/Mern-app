@@ -1,0 +1,43 @@
+.dashboard-emp{
+    border: 1px solid #F1F2F3;
+    border-radius: 14px;
+}
+
+.request-btn{
+    width: 172px;
+    height: 40px;
+    border: none;
+    background-color: #3439CA;
+    color: #F3F2FB;
+    font-family: neurial-grotesk;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px;
+    background-image: url("../assets/Stockholm-icons (8).svg");
+    background-repeat: no-repeat;
+    background-position: 10% 50%;
+    padding-left: 24px;
+    border-radius: 4px;
+}
+
+
+
+@media(max-width:765px){
+   
+    .request-btn{
+        width: 100%;
+        font-size: 14px;
+        /* height: 100%; */
+        background-position: 3% 50%;
+        /* background-size: 19px; */
+    }
+}
+
+/* @media(max-width:320px){
+    .request-btn{
+        width: 100%;
+        font-size: 11px;
+        background-size: 19px;
+      
+    }
+} */

@@ -1,0 +1,481 @@
+.image-divs{
+    width: 60px;
+    height: 60px;
+}
+
+.dash-bars{
+    font-family: "Inter", sans-serif;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 24.2px;
+    color: #292929;
+}
+
+.pending{
+    color:#F29B07 ;
+    background-color: #FFF5E3;
+    width: 94px;
+    height: 27px;
+    border-radius: 50px;
+    margin: 0 auto;
+    font-family: "Inter", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 19.36px;
+    padding: 3px 16px;
+}
+
+.declined{
+    color:#F63838;
+    background-color:#F9E9E9;
+    width: 98px;
+    height: 27px;
+    border-radius: 50px;
+    margin: 0 auto;
+    font-family: "Inter", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 19.36px;
+    padding: 3px 16px;
+}
+
+.approved{
+    color:#0D805D;
+    background-color:#E5FFF7;
+    width: 106px;
+    height: 27px;
+    border-radius: 50px;
+    margin: 0 auto;
+    font-family: "Inter", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 19.36px;
+    padding: 3px 16px;
+}
+
+.view-profile{
+    width: 150px;
+    height: 40px;
+    border: none;
+    outline: none;
+    border: 1.3px solid #3439CA;
+    border-radius: 4px;
+    background-color: white;
+    color: #3439CA;
+    font-family: "DM Sans", sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 24px;
+
+}
+
+.TEXT:nth-of-type(1){
+    font-family: "DM Sans", sans-serif;
+    font-size: 19px;
+    font-weight: 400;
+    line-height: 17.25px;
+    color: #747474;
+}
+
+.TEXT:nth-of-type(2){
+    font-family: "DM Sans", sans-serif;
+    font-size: 19px;
+    font-weight: 500;
+    line-height: 26.04px;
+    color: #1A1A1A;
+}
+
+.image-sanya{
+    width: 60px;
+    height: 60px;
+}
+
+.imggg{
+    width: 100%;
+    height: 100%;
+}
+
+
+.temilades{
+    padding-top: 13px;
+
+}
+
+
+
+.temilades h4{
+    font-family: "DM Sans", sans-serif;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 27.59px;
+    color: #0E0A2D;
+}
+
+.temilades p {
+    font-family: "DM Sans", sans-serif;
+    font-size: 17px;
+    font-weight: 400;
+    line-height: 17.25px;
+    color: #747474;
+    margin-top: -4px;
+
+}
+
+.save-btn{
+    width: 200px;
+    height: 40px;
+    border-radius: 4px;
+    border: none;
+    background-color: #3439CA;
+    font-family: "DM Sans", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    outline: none;
+    color: #F3F2FB;
+}
+
+.cancel-btn{
+    width: 170px;
+    height: 40px;
+    border-radius: 4px;
+    font-family: "DM Sans", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    outline: none;
+    color: #DB3E3E;
+    border: 1px solid #DB3E3E;
+    background-color: white;
+}
+
+
+.gaps{
+    /* border: 1px solid; */
+    width: 55%;
+    gap: 34px;
+}
+
+.gapss{
+    /* border: 1px solid red; */
+    width: 40%;
+    gap: 34px;
+}
+
+.gapsss{
+    gap: 44px;
+    width: 55%;
+}
+
+.gapps{
+    width: 40%;
+}
+
+.gappss{
+    gap: 37px;
+    width: 60%;
+}
+
+.gappsss{
+    gap: 40px;
+    width: 40%;
+}
+
+
+
+
+
+@media(max-width:320px){
+    .view-profile{
+        width: 80px !important;
+        font-size: 12px !important;
+
+    }
+
+    .gaps{
+        width: 100% !important;
+        justify-content: space-between;
+    }
+
+    .ex-spaces{
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .gapsss{
+        width: 100% !important;
+        justify-content: space-between;
+
+    }
+
+    .gapss{
+        width: 100% !important;
+        justify-content: space-between;
+    }
+    
+    .gapps{
+        width: 100% !important;
+        /* justify-content: space-between; */
+        gap: 120px !important;
+
+
+    }
+
+    .gappss{
+        width: 100% !important;
+        gap: 90px !important;
+    }
+
+    .save-btn{
+        font-size: 14px;
+
+    }
+
+    .cancel-btn{
+        font-size: 14px;
+    }
+    
+    
+
+}
+
+
+
+
+@media(max-width:765px){
+
+    .gaps{
+        width: 100% !important;
+        justify-content: space-between;
+    }
+
+    .ex-spaces{
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .gapsss{
+        width: 100% !important;
+        justify-content: space-between;
+
+    }
+
+    .gapss{
+        width: 100% !important;
+        justify-content: space-between;
+    }
+    
+    .gapps{
+        width: 100% !important;
+        /* justify-content: space-between; */
+        gap: 170px ;
+
+
+    }
+
+    .gappss{
+        width: 100% !important;
+        /* gap: 10px ; */
+        justify-content: space-between ;
+    }
+
+    .gappsss{
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    
+
+    .save-btn{
+        width:100%;
+
+    }
+
+    .cancel-btn{
+        width: 100%;
+    }
+
+    .image-sanya{
+        width: 50px;
+        height: 50px;
+    }
+
+    .spacess{
+        padding: 0 !important;
+    }
+
+    .view-profile{
+        width: 100px;
+    }
+
+    .temilades h4{
+        font-size: 15px;
+    }
+
+    .temilades p {
+        font-size: 13px;
+        margin-top: -10px;
+    }
+
+    .TEXT:nth-of-type(1){
+        font-size: 16px;
+    }
+
+    .TEXT:nth-of-type(2){
+        font-size:16px ;
+    }
+
+    
+
+    /* .gaps{
+        width: 100% !important;
+        gap: 10px !important;
+        
+    }
+
+    .gapss{
+        width: 100% !important;
+        gap: 10px !important;
+    } */
+
+    .profile-h1{
+        padding-left: 0 !important;
+    }
+
+    .image-sanya{
+        width: 48px;
+        height: 48px;
+    }
+
+    .paps{
+        padding-top: 15px !important;
+    }
+
+    .dash-bars{
+        font-size: 17px;
+    }
+
+    .approved{
+        font-size: 15px;
+    }
+
+    .pending{
+        font-size: 15px;
+
+    }
+
+    .declined{
+        font-size: 15px;
+    }
+
+    .approved{
+        font-size: 15px;
+    }
+
+    .view-profile{
+        font-size: 14px;
+
+    }
+
+    .leave-width{
+        width: 150px;
+    }
+
+    .leave-days{
+        width: 140px;
+    }
+
+    
+
+    
+
+}
+
+@media (min-width:766px) and (max-width:1023px){
+    .save-btn{
+        width:100%;
+
+    }
+
+    .cancel-btn{
+        width: 100%;
+    }
+
+    .image-sanya{
+        width: 50px;
+        height: 50px;
+    }
+
+    .spacess{
+        padding: 0 !important;
+    }
+
+    .view-profile{
+        width: 100px;
+    }
+
+    .temilades p {
+        
+        margin-top: -10px;
+    }
+
+    .leave{
+        padding: 0 !important;
+    }
+
+    .paps{
+        padding-top: 15px !important;
+    }
+
+    .leave-width{
+        width: 150px;
+    }
+
+    .leave-days{
+        width: 150px;
+    }
+
+}
+
+
+@media (min-width:766px) and (max-width:991px){
+    .gaps{
+        /* border: 1px solid; */
+        width: 52%;
+        gap: 20px;
+    }
+    
+    .gapss{
+        /* border: 1px solid red; */
+        width: 44%;
+        gap: 20px;
+    }
+
+    .gapsss{
+        gap: 27px;
+        width: 55%;
+    }
+    
+    .gapps{
+        width: 40%;
+    }
+
+    .tech-space{
+        flex-direction: column;
+        gap: 8px;
+        
+    }
+
+    .gappss{
+        width: 100%;
+        gap: 20px;
+    }
+
+    .gappsss{
+        width: 100%;
+        gap: 27px;
+    }
+}
+
+
+

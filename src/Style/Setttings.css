@@ -1,0 +1,148 @@
+.profile-width{
+    width: 40%;
+
+}
+
+.details-width{
+    width: 60%;
+
+}
+
+.setting-pad{
+    border: 1px solid #EBEEF1;
+    padding: 38px 34px;
+    border-radius: 10px;
+}
+
+.info-h2{
+    font-family: "DM Sans", sans-serif;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 32px;
+    color: #0E0A2D;
+}
+
+.edit-p{
+    font-family: "DM Sans", sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 32px;
+    color:#747474 ;
+}
+
+.secure-h1{
+    font-family: "DM Sans", sans-serif;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 32px;
+    color: #0E0A2D;
+}
+
+.span-change{
+    font-family: "DM Sans", sans-serif;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+    color: #3439CA;
+    margin-bottom: -10px;
+}
+
+.profile-pic{
+    font-family: "DM Sans", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+}
+
+.picture-text{
+    font-family: neurial-grotesk;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: #878789;
+    padding-bottom: 20px;
+    padding-top: 14px;
+}
+
+.pic-image{
+    width: 120px;
+    height: 120px;
+    border-radius: 100%;
+}
+
+
+@media(max-width:765px){
+    .setting-pad{
+        padding: 5px;
+        
+    }
+    
+    .profile-info{
+        flex-direction: column;
+        gap: 10px !important;
+    }
+
+    .profile-width{
+        width: 100%;
+    }
+    .details-width{
+        width:100%;
+    }
+
+    .edit-p{
+        margin-top: -7px;
+        font-size: 16px;
+    }
+
+    .upload{
+        margin-top: 40px !important;
+
+    }
+
+    .info-h2{
+        font-size: 20px;
+    }
+
+    .secure-h1{
+        font-size: 20px;
+    }
+
+    .picture-text{
+        font-size: 15px;
+    }
+}
+
+@media (min-width:768px) and (max-width:1023px){
+    .setting-pad{
+        padding: 10px;
+        width: 100% !important;
+        /* border: 2px solid red; */
+
+    }
+
+    .add-input{
+        width: 100%;
+    }
+
+    .info-h2 {
+        font-size: 20px;
+    }
+
+    .edit-p{
+        font-size: 17px;
+    }
+
+    .secure-h1{
+        font-size: 20px;
+    }
+
+    .picture-text{
+        font-size: 15px;
+    }
+}
+
+@media(max-width:768px){
+    .setting-pad{
+        padding: 10px;
+    }
+}

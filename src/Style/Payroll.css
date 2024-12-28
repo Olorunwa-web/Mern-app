@@ -1,0 +1,198 @@
+.payroll{
+    width:137px ;
+    height: 40px;
+    border: none;
+    background-color: #3439CA;
+    color: #F3F2FB;
+    font-family: neurial-grotesk;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    border-radius: 4px;
+    outline: none;
+
+}
+
+
+.image-dives{
+    width: 40px;
+    height: 40px;
+}
+
+
+.payroll-flex{
+    border: 1px solid #F1F2F3;
+    padding: 19px 17px;
+    width: 23%;
+    border-radius: 5px;
+}
+
+.money{
+    font-family: "DM Sans", sans-serif;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 46.87px;
+    color: #1E1E1E;
+
+}
+
+.month{
+    font-family: "DM Sans", sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 16.23px;
+    color: #3C3C3C;
+}
+
+.imag{
+    margin-top: -4px;
+}
+
+.heading-4{
+    font-family: "DM Sans", sans-serif;
+    font-weight: 500;
+    font-size: 28px;
+    line-height: 42px;
+    color: #161E54;
+}
+
+
+
+@media(max-width:765px){
+    .payroll{
+        width: 100%;
+        font-size: 14px;
+    }
+
+    .payroll-flex{
+        width: 100%;
+    }
+
+    .money{
+        font-size: 29px;
+    }
+
+    .heading-4{
+        font-size: 22px;
+    }
+
+    .pic-pay{
+        width: 240px;
+    }
+
+
+    .pay-salary{
+        width: 170px;
+    }
+
+    .pay-allow{
+        width: 170px;
+    }
+
+    .pay-ded{
+        width: 170px;
+    }
+
+    .pay-tax{
+        width: 80px;
+    }
+
+    .pay-netsalary{
+        width: 200px;
+    }
+}
+
+@media (min-width:768px) and (max-width:1023px){
+    .payroll-flex{
+        width: 48%;
+        margin-bottom: 13px;
+        
+    }
+
+    .image-dives{
+        width: 37px;
+        height: 37px;
+    }
+
+    .money{
+        font-size: 31px;
+    }
+
+    .heading-4{
+        font-size: 22px;
+    }
+
+    .pic-pay{
+        width: 250px;
+    }
+
+
+    .pay-salary{
+        width: 180px;
+    }
+
+    .pay-allow{
+        width: 180px;
+    }
+
+    .pay-ded{
+        width: 180px;
+    }
+
+    .pay-tax{
+        width: 80px;
+    }
+
+    .pay-netsalary{
+        width: 200px;
+    }
+
+}
+
+@media (min-width:1024px) and (max-width:1200px){
+    .payroll-flex{
+        width: 49%;
+        margin-bottom: 10px;
+    }
+
+}
+
+@media (min-width:766px) and (max-width:768px){
+    .payroll-flex{
+        width: 100%;
+        
+    }
+
+    .money{
+        font-size: 31px;
+    }
+
+    .heading-4{
+        font-size: 22px;
+    }
+
+    .pic-pay{
+        width: 250px;
+    }
+
+
+    .pay-salary{
+        width: 180px;
+    }
+
+    .pay-allow{
+        width: 180px;
+    }
+
+    .pay-ded{
+        width: 180px;
+    }
+
+    .pay-tax{
+        width: 80px;
+    }
+
+    .pay-netsalary{
+        width: 200px;
+    }
+}
