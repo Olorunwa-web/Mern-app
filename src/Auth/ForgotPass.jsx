@@ -2,7 +2,7 @@ import React from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Hrlogo from '../assets/Frame 1000003286.svg';
 import {Link} from 'react-router-dom';
-import '../Style/signin.css'
+import '../Style/Signin.css'
 
 
 
