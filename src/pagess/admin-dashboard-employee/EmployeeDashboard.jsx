@@ -50,7 +50,7 @@ const EmployeeDashboard = () => {
                          {/* ======================================= */}
                          <div className = "my-3">
                              <h3 className = "main pt-4">MAIN MENU</h3>
-                             <div>
+                             <div className = "sidebar">
                                  {sidebarLinkEmployee.map((sidebarLinksemp)=>{
                                      const{id,path,Icon,name} = sidebarLinksemp
                                      return(
@@ -58,7 +58,7 @@ const EmployeeDashboard = () => {
                       end>
                       {({ isActive, isPending }) =>(
                         <span
-                          className={`d-flex gap-2 me-4 ps-2 ms- mb-3  isPending ? "pending": ${isActive ?"active" : "" 
+                          className={`d-flex gap-2 me-4 ps-2 ms- mb-3  isPending ? "pending": ${isActive ? "active" : "" 
 
                           }`}
                         > <img src={Icon} alt={name} />
@@ -70,6 +70,7 @@ const EmployeeDashboard = () => {
                                      )
                                  })}
                              </div>
+                            
                          </div>
                     </section>
                     {/* section-2 */}

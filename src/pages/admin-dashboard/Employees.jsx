@@ -1,7 +1,6 @@
 import React from 'react';
 import { Outlet,Link, NavLink, useMatch} from 'react-router-dom'
 import '../../Style/Employees.css'
-import { AllEmployees} from '../../employ'
 import Table from 'react-bootstrap/Table';
 import { useEffect, useState } from 'react';
 import Loader from "../../utils/Loader"
@@ -96,7 +95,8 @@ const Employees = (props) => {
         <>
             <main className = 'summary-containers' >
                 <section className = "pt-3">
-                {Match ? (
+                {Match ? 
+                (
                     <section>
                     <div className = "employ-tags">
                         <h1>Employee</h1>
@@ -153,7 +153,7 @@ const Employees = (props) => {
                            <tbody>
                                {employees.map((allemployees)=>{
                           
-                                   const {_id, profileImage, firstName,lastName, email,Team,department,Status,employmentStatus} = allemployees
+                                   const {_id, profileImage, firstName,lastName, email,department,employmentStatus} = allemployees
                                    return(
                                        <tr  key = {_id} onClick={()=>handleRowClick(_id)}>
                                            <td  className = "paps">

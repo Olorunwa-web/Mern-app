@@ -312,34 +312,7 @@ const NewEmployee = () => {
                     </div>
                   </div>
 
-                  {/* <div className="input-file-color d-flex justify-content-center align-items-center">
-                    <div>
-                      <input
-                        type="file"
-                        name=""
-                        id=""
-                        // ref = {fileInputRef}
-                
-                        onChange={handleImageChange}
-                        role="button"
-                        style={{ maxWidth: "17" }}
-                      />
-                    </div>
-                    <div
-                      className=" d-flex gap-2 justify-content-center align-items-center omooo"
-                      onClick={handleClick}
-                    >
-                      <img
-                        src={imagePreview || Imageicon}
-                        alt=""
-                        {...register("profileImage", { required: true })}
-                        style={{ maxWidth: "100%", maxHeight: "200px" }}
-                      />
-                      <label htmlFor="" className="label-upload">
-                        Upload Image
-                      </label>
-                    </div>
-                  </div> */}
+                 
                   <div className=" upload-img d-flex flex-column align-items-center position-relative ">
                 <img
                   src={imagePreview || ImageIcon}

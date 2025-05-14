@@ -10,8 +10,8 @@ import Offcanvas from '../Components/Offcanavas'
 import Dropdown from 'react-bootstrap/Dropdown';
 import {Link, Navigate} from 'react-router-dom'
 import AuthContext from "../context/AuthContext"
-import {useNavigate} from "react-router-dom"
-import { useContext } from 'react'
+import {useNavigate} from "react-router-dom";
+import { useContext } from 'react';
 
 
 const Navbar = () => {

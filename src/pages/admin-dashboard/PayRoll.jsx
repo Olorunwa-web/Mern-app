@@ -14,7 +14,7 @@ const PayRoll = () => {
         <>
             <main className = "summary-container payroll-dash mt-3">
                 <section>
-                    <div className className = "d-flex justify-content-between align-items-center ">
+                    <div className = "d-flex justify-content-between align-items-center ">
                         <div>
                           <h2 className = "task-h1">Payroll</h2>
                           <h4 className = "dash-h4">Dashboard/Payroll</h4>
@@ -44,7 +44,7 @@ const PayRoll = () => {
                     <section className = "employee-task my-4 ">
                       <h1 className = "heading-4 pt-3  ps-3 ">Payroll Table</h1>
                     <div className = "employee-table" >
-                    <Table hover responsive = "lg" hover role = "button">
+                    <Table responsive = "lg" hover role = "button">
                       <thead>
                         <tr>
                             <th  className = "bg-light"><span className = "dash-bar ms-2">Employee</span></th>

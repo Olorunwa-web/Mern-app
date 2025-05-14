@@ -8,9 +8,10 @@ import {sidebarLinkEmployee} from "../db"
 import Hrlogo from '../assets/Frame 1000003286.svg';
 import arrowup from '../assets/Vector.svg'
 import arrowdown from '../assets/Vector (1).svg'
-import{ NavLink} from 'react-router-dom'
+import{ NavLink , useNavigate} from 'react-router-dom'
 import '../Style/AdminDashboard.css';
 import menuimg from '../assets/menu_35dp_000000_FILL0_wght400_GRAD0_opsz40.svg'
+import Logout from "../assets/logout_22dp_EA3323_FILL0_wght400_GRAD0_opsz24.svg";
 
 
 const OffcanvasEmploy = ({ name, ...props }) => {
@@ -19,6 +20,14 @@ const OffcanvasEmploy = ({ name, ...props }) => {
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+
+    const navigate = useNavigate()
+
+
+   const logout = () => {
+    localStorage.removeItem("hr-token");
+    navigate("/auth/sign-in")
+};
 
     return (
         <>
@@ -54,20 +63,32 @@ const OffcanvasEmploy = ({ name, ...props }) => {
                          {/* ======================================= */}
                          <div className = "my-3">
                              <h3 className = "main pt-4">MAIN MENU</h3>
-                             <div>
+                             <div className = "d-flex  flex-column  gap-4 ">
+                             <div className = "sidebar">
                                  {sidebarLinkEmployee.map((sidebarLinksemp)=>{
                                      const{id,path,Icon,name} = sidebarLinksemp
                                      return(
-                                        
-                                            <section key = {id} className =  "my-3  ">
-                                                <NavLink className = {({isActive, isPending }) => isPending ? "pending" : isActive ? "active" : ""} to= {path} end className =  "d-flex gap-2 me-3 ps-2 ms-1 " >
-                                                      <img src= {Icon} alt= {name} className = ""/>
-                                                      <h6 className = "h6 pt-2">{name}</h6>
-                                                </NavLink>
-                                            </section>
+                                        <NavLink  key={id} to={path}
+                      end>
+                      {({ isActive, isPending }) =>(
+                        <span
+                          className={`d-flex gap-2 me-4 ps-2 ms- mb-3  isPending ? "pending": ${isActive ? "active" : "" 
+
+                          }`}
+                        > <img src={Icon} alt={name} />
+                        <h6 className="pt-2 heading">{name}</h6>
+                        </span>
+                       
+                      )}
+                    </NavLink>
                                      )
                                  })}
                              </div>
+                          <div className = "d-flex gap-1 align-items-center  space-pad" onClick = {logout}>
+                             <img src= {Logout} alt=""/>
+                             <h5 className = "log-out" >Logout</h5>
+                         </div>
+                         </div>
                          </div>
                     </section>
         </Offcanvas.Body>
