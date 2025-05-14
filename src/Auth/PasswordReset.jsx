@@ -6,7 +6,7 @@ import * as yup from "yup";
 import {passwordSchema} from '../lib/ValidationSchema'
 import Hrlogo from '../assets/Frame 1000003286.svg';
 import {Link, useNavigate, useParams} from 'react-router-dom';
-import '../Style/signin.css'
+import '../Style/Signin.css'
 import toast from 'react-hot-toast'
 
 

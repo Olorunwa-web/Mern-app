@@ -6,7 +6,7 @@ import * as yup from "yup";
 import {signInSchema} from '../lib/ValidationSchema'
 import Hrlogo from '../assets/Frame 1000003286.svg';
 import OR from '../assets/Frame 40643.svg';
-import '../Style/signin.css'
+import '../Style/Signin.css'
 import {Link, useNavigate} from 'react-router-dom';
 import toast from "react-hot-toast"
 
