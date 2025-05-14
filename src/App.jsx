@@ -32,6 +32,7 @@ function App() {
     <>
       <BrowserRouter>
         <Routes>
+          <Route path="/" element={<Navigate to="/admin-dashboard" />} />
           <Route path="/auth/sign-in" element={<SignIn />} />
           <Route path="/auth/forgot-pass" element={<ForgotPass />} />
           <Route path="/auth/password-reset/:resetToken" element={<PasswordReset />} />
