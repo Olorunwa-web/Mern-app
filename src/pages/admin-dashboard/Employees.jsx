@@ -25,7 +25,7 @@ const Employees = (props) => {
     setLoading(true); //
     try {
       const response = await axios.get(
-        `http://localhost:9080/api/employee/users?page=${page}&limit=10`,
+        `https://mern-backend-1-9jn6.onrender.com/api/employee/users?page=${page}&limit=10`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -58,7 +58,7 @@ const Employees = (props) => {
   const getEmployeeById = async (id) => {
     try {
       setLoading(true);
-      const req = await axios.get(`http://localhost:9080/api/employee/${id}`, {
+      const req = await axios.get(`https://mern-backend-1-9jn6.onrender.com/api/employee/${id}`, {
         headers: { Authorization: `Bearer ${token}`},
       });
       console.log(req.data.employee);

@@ -13,67 +13,6 @@ import Loader from "../../utils/Loader"
 
 
 
-function MyVerticallyCenteredModal(params) {
-    const newtask = params.newtask;
-
-
-    return (
-      <Modal
-        {...params}
-        size="lg"
-        aria-labelledby="contained-modal-title-vcenter"
-        centered
-      >
-        <Modal.Header closeButton>
-          <Modal.Title id="contained-modal-title-vcenter">
-             <h1 className = "profile-h1 ps-3 leave">Task Details</h1>
-          </Modal.Title>
-        </Modal.Header>
-        {newtask && (
-                <Modal.Body>
-                  <section className = "px-3 spacess">
-                      <div className = "d-flex gap-5 align-items-center my-4 fixed">
-                          <div className = "d-flex align-items-center website-width">
-                              <span className = "TEXT">Task Name:</span>
-                              <span className = "TEXT">{newtask.task}</span>
-                          </div>
-                          <div className = "d-flex align-items-center team-width">
-                              <span className = "TEXT">Team:</span>
-                              <img src= {newtask.images} alt="" />
-                          </div>
-                      </div>
-                      <div className = 'd-flex gap-5 my-4'>
-                          <div className = "website-width">
-                              <span className = "TEXT">{newtask.start}</span>
-                          </div>
-                          <div className = "team-width">
-                              <span className = "TEXT">{newtask.end}</span>
-                          </div>
-                      </div>
-                      <div className = "d-flex gap-4 align-items-center my-3">
-                          <div className = "d-flex align-items-center website-width">
-                              <span className = "TEXT">Description:</span>
-                              <span className = "TEXT">Nil</span>
-                          </div>
-                          <div className = "d-flex  align-items-center team-width">
-                              <span className = 'TEXT'>Status:</span>
-                              <div className = "d-flex gap-2">
-                                 <span className = {`action-status ${newtask.action.replace(/\s+/, "-").toLowerCase()}`}>{newtask.action} </span>
-                                 <img src= {arrowDown} alt=""/>
-                              </div>
-                          </div>
-                      </div>
-                  </section>
-                </Modal.Body>
-            )}
-                
-              </Modal>
-    );
-  }
-
-
-
-
 
 
 
@@ -91,7 +30,7 @@ const EmployeeTaskboard = () => {
     useEffect(() => {
         const fetchAssignedTasks = async () => {
           try {
-            const response = await axios.get('http://localhost:9080/api/task/tasks/assigned', {
+            const response = await axios.get('https://mern-backend-1-9jn6.onrender.com/api/task/tasks/assigned', {
               headers: {
                 Authorization: `Bearer ${token}`
               }
@@ -115,7 +54,7 @@ const EmployeeTaskboard = () => {
       const getTaskEmployeeById = async (taskId)=>{
         try {
           setLoading(true);
-          const req = await axios.get(`http://localhost:9080/api/task/tasks/${taskId}`,{
+          const req = await axios.get(`https://mern-backend-1-9jn6.onrender.com/api/task/tasks/${taskId}`,{
             headers:{
               Authorization: `Bearer ${token}`,
             }
@@ -268,23 +207,7 @@ const EmployeeTaskboard = () => {
                    <h3 className = "task-name">Assigned Members:</h3>
                    <h6 className = "api">{selectedTask.assignedMembers.map(member => `${member.firstName} ${member.lastName}`).join(', ')}</h6>
                 </div>
-              {/* <div className = "d-flex justify-content-between mt-2 fix">
-                <p><strong className = "task-name">Task Name:</strong> <span className = 'api'>{selectedTask.title}</span></p>
-                <div>
-                  <span className = "task-name">Team: </span>
-                {selectedTask.assignedMembers.map((img)=>{
-                  return(
-                    <img src={img?.profileImage} alt=""  className = "k" />
-                  )
-                })}
-                </div>
-              </div>
-                <div className = "d-flex justify-content-between fix">
-                 <p><strong className = "task-name">Start Date:</strong> <span className = "api">{selectedTask.startDate.slice(0, 10)}</span> </p>
-                 <p><strong className = "task-name">End Date:</strong> <span className = "api">{selectedTask.endDate.slice(0, 10)}</span> </p>
-                </div>
-                <p><strong className = 'task-name'>Status:</strong> <span className = {`action-status ${selectedTask.status.replace(/\s+/, "-").toLowerCase()}`} >{selectedTask.status}</span> </p>
-                <p> <strong className = "task-name">Assigned Members:</strong> <span className = "api">{selectedTask.assignedMembers.map((member) => `${member.firstName} ${member.lastName}`).join(", ")}</span> </p> */}
+        
               </>
             ) : (
               <Loader />

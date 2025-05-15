@@ -40,7 +40,7 @@ import {leaveSchema} from "../../lib/ValidationSchema"
     // }
     const onSubmit = async (data) => {
       try {
-        const req = await fetch("http://localhost:9080/api/leave/apply", {
+        const req = await fetch("https://mern-backend-1-9jn6.onrender.com/api/leave/apply", {
           method: "POST",
           headers: {
             Authorization: `Bearer ${token}`,
@@ -184,7 +184,7 @@ const LeaveBoard = () => {
       const token = localStorage.getItem("hr-token");
       try {
         const req = await fetch(
-          `http://localhost:9080/api/leave/${leaveId}/approve`,
+          `https://mern-backend-1-9jn6.onrender.com/api/leave/${leaveId}/approve`,
           {
             method: "PATCH",
             headers: {
@@ -218,7 +218,7 @@ const LeaveBoard = () => {
       const token = localStorage.getItem("hr-token");
       try {
         const req = await fetch(
-          `http://localhost:9080/api/leave/${leaveId}/decline`,
+          `https://mern-backend-1-9jn6.onrender.com/api/leave/${leaveId}/decline`,
           {
             method: "PATCH",
             headers: {
@@ -251,7 +251,7 @@ const LeaveBoard = () => {
           setError(null);
     
           const req = await axios.get(
-            "http://localhost:9080/api/leave/all-leaves",
+            "https://mern-backend-1-9jn6.onrender.com/api/leave/all-leaves",
             {
               headers: {
                 Authorization: `Bearer ${token}`,
@@ -279,7 +279,7 @@ const LeaveBoard = () => {
           setIsLoading(true);
           console.log(22);
           const req = await axios.get(
-            `http://localhost:9080/api/leave/${leaveId}`,
+            `https://mern-backend-1-9jn6.onrender.com/api/leave/${leaveId}`,
             {
               headers: { Authorization: `Bearer ${token}` },
             }

@@ -36,7 +36,7 @@ const Professional = () => {
           const fetchDepartments = async () => {
               try {
                   setLoading(true)
-                  const response = await axios.get("http://localhost:9080/api/department/all-departments",{
+                  const response = await axios.get("https://mern-backend-1-9jn6.onrender.com/api/department/all-departments",{
                       headers:{
                           Authorization: `Bearer ${token}`
                       }

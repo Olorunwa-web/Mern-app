@@ -27,7 +27,7 @@ const AdminSummary = () => {
 
     const getCounts = async ()=>{
         try {
-            const req = await axios.get("http://localhost:9080/api/count/count", {
+            const req = await axios.get("https://mern-backend-1-9jn6.onrender.com/api/count/count", {
                 headers:{
                     Authorization: `Bearer ${token}`,
                 }
@@ -48,7 +48,7 @@ const AdminSummary = () => {
 
     const getTasks = async ()=>{
         try {
-            const req = await axios.get("http://localhost:9080/api/task", {
+            const req = await axios.get("https://mern-backend-1-9jn6.onrender.com/api/task", {
                 headers:{
                     Authorization: `Bearer ${token}`,
                 }
@@ -68,7 +68,7 @@ const AdminSummary = () => {
     const getTaskById = async (id)=>{
         try {
           setIsLoading(true);
-          const req = await axios.get(`http://localhost:9080/api/task/${id}`,{
+          const req = await axios.get(`https://mern-backend-1-9jn6.onrender.com/api/task/${id}`,{
             headers:{
               Authorization: `Bearer ${token}`,
             }
@@ -94,7 +94,7 @@ const AdminSummary = () => {
         try {
           setIsLoading(true);
           setError(null);
-          const req = await axios.delete(`http://localhost:9080/api/task/${id}`,{
+          const req = await axios.delete(`https://mern-backend-1-9jn6.onrender.com/api/task/${id}`,{
             headers:{
               Authorization: `Bearer ${token}`,
             }

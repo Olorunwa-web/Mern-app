@@ -13,7 +13,7 @@ const Settings = () => {
     useEffect(() => {
         async function userProfile() {
           try {
-            const req = await axios.get("http://localhost:9080/api/employee/user/profile", {
+            const req = await axios.get("https://mern-backend-1-9jn6.onrender.com/api/employee/user/profile", {
               headers: {
                 Authorization: `Bearer ${token}`,
               },

@@ -33,7 +33,7 @@ const ModalTask = (props) => {
       const fetchSuggestions = async () => {
         try {
           const response = await axios.get(
-            `http://localhost:9080/api/employee/users/search?query=${searchQuery}`,
+            `https://mern-backend-1-9jn6.onrender.com/api/employee/users/search?query=${searchQuery}`,
             {
               headers: {
                 Authorization: `Bearer ${token}`,
@@ -79,7 +79,7 @@ const ModalTask = (props) => {
     try {
       setIsSubmitting(true)
       const req = await axios.post(
-        "http://localhost:9080/api/task/tasks",
+        "https://mern-backend-1-9jn6.onrender.com/api/task/tasks",
         newTask,
         {
           headers: {

@@ -14,52 +14,7 @@ import {leaveSchema} from "../../lib/ValidationSchema"
 import Loader from "../../utils/Loader"
 
 
-// function MyVerticallyCenteredModal(props) {
-//     return (
-//       <Modal
-//         {...props}
-//         size="md"
-//         aria-labelledby="contained-modal-title-vcenter"
-//         centered
-//       >
-//         <Modal.Header closeButton>
-//           <Modal.Title  className = "leave-emp-h1 px-2">
-//                Leave Request
-//           </Modal.Title>
-//         </Modal.Header>
-//         <Modal.Body>
-//           <div className = "px-2 leave-emp-space">
-//                <div className = "mb-3 ">
-//                     <label htmlFor="" className = "labels">Leave Type</label>
-//                     <select name="" id="" className = "w-100 select-input">
-//                         <option disabled selected hidden >Select</option>
-//                         <option value="" className= "labelss">Casual Leave</option>
-//                     </select>
-//                </div>
-//                <div className = "d-lg-flex gap-4 mb-3">
-//                    <div className = "mobile">
-//                       <label htmlFor="" className = "labels">Start Date</label>
-//                       <input type="date" name="" id="" placeholder = "select Date" className = "w-100 add-input" />
-//                    </div>
-//                    <div className = "mobile">
-//                       <label htmlFor="" className = "labels">End Date</label>
-//                       <input type="date" name="" id="" placeholder = "select Date" className = "w-100 add-input" />
-//                    </div>
-//                </div>
-//                <div className = "mb-3">
-//                   <label htmlFor="" className = "labels">Description</label> 
-//                   <textarea name="" id="" cols="30" rows="3"  className = "textA" placeholder = "Type here"></textarea>
-//                </div>
-//                <div className = "d-flex gap-4 my-4">
-//                   <button className = "cancel" onClick={props.onHide}>Cancel</button>
-//                   <button className = "save">Apply</button> 
-//                </div>
-//             </div>
-//         </Modal.Body>
-        
-//       </Modal>
-//     );
-//   }
+
 
 
 function MyVerticallyCenteredModal(props) {
@@ -82,7 +37,7 @@ function MyVerticallyCenteredModal(props) {
     // }
     const onSubmit = async (data) => {
       try {
-        const req = await fetch("http://localhost:9080/api/leave/apply", {
+        const req = await fetch("https://mern-backend-1-9jn6.onrender.com/api/leave/apply", {
           method: "POST",
           headers: {
             Authorization: `Bearer ${token}`,
@@ -203,7 +158,7 @@ const EmployeeLeaveboard = () => {
         setError(null);
         try {
           const req = await axios.get(
-            "http://localhost:9080/api/leave/employee/leaves",
+            "https://mern-backend-1-9jn6.onrender.com/api/leave/employee/leaves",
             {
               headers: {
                 Authorization: `Bearer ${token}`,

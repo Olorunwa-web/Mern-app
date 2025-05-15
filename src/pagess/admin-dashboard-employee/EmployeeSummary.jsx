@@ -26,7 +26,7 @@ const EmployeeSummary = () => {
     useEffect(() => {
         const fetchAssignedTasks = async () => {
           try {
-            const response = await axios.get('http://localhost:9080/api/task/tasks/assigned', {
+            const response = await axios.get('https://mern-backend-1-9jn6.onrender.com/api/task/tasks/assigned', {
               headers: {
                 Authorization: `Bearer ${token}`
               }
@@ -49,7 +49,7 @@ const EmployeeSummary = () => {
       const getTaskEmployeeById = async (taskId)=>{
         try {
           setLoading(true);
-          const req = await axios.get(`http://localhost:9080/api/task/tasks/${taskId}`,{
+          const req = await axios.get(`https://mern-backend-1-9jn6.onrender.com/api/task/tasks/${taskId}`,{
             headers:{
               Authorization: `Bearer ${token}`,
             }
@@ -155,50 +155,7 @@ const EmployeeSummary = () => {
                       })}
                      </tbody>
                     </Table>
-                        {/* <Table responsive = "lg" hover>
-                          <thead>
-                             <tr>
-                                <th  className = "bg-light bor"><span className = "dash-bar ms-2">#</span></th>
-                                <th  className = "bg-light"><span className = "dash-bar">Activity</span></th>
-                                <th  className = "bg-light"><span className = "dash-bar">Description</span></th>
-                                <th  className = "bg-light"><span className = "dash-bar ">Date</span></th>
-                                <th  className = "bg-light bors"><span className = "dash-bar ">Status</span></th>
-                             </tr>
-                           </thead>
-                           <tbody>
-                               {DashboardPagesEmploy.map((Dashboardemploy) =>{
-                                   const {id,task,description,date,status} = Dashboardemploy
-                                   return(
-                                       <tr key = {id}>
-                                           <td>
-                                              <input type="checkbox" name="" id="inputs"/>
-                                           </td>
-                                           <td>
-                                               <div className = "mt-2 pt-1">
-                                                   <span className = "heading-task">{task}</span>
-                                               </div>
-                                           </td>
-                                           <td>
-                                               <div className = "mt-2 pt-1">
-                                                   <span className = "heading-task">{description}</span>
-                                               </div>
-                                           </td>
-                                           <td>
-                                               <div className = "mt-2 pt-1">
-                                                   <span className = "heading-task">{date}</span>
-                                               </div>
-                                           </td>
-                                           <td>
-                                               <div className = "mt-2 pt-1">
-                                                   <span className = {`action-status ${status.replace(/\s+/, "-").toLowerCase()}`}>{status}</span>
-                                               </div>
-                                           </td>
-                                       </tr>
-                                   )
-                               })}
-                           </tbody>
-
-                        </Table> */}
+                        
                     </div>
                      <div className = "d-flex justify-content-between align-items-center container py-3">
                         <div>

@@ -29,7 +29,7 @@ const PasswordReset = () => {
       async function onSubmit(data) {
           setisClicked(true)
         try {
-          const req = await fetch(`http://localhost:9080/api/auth/resetpassword/${resetToken}`, {
+          const req = await fetch(`https://mern-backend-1-9jn6.onrender.com/api/auth/resetpassword/${resetToken}`, {
             method : "PUT",
             headers : {
               "Content-type": "application/json",
