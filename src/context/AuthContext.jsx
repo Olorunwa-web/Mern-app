@@ -22,7 +22,7 @@ export const AuthProvider = ({children}) => {
           try {
             if (token) {
               const request = await axios.get(
-                "http://localhost:9080/api/auth/verify",
+                "https://mern-backend-1-9jn6.onrender.com/api/auth/verify",
                 {
                   headers: {
                     Authorization: `Bearer ${token}`,
