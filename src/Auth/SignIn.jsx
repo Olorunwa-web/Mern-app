@@ -42,7 +42,7 @@ const SignIn = () => {
         console.log(7);
         setIsClicked(true)
         try {
-            const req = await fetch("http://localhost:9080/api/auth/signin", {
+            const req = await fetch("https://mern-backend-1-9jn6.onrender.com/api/auth/signin", {
                 method: "POST",
                 headers:{
                     "Content-Type":"application/json"
