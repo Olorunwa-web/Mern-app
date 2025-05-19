@@ -266,7 +266,6 @@
 
     input[type="date"] {
         width: 100% !important;
-        -webkit-appearance: none;
       }
 
     .save{
