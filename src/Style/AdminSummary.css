@@ -204,12 +204,16 @@ input[type = "checkbox"] {
 
 .task-sppaces{
     width: 46%;
-    
+    gap: 49px;
 }
 
-.spacing{
+/* .spacing{
     margin-left: 3.4rem;
-}
+} */
+
+/* .task-test {
+    margin: 0 auto;
+} */
 
 
 @media(max-width:765px){
@@ -336,15 +340,12 @@ input[type = "checkbox"] {
 
     .task-sppaces{
         width: 100% !important;
-        justify-content: space-between !important;
-        border: 2px solid ;
-        gap: 1px !important;
-
+        justify-content: space-between;
     }
 
-    .spacing{
-        margin-left: 5.8rem !important;
-        /* margin-right: 30px; */
+    
+    .task-test {
+        margin: 0;
     }
 
     .assign-space{
@@ -460,9 +461,12 @@ input[type = "checkbox"] {
 
     }
 
-    .spacing{
+    /* .spacing{
         margin-left: 18rem !important;
-        /* margin-right: 30px; */
+    } */
+
+    .task-test {
+        margin: 0;
     }
 
     .assign-space{

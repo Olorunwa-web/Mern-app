@@ -238,10 +238,12 @@ const AdminSummary = () => {
                    <h3 className = "task-name">Description:</h3>
                    <h6 className = "api">Nil</h6>
                  </div>
-                <div className =  "d-flex align-items-center task-sppaces">
+                <div className =  "d-flex align-items-center  task-sppaces">
                    <h3 className = "task-name">Status:</h3>
-                   <h6 className = {`action-status spacing   ${selectedTask.status.replace(/\s+/, "-").toLowerCase()}`} >{selectedTask.status}</h6>
-                 </div>
+                   <div className = 'task-test'>
+                     <h6 className = {`action-status spacin  ${selectedTask.status.replace(/\s+/, "-").toLowerCase()}`} >{selectedTask.status}</h6>
+                   </div>
+                </div>
               </div>
                 {/* <p><strong className = 'task-name'>Status:</strong> <span className = {`action-status ${selectedTask.status.replace(/\s+/, "-").toLowerCase()}`} >{selectedTask.status}</span> </p> */}
                 <div className =  "d-flex align-items-center gap-4 assign-space" >

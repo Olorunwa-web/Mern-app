@@ -296,7 +296,9 @@ const TaskBoard = () => {
                  </div>
                 <div className =  "d-flex align-items-center task-sppaces">
                    <h3 className = "task-name">Status:</h3>
-                   <h6 className = {`action-status spacing ${selectedTask.status.replace(/\s+/, "-").toLowerCase()}`} >{selectedTask.status}</h6>
+                   <div className = 'task-test'>
+                      <h6 className = {`action-status  ${selectedTask.status.replace(/\s+/, "-").toLowerCase()}`} >{selectedTask.status}</h6>
+                   </div>
                  </div>
               </div>
                 {/* <p><strong className = 'task-name'>Status:</strong> <span className = {`action-status ${selectedTask.status.replace(/\s+/, "-").toLowerCase()}`} >{selectedTask.status}</span> </p> */}
