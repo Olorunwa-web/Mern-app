@@ -264,6 +264,10 @@
         width: 100% !important;
     }
 
+    input[type="date"] {
+        width: 100% !important;
+      }
+
     .save{
         width: 100%;
         font-size: 15px;
