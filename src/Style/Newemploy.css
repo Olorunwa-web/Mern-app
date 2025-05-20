@@ -267,9 +267,8 @@
     input[type="date"] {
         width: 100% !important;
         -webkit-appearance: none;
-        -moz-appearance: none;
-        color: #111014 !important;
-        text-align: left !important;
+        color: #878789 !important;
+        text-align: left !important;        
       }
 
     .save{
