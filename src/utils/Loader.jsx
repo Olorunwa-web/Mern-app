@@ -6,12 +6,12 @@ const Loader = () => {
       <div>
         <Spinner
           as="span"
-          animation="grow"
+          animation="border"
           size="sm"
           role="status"
           aria-hidden="true"
         />
-        <span> Loading...</span>
+        {/* <span> Loading...</span> */}
       </div>
     </>
   );

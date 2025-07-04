@@ -8,13 +8,18 @@ import Hrlogo from '../assets/Frame 1000003286.svg';
 import OR from '../assets/Frame 40643.svg';
 import '../Style/Signin.css'
 import {Link, useNavigate} from 'react-router-dom';
-import toast from "react-hot-toast"
-
+import toast from "react-hot-toast";
+import { useAuth } from '../context/AuthContext';
+import Loader  from '../utils/Loader';
+import show from '../assets/visibility_24dp_111014_FILL0_wght400_GRAD0_opsz24.svg';
+import hidden from '../assets/visibility_off_24dp_111014_FILL0_wght400_GRAD0_opsz24.svg'
 
 const SignIn = () => {
     const [reveal,setReveal] = useState(false)
     const [isClicked, setIsClicked] = useState(false)
     const navigate = useNavigate();
+    const [isError,setIsError] = useState(null)
+    const {login} = useAuth() 
     
     const {
         register,
@@ -34,10 +39,7 @@ const SignIn = () => {
         document.title = 'Sign In'
     })
 
-    function handleReveal(){
-        reveal ? setReveal(false) : setReveal(true)
-    }
-
+   
     async function onSubmit(data) {
         console.log(7);
         setIsClicked(true)
@@ -51,11 +53,14 @@ const SignIn = () => {
             })
             const res = await req.json();
             console.log(res);
+
             if (!res.success) {
                 toast.error(res.errMsg)
             }
+
             if (res.success) {
                 toast.success(res.message)
+                login(res.user)
                 localStorage.setItem("hr-token", res.user.token)
                 if (res.user.role === "super-admin" || res.user.role === "admin") {
                     navigate("/admin-dashboard")
@@ -64,20 +69,36 @@ const SignIn = () => {
                 }
             }
         } catch (error) {
+            if (error.message === "Failed to fetch") {
+                setIsError("Unable to connect to the server. Please check your network.");
+              } else if (error.message.startsWith("HTTP Error")) {
+                setIsError(error.message);  
+              } else {
+                setIsError("An unexpected error occurred. Please try again.");
+              }
+              toast.error(isError);
+              console.log("Error details:", error);
             
         }finally{
             setIsClicked(false)
         }
     }
 
+    function toggleReveal() {
+        if (reveal) {
+          setReveal(false);
+        } else {
+          setReveal(true);
+        }
+      }
 
-    const btnText = isClicked ? "loading" : "Sign In "
+    const btnText = isClicked ? <Loader/> : "Sign In "
 
     return (
         <>
           <main className = "sign-in d-flex justify-content-center align-items-center">
               <form className = "sign-in-container" onSubmit={handleSubmit(onSubmit)}>
-                  <div className = "d-flex gap-2 justify-content-center sign-in-hr">
+                  <div className = "d-flex gap-2 justify-content-center align-items-center sign-in-hr">
                         <img src= {Hrlogo} alt="HR -LOGO"/>
                         <h1 className = 'mt-2'>HR Manager</h1>
                   </div>
@@ -92,11 +113,14 @@ const SignIn = () => {
                   <div className = "password">
                       <div className = "d-flex WORD justify-content-between">
                           <label htmlFor="password">Password</label>
-                          <p><Link to = "/auth/forgot-pass">Forgot Password?</Link></p>
+                          <p><Link to = "/auth/forgot-pass" className = 'color-forget'>Forgot Password?</Link></p>
                       </div>
-                      <div className = "input-pass pb-3">
-                        <input type= {reveal ? 'text' : 'password'} name="password" id="" className = "w-100 input-password" placeholder = "Enter Password" {...register("password")}/>
+                      <div className = "input-pass position-relative pb-3">
+                        <input type= {reveal ? 'text' : 'password'} name="password" id="" className = "w-100  input-password" placeholder = "Enter Password" {...register("password")}/>
                         <span className = "spans">{errors.password?.message}</span>
+                        <div className = 'position-absolute icon-wrapper'>
+                            <img src= {reveal ? hidden : show } alt="" className = 'icon-img' onClick = {toggleReveal}/>
+                        </div>
                       </div>
                   </div>
                   <div className = "py-2 sign-in-btn">

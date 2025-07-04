@@ -2,8 +2,9 @@ import React,{createContext,useState,useEffect} from 'react'
 import axios from "axios";
 import { useContext } from 'react';
 
- const AuthContext = createContext()
+ const AuthContext = createContext();
 export const AuthProvider = ({children}) => {
+  const [data,setData] = useState([])
     const [user, setUser] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
     const token = localStorage.getItem("hr-token");
@@ -52,7 +53,7 @@ export const AuthProvider = ({children}) => {
     
     
   return (
-    <AuthContext.Provider value={{user,login,logout,setUser,isLoading}}>
+    <AuthContext.Provider value={{user,login,logout,setUser,data,isLoading}}>
         {children}
     </AuthContext.Provider>
   )

@@ -7,6 +7,12 @@ export const signInSchema = yup
   })
   .required() 
 
+export const forgotpasswordSchema = yup
+.object({
+    email: yup.string().required('Email is required').email("invalid email format"),
+  })
+  .required() 
+
   export const passwordSchema = yup
   .object({
       password: yup.string().required('Password is required').min(8, "min lenght of password should be at least 8 characters"),
