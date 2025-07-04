@@ -12,7 +12,7 @@ import toast from "react-hot-toast";
 import { useAuth } from '../context/AuthContext';
 import Loader  from '../utils/Loader';
 import show from '../assets/visibility_24dp_111014_FILL0_wght400_GRAD0_opsz24.svg';
-import hidden from '../assets/visibility_off_24dp_111014_FILL0_wght400_GRAD0_opsz24.svg'
+import hidden from '../assets/visibility_off_24dp_111014_FILL0_wght400_GRAD0_opsz24.svg';
 
 const SignIn = () => {
     const [reveal,setReveal] = useState(false)

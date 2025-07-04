@@ -21,8 +21,8 @@
 }
 
 .sign-in-hr img {
-    width: 37px;
-    height: 37px;
+    width: 35px;
+    height: 35px;
 }
 
 .sign-in-hr h1 {
@@ -100,7 +100,6 @@ input::placeholder{
     font-family: neurial-grotesk;
     font-weight: 500;
     font-size: 16px;
-    line-height: 24px;
 }
 
 
@@ -145,6 +144,14 @@ input::placeholder{
     align-items: center;
 }
 
+.icon-wrappers {
+    right: 3%;
+    top: 58%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 
 .spans {
     color: #EC5E5E;
@@ -171,10 +178,8 @@ input::placeholder{
 .forgot-pass p {
     font-family: "Inter", sans-serif;
     font-weight: 500;
-    font-size: 16px;
-    line-height: 24px;
+    font-size: 15px;
     color: #878789;
-    padding-bottom: 15px;
 }
 
 .bttn{
