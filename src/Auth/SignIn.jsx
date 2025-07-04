@@ -77,9 +77,9 @@ const SignIn = () => {
         <>
           <main className = "sign-in d-flex justify-content-center align-items-center">
               <form className = "sign-in-container" onSubmit={handleSubmit(onSubmit)}>
-                  <div className = "d-flex gap-2 justify-content-center align-items-center sign-in-hr pb-2">
-                      <img src= {Hrlogo} alt="HR -LOGO"/>
-                      <h1>HR Manager</h1>
+                  <div className = "d-flex gap-2 justify-content-center sign-in-hr">
+                        <img src= {Hrlogo} alt="HR -LOGO"/>
+                        <h1 className = 'mt-2'>HR Manager</h1>
                   </div>
                   <div className = "text-center manager py-2">
                       <h2>Welcome to HR Manager - Where Creativity Meets Opportunity!</h2>
