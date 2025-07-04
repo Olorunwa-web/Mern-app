@@ -81,7 +81,7 @@ const SignIn = () => {
                         <img src= {Hrlogo} alt="HR -LOGO"/>
                         <h1 className = 'mt-2'>HR Manager</h1>
                   </div>
-                  <div className = "text-center manager py-2">
+                  <div className = "text-center manager my-2">
                       <h2>Welcome to HR Manager - Where Creativity Meets Opportunity!</h2>
                   </div>
                   <div className = "mt-3">
