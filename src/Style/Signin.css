@@ -2,7 +2,7 @@
     background-image: url('../assets/1881 1.svg');
     background-size: cover;
     background-repeat: no-repeat;
-    height: 100vh;
+    min-height: 100vh;
     
 }
 
