@@ -1,17 +1,16 @@
-import React, {useEffect, useState} from 'react'
+import React, {useEffect, useState , useContext} from 'react'
+import {useNavigate} from "react-router-dom";
 import {sidebarLink} from '../../db';
 import Hrlogo from '../../assets/Frame 1000003286.svg';
-import arrowup from '../../assets/Vector.svg'
-import arrowdown from '../../assets/Vector (1).svg'
-import { Link } from 'react-router-dom';
-import{ NavLink, Outlet, useLocation } from 'react-router-dom'
-import '../../Style/AdminDashboard.css'
-import Navbar from '../../Layout/Navbar'
-import AuthContext from "../../context/AuthContext"
-import { useContext } from 'react';
-import Logout from "../../assets/logout_22dp_EA3323_FILL0_wght400_GRAD0_opsz24.svg";
+import arrowup from '../../assets/Vector.svg';
+import arrowdown from '../../assets/Vector (1).svg';
+import{ NavLink, Outlet, useLocation } from 'react-router-dom';
+import '../../Style/AdminDashboard.css';
+import Navbar from '../../Layout/Navbar';
+import AuthContext from "../../context/AuthContext";
 import leftvisible from '../../assets/dock_to_left_20dp_ACACAC_FILL0_wght400_GRAD0_opsz20.svg';
-import logout from '../../assets/logout_22dp_808080_FILL0_wght400_GRAD0_opsz24.svg'
+import Logout from '../../assets/logout_20dp_ACACAC_FILL0_wght400_GRAD0_opsz20.svg';
+
 
 const AdminDashboard = () => {
   const {user} = useContext(AuthContext)
@@ -19,10 +18,19 @@ const AdminDashboard = () => {
   const [open, setOpen] = useState(true);
   const [isOpen, setisOpen] = useState(true);
 
+  const [isTrue, setisTrue] = useState(false)
+
+  const navigate = useNavigate()
+
   const handleToggle = () => {
-    setisOpen(close => !close); // toggle open/close
+    setisOpen(close => !close); 
   };
-  
+
+  // logout
+  const logout = () => {
+    localStorage.removeItem("hr-token");
+    navigate("/auth/sign-in")
+};
   const location = useLocation();
   useEffect(()=> {
     window.scrollTo(0,0);
@@ -77,18 +85,18 @@ const AdminDashboard = () => {
                              </div>
                          </div>
                       </div>
-                      <div>
+                      <div onClick = {logout}>
                         {isOpen ? (
-                          <button className = 'logout-btn py-1 d-flex gap-1 justify-content-center'><img src= {logout} className = 'logout-img' alt=""/>Logout</button>
+                          <button className = 'logout-btn py-1 d-flex gap-1 justify-content-center'><img src= {Logout} className = 'logout-img' alt=""/>Logout</button>
                           ) : (
                             <div className = 'd-flex justify-content-center align-items-center mx-4'> 
-                              <img src= {logout} alt=""/>
+                              <img src= {Logout} alt=""/>
                             </div>
                         )}
                       </div>
                     </section>
                     {/* section-2 */}
-                    <section className = {`admin-dashboard-section-2 ${isOpen ? 'is-open' : 'is-closed'}` }>
+                    <section className = {`admin-dashboard-section-2 pt-3 ${isOpen ? 'is-open' : 'is-closed'}` }>
                         <Navbar/>
                         <Outlet/>
                     </section>

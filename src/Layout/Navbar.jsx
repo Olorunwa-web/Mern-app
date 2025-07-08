@@ -23,13 +23,10 @@ const Navbar = () => {
         isTrue ? setisTrue(false) : setisTrue(true)
     }
     
-    const logout = () => {
-        localStorage.removeItem("hr-token");
-        navigate("/auth/sign-in")
-    };
+    
     return (
         <>
-            <nav className = "d-flex justify-content-between navbar-container">
+            <nav className = "d-flex justify-content-between navbar-container ">
                 <div className = "d-md-none">
                 {['start'].map((placement, idx) => (
         <Offcanvas key={idx} placement={placement} name={placement} />
@@ -40,23 +37,15 @@ const Navbar = () => {
                  </form>
                  <div className = "d-flex gap-4 align-items-center d-none d-md-flex">
                      <div>
-                         <img src= {NotificationIcon} alt="notification-img" className = "d-none d-lg-block"/>
+                         <img src= {NotificationIcon} alt="notification-img" className = "note-icon d-none d-lg-block"/>
                      </div>
                      <div>
-                         <img src= {messageIcon} alt="message-img" className = "d-none d-lg-block"/>
+                         <img src= {messageIcon} alt="message-img" className = "message-icon d-none d-lg-block"/>
                      </div>
-                     <div className = "d-flex nav-space gap-3 align-items-center">
-                         <img src= {ladypic} alt="lady-pic" className = "d-none d-md-bloc "/>
-                         <div className = "pt-">
-                             <Dropdown className = "d-none d-md-block dropdown">
-                                 <Dropdown.Toggle variant="none" id="dropdown-basic" className = "heading-2">
-                                    {/* Eggys Eggys */}
-                                    {user && user.firstName}
-                                 </Dropdown.Toggle>
-                             <Dropdown.Menu className = "w-25">
-                               <Dropdown.Item href="#/action-1" className = "logout" onClick = {logout}>Logout</Dropdown.Item>
-                             </Dropdown.Menu>
-                           </Dropdown>
+                     <div className = "d-flex nav-space gap-2 align-items-center">
+                         <img src= {ladypic} alt="lady-pic" className = "lady-pic d-none d-md-block "/>
+                         <div className = "d-none d-md-block ">
+                              <span className = 'user-name'>{user && user.firstName}</span>
                          </div>
                      </div>
                  </div>
