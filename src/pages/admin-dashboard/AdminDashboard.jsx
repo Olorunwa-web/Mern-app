@@ -10,7 +10,7 @@ import Navbar from '../../Layout/Navbar'
 import AuthContext from "../../context/AuthContext"
 import { useContext } from 'react';
 import Logout from "../../assets/logout_22dp_EA3323_FILL0_wght400_GRAD0_opsz24.svg";
-import leftvisible from '../../assets/dock_to_left_20dp_EBEEF1_FILL0_wght400_GRAD0_opsz20.svg';
+import leftvisible from '../../assets/dock_to_left_20dp_E0E0E0_FILL0_wght400_GRAD0_opsz20.svg';
 import logout from '../../assets/logout_22dp_808080_FILL0_wght400_GRAD0_opsz24.svg'
 
 const AdminDashboard = () => {

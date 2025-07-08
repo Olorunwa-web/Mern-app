@@ -56,6 +56,7 @@
     min-height: 100vh;
     flex: 1;
     width: 100%;
+    background-color: #F7F9FA;
     /* border:2px yellow solid; */
     margin-left:  228px; 
     transition: margin-left 0.3s ease-in-out;
@@ -130,7 +131,7 @@
 
 .logout-btn {
     width: 100px;
-    border: 1px solid #808080;
+    border: 1px solid #E0E0E0;
     background-color: white;
     border-radius: 5px;
     font-family: "DM Sans", sans-serif;
