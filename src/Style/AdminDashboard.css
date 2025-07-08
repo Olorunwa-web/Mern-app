@@ -2,7 +2,6 @@
     background-color: #EDF5FF;
     border-radius: 7px;
     color: #3439CA;
-    /* margin-right: 13px; */
 }
 
 /* .borderss {
@@ -48,7 +47,7 @@
 }
 
 .closed {
-    width: 3.5rem; 
+    width: 4rem; 
     
 }
 
@@ -63,7 +62,7 @@
 }
 
 .is-closed {
-    margin-left: 3.5rem;
+    margin-left: 4rem;
 }
 
 .visible-left {
@@ -145,6 +144,8 @@
     height: 18px;
     margin-top: 2px;
 }
+
+
 
 .log-out{
     font-family: "DM Sans", sans-serif;

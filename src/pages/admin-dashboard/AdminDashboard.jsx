@@ -10,7 +10,7 @@ import Navbar from '../../Layout/Navbar'
 import AuthContext from "../../context/AuthContext"
 import { useContext } from 'react';
 import Logout from "../../assets/logout_22dp_EA3323_FILL0_wght400_GRAD0_opsz24.svg";
-import leftvisible from '../../assets/dock_to_left_20dp_E0E0E0_FILL0_wght400_GRAD0_opsz20.svg';
+import leftvisible from '../../assets/dock_to_left_20dp_ACACAC_FILL0_wght400_GRAD0_opsz20.svg';
 import logout from '../../assets/logout_22dp_808080_FILL0_wght400_GRAD0_opsz24.svg'
 
 const AdminDashboard = () => {
@@ -53,8 +53,8 @@ const AdminDashboard = () => {
                          {/* ======================================= */}
                          <div className = "my-3">
                              <h3 className = {` main mb-4  ${isOpen ? "d-block" : "invisible pt-4"}`}>MAIN MENU</h3>
-                             <div className = {`${isOpen ? "" : "d-flex justify-content-center ms-4 align-items-center "}`}>
-                             <div className = {`sidebar me-3 d-flex flex-column ${isOpen ? "gap-2" : "gap-3"}`}>
+                             <div className = {`${isOpen ? "" : "d-flex justify-content-center m align-items-center "}`}>
+                             <div className = {`sidebar me- d-flex flex-column ${isOpen ? "gap-2 me-3" : "gap-3  "}`}>
                                  {sidebarLink.map((sidebarLinks)=>{
                                      const {id,path,Icon,name, active} = sidebarLinks
                                      return(
@@ -64,7 +64,7 @@ const AdminDashboard = () => {
                                         end>
                                         {({ isActive, isPending }) =>(
                                           <span
-                                             className={`d-flex gap-2 nav-link isPending ? "pending": ${isActive ? "active me " : "" 
+                                             className={`d-flex gap-2  nav-link isPending ? "pending": ${isActive ? "active  " : "" 
                                           }`}>
                                           <img className={` ${isOpen ? "d-block images-active mt-1" : "images-actives my-1"}`} src={ isActive ?  active : Icon} alt={name}  />
                                           <h6 className={`mt-2 heading ${isOpen ? "d-block" : "d-none"}`}>{name}</h6>
@@ -78,7 +78,13 @@ const AdminDashboard = () => {
                          </div>
                       </div>
                       <div>
-                        <button className = 'logout-btn py-1 d-flex gap-1 justify-content-center'><img src= {logout} className = 'logout-img' alt=""/>Logout</button>
+                        {isOpen ? (
+                          <button className = 'logout-btn py-1 d-flex gap-1 justify-content-center'><img src= {logout} className = 'logout-img' alt=""/>Logout</button>
+                          ) : (
+                            <div className = 'd-flex justify-content-center align-items-center mx-4'> 
+                              <img src= {logout} alt=""/>
+                            </div>
+                        )}
                       </div>
                     </section>
                     {/* section-2 */}
