@@ -1,12 +1,12 @@
 .summary-container{
-    padding: 0 51px ;
+    padding: 0 2rem ;
     /* border: 2px solid red; */
 }
 
 .dashboard-flex{
     border: 1px solid #F1F2F3;
     background-color: white;
-    padding: 20px 17px;
+    padding: 1rem ;
     width: 32%;
     border-radius: 10px;
 }
@@ -14,25 +14,31 @@
 .dash {
     font-family: "Inter", sans-serif;
     font-weight: 500;
-    font-size: 24px;
-    line-height: 42px;
+    font-size: 20px;
+    line-height: 40px;
+    color: #161E54;
 }
 
-.total h4{
+.total h6{
     font-family: "DM Sans", sans-serif;
     font-weight: 500;
-    font-size: 20px;
-    line-height: 28px;
+    font-size: 16px;
+    line-height: 24px;
     color: #706D6D;
 }
 
 .total h1{
     font-family: "Poppins", sans-serif;
-    font-size: 40px;
+    font-size: 2rem;
     font-weight: 600;
     line-height: 28px;
     color: #1E1E1E;
     margin-top: 20px;
+}
+
+.people-img {
+    width: 60px;
+    height: 60px;
 }
 
 .dashboard-task{

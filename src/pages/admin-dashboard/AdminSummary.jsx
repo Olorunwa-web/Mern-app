@@ -5,7 +5,7 @@ import {DashboardPages} from '../../db'
 import Table from 'react-bootstrap/Table';
 import axios from "axios"
 import { useState } from 'react';
-import peopleImg from "../../assets/Frame 7.svg"
+import peopleImg from "../../assets/Frame 7 (4).svg"
 import taskImg from "../../assets/Frame 7 (1).svg"
 import calenderImg from "../../assets/Frame 7 (2).svg"
 import { useEffect } from 'react';
@@ -123,11 +123,11 @@ const AdminSummary = () => {
                         return(
                                 <div key = {title} className = "d-flex justify-content-between dashboard-flex">
                                     <div className = "total">
-                                        <h4>{title}</h4>
+                                        <h6>{title}</h6>
                                         <h1>{count} </h1>
                                     </div>
                                     <div>
-                                      {title === "Total Employees" ?   <img src={peopleImg} alt="event-img" loading="lazy" /> :title === "Total Tasks" ? <img src={taskImg} alt="event-img" loading="lazy" /> :<img src={calenderImg} alt="event-img" loading="lazy" /> }
+                                      {title === "Total Employees" ?   <img src={peopleImg} className = 'people-img' alt="event-img" loading="lazy" /> :title === "Total Tasks" ? <img src={taskImg} alt="event-img" className = 'people-img' loading="lazy" /> :<img src={calenderImg} alt="event-img" className = 'people-img' loading="lazy" /> }
                                     </div>
                                 </div>
                             )  
