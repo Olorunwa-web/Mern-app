@@ -1,9 +1,8 @@
 .navbar-container{
     border-bottom: 1px solid  #F1F1F1;
-    padding: 0 2rem 12px 2rem ;
+    padding: 16px 2rem 12px 2rem ;
     /* border: 2px solid; */
     position: sticky;
-    left: 0;
     top: 0;
     width: 100%;
     background-color: #FEFFFF;

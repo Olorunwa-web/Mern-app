@@ -96,7 +96,7 @@ const AdminDashboard = () => {
                       </div>
                     </section>
                     {/* section-2 */}
-                    <section className = {`admin-dashboard-section-2 pt-3 ${isOpen ? 'is-open' : 'is-closed'}` }>
+                    <section className = {`admin-dashboard-section-2  ${isOpen ? 'is-open' : 'is-closed'}` }>
                         <Navbar/>
                         <Outlet/>
                     </section>
