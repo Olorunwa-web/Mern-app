@@ -1,10 +1,16 @@
 // import dashboardImg from "./assets/dashboard.svg"
-import dashboardImg from "./assets/element-3.svg"
-import employeesImg from './assets/Employees.svg'
-import taskboardImg from './assets/Taskboard.svg'
-import leaveboardImg from './assets/Leaveboard.svg'
-import payrollImg from './assets/Payroll.svg'
-import settingsImg from './assets/settings.svg'
+import dashboardImg from "./assets/element-3.svg";
+import dashboardActive from './assets/element-3 (2).svg';
+import employeesImg from './assets/Employees.svg';
+import employeesActive from './assets/document-text.svg';
+import taskboardImg from './assets/Taskboard.svg';
+import taskboardActive from './assets/refresh-2.svg';
+import leaveboardImg from './assets/Leaveboard.svg';
+import leaveboardActive from './assets/calendar.svg';
+import payrollImg from './assets/Payroll.svg';
+import payrollActive from './assets/document-like.svg';
+import settingsImg from './assets/settings.svg';
+import settingsActive from './assets/setting-2.svg';
 // ================================================
 import peopleImg from './assets/Frame 7.svg'
 import taskImg from './assets/Frame 7 (1).svg'
@@ -22,36 +28,42 @@ export const sidebarLink = [
     {
         id:1,
         Icon: dashboardImg,
+        active: dashboardActive,
         name: "Dashboard",
         path: "",
     },
     {
         id:2,
         Icon: employeesImg,
+        active: employeesActive,
         name: "Employees",
         path: "/admin-dashboard/employees",
     },
     {
         id:3,
         Icon: taskboardImg,
+        active: taskboardActive,
         name: "Taskboard",
         path: "/admin-dashboard/taskboard",
     },
     {
         id:4,
         Icon: leaveboardImg,
+        active: leaveboardActive,
         name: "Leaveboard",
         path: "/admin-dashboard/leaveboard",
     },
     {
         id:5,
         Icon: payrollImg,
+        active: payrollActive,
         name: "Payroll",
         path: "/admin-dashboard/payroll",
     },
     {
         id:6,
         Icon: settingsImg,
+        active: settingsActive,
         name: "Settings",
         path: "/admin-dashboard/settings",
     }
