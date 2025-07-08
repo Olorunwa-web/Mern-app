@@ -1,7 +1,7 @@
 .navbar-container{
     border-bottom: 1px solid  #F1F1F1;
     padding: 16px 2rem 12px 2rem ;
-    /* border: 2px solid; */
+    border: 2px solid;
     position: sticky;
     top: 0;
     width: 100%;
@@ -86,8 +86,8 @@
 
 @media(max-width:767px){
     .navbar-container{
-        padding: 0;
-        /* border: 2px solid red; */
+        padding: 0 15px;
+        /* border: 2px solid red !important; */
         width: 100%;
         border: none;
     }

@@ -138,7 +138,7 @@ const AdminSummary = () => {
                 <section className = "dashboard-task my-4">
                     <h2 className = "heading-3 pt-3 pb-1 ps-3">Taskboard</h2>
                     <div className = "place-ment employee-table"> 
-                    <Table responsive = "lg" hover>
+                    {/* <Table responsive hover>
                       <thead className = "threadd">
                         <tr className = "">
                           <th className = 'bg-light bor'>
@@ -198,7 +198,7 @@ const AdminSummary = () => {
                           )
                       })}
                      </tbody>
-                    </Table>
+                    </Table> */}
 
                     <Modal size = "lg" show={showModal} onHide={() => setShowModal(false)} centered>
           <Modal.Header closeButton>

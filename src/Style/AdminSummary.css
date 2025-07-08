@@ -7,7 +7,7 @@
     border: 1px solid #F1F2F3;
     background-color: white;
     padding: 1rem ;
-    width: 32%;
+    width: 31%;
     border-radius: 10px;
 }
 
@@ -22,7 +22,7 @@
 .total h6{
     font-family: "DM Sans", sans-serif;
     font-weight: 500;
-    font-size: 16px;
+    font-size: 1rem;
     line-height: 24px;
     color: #706D6D;
 }
@@ -37,8 +37,8 @@
 }
 
 .people-img {
-    width: 60px;
-    height: 60px;
+    width: 55px;
+    height: 55px;
 }
 
 .dashboard-task{
@@ -223,14 +223,15 @@ input[type = "checkbox"] {
 } */
 
 
-@media(max-width:765px){
-    .dashboard-flexx{
+@media(max-width:767px){
+
+    .dashboard-flexx {
         flex-direction: column;
-        gap: 10px;
+        gap: 15px;
     }
 
     .summary-container{
-        padding:0  !important;
+        padding:0 15px;
         /* border: 2px solid; */
         width: 100%;
     }
@@ -240,15 +241,12 @@ input[type = "checkbox"] {
     }
 
     .dash{
-        font-size: 22px;
+        font-size: 20px;
     }
 
-    .total h1{
-        font-size: 33px;
-    }
-
-    .total h4{
-        font-size: 17px;
+    .people-img {
+        width: 60px;
+        height: 60px;
     }
 
     .heading-3{
@@ -366,7 +364,6 @@ input[type = "checkbox"] {
 
 @media (min-width:768px) and (max-width:1023px){
     .summary-container{
-        padding: 0 5px !important;
         width: 100% ;
         
     }
@@ -534,7 +531,7 @@ input[type = "checkbox"] {
 
 @media (min-width:1024px) and (max-width:1200px){
     .dashboard-flex{
-        width: 48%;
+        width: 45%;
         margin-bottom: 13px;
     }
 
@@ -542,17 +539,11 @@ input[type = "checkbox"] {
         margin: 0 auto;
     }
 
-    .summary-container{
-        padding: 0 5px !important ;
-
-    }
+    
 }
 
 @media (min-width:766px) and (max-width:768px){
-    .summary-container{
-        padding: 0 4px !important;
     
-    }
 
     .dash{
         font-size: 23px;
