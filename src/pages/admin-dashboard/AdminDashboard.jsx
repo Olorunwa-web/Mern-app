@@ -11,7 +11,6 @@ import AuthContext from "../../context/AuthContext";
 import leftvisible from '../../assets/dock_to_left_20dp_ACACAC_FILL0_wght400_GRAD0_opsz20.svg';
 import Logout from '../../assets/logout_20dp_ACACAC_FILL0_wght400_GRAD0_opsz20.svg';
 
-
 const AdminDashboard = () => {
   const {user} = useContext(AuthContext)
 
@@ -19,6 +18,9 @@ const AdminDashboard = () => {
   const [isOpen, setisOpen] = useState(true);
 
   const [isTrue, setisTrue] = useState(false)
+
+  const [showWelcomeModal, setShowWelcomeModal] = useState(false);
+
 
   const navigate = useNavigate()
 

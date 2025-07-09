@@ -4,15 +4,15 @@ import { yupResolver } from "@hookform/resolvers/yup"
 import * as yup from "yup";
 import {signInSchema} from '../lib/ValidationSchema'
 import Hrlogo from '../assets/Frame 1000003286.svg';
-import OR from '../assets/Frame 40643.svg';
 import '../Style/Signin.css'
 import {Link, useNavigate} from 'react-router-dom';
 import toast from "react-hot-toast";
+// import { toast } from 'sonner'
 import { useAuth } from '../context/AuthContext';
 import Loader  from '../utils/Loader';
 import show from '../assets/visibility_24dp_111014_FILL0_wght400_GRAD0_opsz24.svg';
 import hidden from '../assets/visibility_off_24dp_111014_FILL0_wght400_GRAD0_opsz24.svg';
-import Homebackground from '../assets/1881 1.svg'
+import Homebackground from '../assets/1881 1.svg';
 
 
 
@@ -21,6 +21,11 @@ const SignIn = () => {
     const [reveal,setReveal] = useState(false)
     const [isClicked, setIsClicked] = useState(false)
     const navigate = useNavigate();
+
+
+    const [showWelcomeModal, setShowWelcomeModal] = useState(false);
+
+
     const [isError,setIsError] = useState(null)
     const {login} = useAuth() 
     
@@ -62,11 +67,13 @@ const SignIn = () => {
             }
 
             if (res.success) {
-                toast.success(res.message)
+                toast.success("You have logged in successfully!")
                 login(res.user)
                 localStorage.setItem("hr-token", res.user.token)
                 if (res.user.role === "super-admin" || res.user.role === "admin") {
                     navigate("/admin-dashboard")
+                
+
                 }else{
                     navigate("/admin-employee")
                 }
@@ -112,7 +119,7 @@ const SignIn = () => {
                   <div className = "my-3">
                       <label htmlFor="email" className = "text-gray-800 font-inter text-sm font-medium">Email*</label>
                       <input type="email" name="email"  className = "mt-1 w-full bg-[#F3F3F3] rounded-sm py-2 outline-none font-inter text-base font-normal text-[#111014] px-4" placeholder = "Enter email" {...register("email")}/>
-                      <span className = "text-sm font-inter font-medium text-[#EC5E5E]">{errors.email?.message}</span>
+                      <span className = "text-xs font-inter font-medium text-[#EC5E5E]">{errors.email?.message}</span>
                   </div>
                   <div className = "mt-4">
                       <div className = "flex justify-between">
@@ -121,7 +128,7 @@ const SignIn = () => {
                       </div>
                       <div className = "input-pass relative pb-5">
                         <input type= {reveal ? 'text' : 'password'} name="password" id="" className = "mt-1 w-full bg-[#F3F3F3] rounded-sm py-2 outline-none font-inter text-base font-normal text-[#111014] px-4" placeholder = "Enter Password" {...register("password")}/>
-                        <span className = "text-sm font-inter font-medium text-[#EC5E5E]">{errors.password?.message}</span>
+                        <span className = "text-xs font-inter font-medium text-[#EC5E5E]">{errors.password?.message}</span>
                         <div className = 'absolute top-4 right-4'>
                             <img src= {reveal ? hidden : show } alt="" className = 'w-[17px] h-[17px]' onClick = {toggleReveal}/>
                         </div>
@@ -131,7 +138,6 @@ const SignIn = () => {
                       <button  className = "w-full bg-[#3439CA] rounded-sm border-none text-white text-base font-medium  py-2 font-neural" type="submit" disabled = {isSubmitting}>{btnText}</button>
                   </div>
               </form>
-
               </main>
           </section>
         </>

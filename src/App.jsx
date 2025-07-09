@@ -24,7 +24,7 @@ import EmployeeLeaveboard from "./pagess/admin-dashboard-employee/EmployeeLeaveb
 import EmployeeSettings from "./pagess/admin-dashboard-employee/EmployeeSettings"
 import PrivateRoute from "./utils/PrivateRoute";
 import RoleBasedRoute from "./utils/RoleBasedRoute"
-import {Toaster} from "react-hot-toast"
+import { Toaster, ToastBar } from "react-hot-toast"
 
 
 function App() {
@@ -81,7 +81,7 @@ function App() {
             <Route path = "/admin-employee/settings" element = {<EmployeeSettings/>}/>
           </Route>
         </Routes>
-        <Toaster/>
+        <Toaster toastOptions={{ success: { style: { background: '#f1f9f4', color: '#111214' , fontSize: '13px', fontFamily: "DM Sans, sans-serif" ,border: '1px solid #6bdc6c', boxShadow: 'none' ,}, iconTheme: { primary: '#6bdc6c'}  }, error: { style: { background: 'red',},},}}/>
       </BrowserRouter>
     </>
   );

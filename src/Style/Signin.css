@@ -5,18 +5,6 @@
 }
 
 
-.btnss{
-    height: 44px;
-    border: 1px solid  #3439CA;
-    border-radius: 4px;
-    background-color: #FFFFFF;
-    color: #3439CA;
-    font-size: 16px;
-    font-weight: 500;
-    line-height: 24px;
-    font-family: neurial-grotesk;
-}
-
 .account {
     font-size: 14px;
     font-weight: 400;
@@ -35,14 +23,6 @@
 
 
 
-.forgot-pass p {
-    font-family: "Inter", sans-serif;
-    font-weight: 500;
-    font-size: 14px;
-    color: #878789;
-}
-
-
 
 @media(max-width:767px){
 
@@ -50,17 +30,7 @@
         background-image: none;
     }
 
-    /* .sign-in-container{
-        width: 100%;
-        padding: 13px;
-        margin: 0 14px;
-    }
-
-    .sign-in-containers{
-        width: 100%;
-        padding: 13px;
-        margin: 0 14px;
-    } */
+    
 
     
 

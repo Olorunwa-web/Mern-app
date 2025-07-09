@@ -95,7 +95,7 @@ const PasswordReset = () => {
                       <label htmlFor="password" className = "text-gray-800 font-inter text-sm font-medium">Password *</label>
                       <div className = 'relative'>
                       <input type= {isReveal ? 'text' : 'password'} name="password" id="" className = "mt-1 w-full bg-[#F3F3F3] rounded-sm py-2 outline-none font-inter text-base font-normal text-[#111014] px-4" placeholder = "Enter Password" {...register("password")}/>
-                      <span className = "spans">{errors.password?.message}</span>
+                      <span className = "text-xs font-inter font-medium text-[#EC5E5E]">{errors.password?.message}</span>
                       <div className = 'absolute top-4 right-4 '>
                          <img src= {isReveal ? hidden : show } alt=""  className = 'w-[17px] h-[17px]' onClick = {toggleReveal1}/>
                        </div>
@@ -105,7 +105,7 @@ const PasswordReset = () => {
                       <label htmlFor="password" className = "text-gray-800 font-inter text-sm font-medium">Confirm Password *</label>
                       <div className = 'relative'>
                       <input type= {isReveal2 ? 'text' : 'password'} name="password" id="" className = "mt-1 w-full bg-[#F3F3F3] rounded-sm py-2 outline-none font-inter text-base font-normal text-[#111014] px-4" placeholder = "Re-enter Password" {...register("confirm password")}/>
-                      <span className = "spans">{errors.confirmpassword?.message}</span>
+                      <span className = "text-xs font-inter font-medium text-[#EC5E5E]">{errors.confirmpassword?.message}</span>
                       <div className = 'absolute  top-4 right-4'>
                          <img src= {isReveal2 ? hidden : show } alt=""  className = 'w-[17px] h-[17px]' onClick = {toggleReveal2}/>
                        </div>
