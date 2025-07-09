@@ -58,7 +58,7 @@ const ForgotPass = () => {
     return (
         <>
         <section className = 'bg-none sign-in md:bg-cover min-h-screen w-full flex justify-center items-center'>
-          <main className = 'bg-white w-full md:w-[430px] rounded-lg p-6'>
+          <main className = 'bg-white w-full md:w-[430px] rounded-lg p-5'>
               <section className = "">
                    <div className = " mb-2 flex gap-2 items-center">
                        <img src= {Hrlogo} className ="w-[32px] h-[32px]"/>

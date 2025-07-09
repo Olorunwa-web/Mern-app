@@ -109,12 +109,12 @@ const SignIn = () => {
           <section className = 'bg-none sign-in md:bg-cover min-h-screen w-full flex justify-center items-center'>
               <main className = 'bg-white w-full md:w-[430px] rounded-lg p-5'>
               <form className = "" onSubmit={handleSubmit(onSubmit)}>
-                  <div className = " mb-2 flex gap-2 justify-center items-center">
+                  <div className = " mb-1 flex gap-2 justify-center items-center">
                         <img src= {Hrlogo} className ="w-[32px] h-[32px]"/>
                         <h1 className = 'font-san-sef text-xl text-[#343536] font-bold '>HR Manager</h1>
                   </div>
-                  <div className = "text-center mt-3 mb-5 ">
-                      <h2 className = 'font-inter text-[#4D4D4D] font-bold text-lg '>Welcome to HR Manager - Where Creativity Meets Opportunity!</h2>
+                  <div className = "text-center my-3  ">
+                      <h2 className = 'font-inter text-[#4D4D4D] leading-[24px] font-bold text-lg '>Welcome to HR Manager - Where Creativity Meets Opportunity!</h2>
                   </div>
                   <div className = "my-3">
                       <label htmlFor="email" className = "text-gray-800 font-inter text-sm font-medium">Email*</label>
