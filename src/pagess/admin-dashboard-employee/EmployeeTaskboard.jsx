@@ -1,9 +1,7 @@
 import React from 'react'
 import {TaskboardEmploy} from "../../db"
 import {DashboardPages} from '../../db'
-import Table from 'react-bootstrap/Table';
 import {useState, useEffect} from 'react'
-import Modal from 'react-bootstrap/Modal';
 import arrowDown from '../../assets/Frame 10.svg';
 import axios from "axios"
 import dashboardimage from "../../assets/dashboard_31dp_314D1C_FILL0_wght400_GRAD0_opsz24.svg"
@@ -98,7 +96,7 @@ const EmployeeTaskboard = () => {
                 <section className = "dashboard-task my-4">
                     <h2 className = "heading-3 pt-2  ps-3">Taskboard</h2>
                     <div className = "employee-table">
-                    <Table responsive = "lg" hover>
+                    {/* <Table responsive = "lg" hover>
                       <thead className = "threadd">
                         <tr>
                           <th  className = "bg-light bor">
@@ -158,8 +156,8 @@ const EmployeeTaskboard = () => {
                           )
                       })}
                      </tbody>
-                    </Table>
-                    <Modal size = "lg" show={showModal} onHide={() => setShowModal(false)} centered>
+                    </Table> */}
+                    {/* <Modal size = "lg" show={showModal} onHide={() => setShowModal(false)} centered>
           <Modal.Header closeButton>
             <Modal.Title  className = "profile-h2">Task Details</Modal.Title>
           </Modal.Header>
@@ -202,7 +200,6 @@ const EmployeeTaskboard = () => {
                    <h6 className = {`action-status spacing ${selectedTask.status.replace(/\s+/, "-").toLowerCase()}`} >{selectedTask.status}</h6>
                  </div>
               </div>
-                {/* <p><strong className = 'task-name'>Status:</strong> <span className = {`action-status ${selectedTask.status.replace(/\s+/, "-").toLowerCase()}`} >{selectedTask.status}</span> </p> */}
                 <div className =  "d-flex align-items-center gap-4" >
                    <h3 className = "task-name">Assigned Members:</h3>
                    <h6 className = "api">{selectedTask.assignedMembers.map(member => `${member.firstName} ${member.lastName}`).join(', ')}</h6>
@@ -213,7 +210,7 @@ const EmployeeTaskboard = () => {
               <Loader />
             )}
           </Modal.Body>
-        </Modal>
+        </Modal> */}
                     </div>
                    
                 </section>

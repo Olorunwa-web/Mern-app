@@ -2,7 +2,6 @@ import React from 'react'
 import '../../Style/Payroll.css'
 import {Payroll} from '../../Taskboard'
 import {payrolll} from '../../Taskboard'
-import Table from 'react-bootstrap/Table';
 import Modalpay from '../../Components/Modalpay'
 
 
@@ -44,7 +43,7 @@ const PayRoll = () => {
                     <section className = "employee-task my-4 ">
                       <h1 className = "heading-4 pt-3  ps-3 ">Payroll Table</h1>
                     <div className = "employee-table" >
-                    <Table responsive = "lg" hover role = "button">
+                    {/* <Table responsive = "lg" hover role = "button">
                       <thead>
                         <tr>
                             <th  className = "bg-light"><span className = "dash-bar ms-2">Employee</span></th>
@@ -96,13 +95,13 @@ const PayRoll = () => {
                           )
                       })}
                      </tbody>
-                    </Table>
+                    </Table> */}
                     </div>
                     </section>
-                    <Modalpay
+                    {/* <Modalpay
         show={modalShow}
         onHide={() => setModalShow(false)}
-      />
+      /> */}
                 </section>
             </main>
         </>

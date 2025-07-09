@@ -2,10 +2,8 @@ import React from 'react'
 import {DashboardEmploy} from "../../db"
 import '../../Style/AdminSummary.css'
 import "../../Style/EmployeeSummary.css"
-import Table from 'react-bootstrap/Table';
 import {DashboardPagesEmploy} from "../../db";
 import {useState, useEffect} from 'react'
-import Modal from 'react-bootstrap/Modal';
 import axios from "axios"
 import dashboardimage from "../../assets/dashboard_31dp_314D1C_FILL0_wght400_GRAD0_opsz24.svg"
 import Loader from "../../utils/Loader";
@@ -94,7 +92,7 @@ const EmployeeSummary = () => {
                 <section className = "dashboard-emp my-4">
                     <h2 className = "heading-3 pt-2  ps-3">Recent Activities</h2>
                     <div>
-                    <Table responsive = "lg" hover>
+                    {/* <Table responsive = "lg" hover>
                       <thead className = "threadd">
                         <tr>
                           <th  className = "bg-light bor">
@@ -154,7 +152,7 @@ const EmployeeSummary = () => {
                           )
                       })}
                      </tbody>
-                    </Table>
+                    </Table> */}
                         
                     </div>
                      <div className = "d-flex justify-content-between align-items-center container py-3">

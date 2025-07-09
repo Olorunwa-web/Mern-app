@@ -45,7 +45,7 @@ const AdminDashboard = () => {
                         <div className = "d-flex justify-content-between align-items-center ">
                            <div className = "d-flex gap-2 ">
                               <div className = {`hr-logo ${isOpen ? "" : " "}`} onClick = {handleToggle}>
-                                 <img src= {Hrlogo} className = {` ${isOpen ? "" : "burn "}`}  alt="hr-logo"/>
+                                 <img src= {Hrlogo} className = {` ${isOpen ? "" : " "}`}  alt="hr-logo"/>
                               </div>
                                 <div className = {`hr-manager  ${isOpen ? "d-block" : "d-none"}`}>
                                   <h1>HR Manager</h1>

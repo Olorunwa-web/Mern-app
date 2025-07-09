@@ -1,11 +1,8 @@
 import React, {useState, useEffect} from 'react'
 import {Leaveboard} from '../../Taskboard'
 import {leaveBoard} from '../../Taskboard'
-import Table from 'react-bootstrap/Table';
 import '../../Style/Leaveboard.css'
 import temilade from '../../assets/Frame 23.svg'
-import Button from 'react-bootstrap/Button';
-import Modal from 'react-bootstrap/Modal';
 import { useMatch } from 'react-router-dom';
 import  Loader  from "../../utils/Loader";
 import axios from "axios";
@@ -20,125 +17,122 @@ import {leaveSchema} from "../../lib/ValidationSchema"
 
 
 
-  function MyVerticallyCenteredModal(props) {
-    const [isLoading, setIsLoading] = useState(false);
-    const [error, setError] = useState(null);
+  // function MyVerticallyCenteredModal(props) {
+  //   const [isLoading, setIsLoading] = useState(false);
+  //   const [error, setError] = useState(null);
     
-    const token = localStorage.getItem("hr-token");
+  //   const token = localStorage.getItem("hr-token");
 
 
-    const {
-      register,
-      handleSubmit,
-      formState: { errors, isSubmitting },
-    } = useForm({
-      resolver: yupResolver(leaveSchema),
-    });
-    // const onSubmit = (data) => {
-    //   console.log(data);
-  
-    // }
-    const onSubmit = async (data) => {
-      try {
-        const req = await fetch("https://mern-backend-1-9jn6.onrender.com/api/leave/apply", {
-          method: "POST",
-          headers: {
-            Authorization: `Bearer ${token}`,
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(data),
-        });
-        const res = await req.json();
-        console.log(res);
-        if (res.success) {
-          fetchLeaves();
-          setModalShow(false)
-          toast.success(res.message);
-        } else {
-          toast.error(res.message);
-        }
-      } catch (error) {
-        console.log(error);
-        setError("Failed to fetch departments");
-      }
-      reset();
-    };
-    const fetchLeaves = async () => {
-      setIsLoading(true);
-      setError(null);
-      try {
-        const leaves = await getAllLeaves(token);
-        setData(leaves);
-      } catch (error) {
-        setError("Error fetching leaves");
-      } finally {
-        setIsLoading(false);
-      }
-    };
+  //   const {
+  //     register,
+  //     handleSubmit,
+  //     formState: { errors, isSubmitting },
+  //   } = useForm({
+  //     resolver: yupResolver(leaveSchema),
+  //   });
+    
+  //   const onSubmit = async (data) => {
+  //     try {
+  //       const req = await fetch("https://mern-backend-1-9jn6.onrender.com/api/leave/apply", {
+  //         method: "POST",
+  //         headers: {
+  //           Authorization: `Bearer ${token}`,
+  //           "Content-Type": "application/json",
+  //         },
+  //         body: JSON.stringify(data),
+  //       });
+  //       const res = await req.json();
+  //       console.log(res);
+  //       if (res.success) {
+  //         fetchLeaves();
+  //         setModalShow(false)
+  //         toast.success(res.message);
+  //       } else {
+  //         toast.error(res.message);
+  //       }
+  //     } catch (error) {
+  //       console.log(error);
+  //       setError("Failed to fetch departments");
+  //     }
+  //     reset();
+  //   };
+  //   const fetchLeaves = async () => {
+  //     setIsLoading(true);
+  //     setError(null);
+  //     try {
+  //       const leaves = await getAllLeaves(token);
+  //       setData(leaves);
+  //     } catch (error) {
+  //       setError("Error fetching leaves");
+  //     } finally {
+  //       setIsLoading(false);
+  //     }
+  //   };
 
-    if (isLoading) {
-      return (
-        <div className="vh-100 d-flex justify-content-center">
-          {" "}
-          <Loader />{" "}
-        </div>
-      );
-    }
+  //   if (isLoading) {
+  //     return (
+  //       <div className="vh-100 d-flex justify-content-center">
+  //         {" "}
+  //         <Loader />{" "}
+  //       </div>
+  //     );
+  //   }
   
   
-    return (
-      <Modal
-        {...props}
-        size="md"
-        aria-labelledby="contained-modal-title-vcenter"
-        centered
-      >
-        <Modal.Header closeButton>
-          <Modal.Title className = "leave-emp-h1 px-2" >
-               Leave Request
-          </Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <div className = "px-2 leave-emp-space">
-            <form  onSubmit={handleSubmit(onSubmit)}>
-               <div className = "mb-3 ">
-                    <label htmlFor="" className = "labels">Leave Type</label>
-                    <select name="" id="" className = "w-100 select-input" {...register("leaveType", {required: true})} >
-                        <option disabled selected hidden >Select</option>
-                        <option value="casual" className= "labelss">casual</option>
-                        <option value="sick" className= "labelss">sick</option>
-                        <option value="annual" className= "labelss">annual</option>
-                    </select>
-                    {errors.leaveType && <span className = "spans">{errors.leaveType?.message}</span>}
-               </div>
-               <div className = "d-lg-flex gap-4 mb-3">
-                   <div className = "mobile">
-                      <label htmlFor="" className = "labels">Start Date</label>
-                      <input type="date" name="" id="" placeholder = "select Date" className = "w-100 add-input" {...register("startDate", {required: true})}/>
-                      <span className = "spans">{errors.startDate?.message}</span>
-                   </div>
-                   <div className = "mobile">
-                      <label htmlFor="" className = "labels">End Date</label>
-                      <input type="date" name="" id="" placeholder = "select Date" className = "w-100 add-input" {...register("endDate", {required: true})} />
-                      <span className = "spans">{errors.endDate?.message}</span>
-                   </div>
-               </div>
-               <div className = "mb-3">
-                  <label htmlFor="" className = "labels">Description</label> 
-                  <textarea name="" id="" cols="30" rows="3"  className = "textA" placeholder = "Type here" {...register("description", {required: true})}></textarea>
-                  <span className = "spans">{errors.description?.message}</span>
-               </div>
-               <div className = "d-flex gap-4 my-4">
-                  <button className = "cancel" onClick={()=> reset()} disabled = {isSubmitting}>Cancel</button>
-                  <button className = "save"  type = "submit" disabled = {isSubmitting}>Apply</button> 
-               </div>
-            </form>
-            </div>
-        </Modal.Body>
+  //   return (
+  //     <Modal
+  //       {...props}
+  //       size="md"
+  //       aria-labelledby="contained-modal-title-vcenter"
+  //       centered
+  //     >
+  //       <Modal.Header closeButton>
+  //         <Modal.Title className = "leave-emp-h1 px-2" >
+  //              Leave Request
+  //         </Modal.Title>
+  //       </Modal.Header>
+  //       <Modal.Body>
+  //         <div className = "px-2 leave-emp-space">
+  //           <form  onSubmit={handleSubmit(onSubmit)}>
+  //              <div className = "mb-3 ">
+  //                   <label htmlFor="" className = "labels">Leave Type</label>
+  //                   <select name="" id="" className = "w-100 select-input" {...register("leaveType", {required: true})} >
+  //                       <option disabled selected hidden >Select</option>
+  //                       <option value="casual" className= "labelss">casual</option>
+  //                       <option value="sick" className= "labelss">sick</option>
+  //                       <option value="annual" className= "labelss">annual</option>
+  //                   </select>
+  //                   {errors.leaveType && <span className = "spans">{errors.leaveType?.message}</span>}
+  //              </div>
+  //              <div className = "d-lg-flex gap-4 mb-3">
+  //                  <div className = "mobile">
+  //                     <label htmlFor="" className = "labels">Start Date</label>
+  //                     <input type="date" name="" id="" placeholder = "select Date" className = "w-100 add-input" {...register("startDate", {required: true})}/>
+  //                     <span className = "spans">{errors.startDate?.message}</span>
+  //                  </div>
+  //                  <div className = "mobile">
+  //                     <label htmlFor="" className = "labels">End Date</label>
+  //                     <input type="date" name="" id="" placeholder = "select Date" className = "w-100 add-input" {...register("endDate", {required: true})} />
+  //                     <span className = "spans">{errors.endDate?.message}</span>
+  //                  </div>
+  //              </div>
+  //              <div className = "mb-3">
+  //                 <label htmlFor="" className = "labels">Description</label> 
+  //                 <textarea name="" id="" cols="30" rows="3"  className = "textA" placeholder = "Type here" {...register("description", {required: true})}></textarea>
+  //                 <span className = "spans">{errors.description?.message}</span>
+  //              </div>
+  //              <div className = "d-flex gap-4 my-4">
+  //                 <button className = "cancel" onClick={()=> reset()} disabled = {isSubmitting}>Cancel</button>
+  //                 <button className = "save"  type = "submit" disabled = {isSubmitting}>Apply</button> 
+  //              </div>
+  //           </form>
+  //           </div>
+  //       </Modal.Body>
         
-      </Modal>
-    );
-  }
+  //     </Modal>
+  //   );
+  // }
 
 
 
@@ -351,7 +345,7 @@ const LeaveBoard = () => {
 
                   <section className = "dashboard-task my-4">
                     <div className = "employee-table pt-2 ">
-                    <Table responsive = "lg" hover>
+                    {/* <Table responsive = "lg" hover>
                       <thead className = "threadd">
                         <tr >
                           <th className = "bg-light table-space ">
@@ -405,8 +399,8 @@ const LeaveBoard = () => {
                           )
                       })}
                      </tbody>
-                    </Table>
-                    <Modal
+                    </Table> */}
+                    {/* <Modal
             show={showModal}
             onHide={() => setShowModal(false)}
             centered
@@ -485,16 +479,16 @@ const LeaveBoard = () => {
                 <Loader />
               )}
             </Modal.Body>
-          </Modal>
+          </Modal> */}
 
                     </div>
                 </section>
 
                </section>
-               <MyVerticallyCenteredModal
+               {/* <MyVerticallyCenteredModal
         show={modalShow}
         onHide={() => setModalShow(false)}
-      />
+      /> */}
             </main> 
             
         </>

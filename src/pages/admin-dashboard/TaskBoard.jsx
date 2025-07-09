@@ -2,10 +2,7 @@ import React from 'react'
 import {Taskboard} from '../../Taskboard'
 import {DashboardPages} from '../../db'
 import '../../Style/Taskboard.css'
-import Table from 'react-bootstrap/Table';
 import ModalTask from '../../Components/ModalTask'
-import Button from 'react-bootstrap/Button';
-import Modal from 'react-bootstrap/Modal';
 import { useState, useEffect } from 'react';
 import arrowDown from '../../assets/Frame 10.svg';
 import ModalTasks from '../../Components/ModalTasks';
@@ -194,7 +191,7 @@ const TaskBoard = () => {
                    <section className = "dashboard-tasks my-4">
                     <h2 className = "heading-3 pt-2  ps-3">Taskboard</h2>
                     <div className = "employee-table"> 
-                    <Table responsive = "lg" hover>
+                    {/* <Table responsive = "lg" hover>
                       <thead className = "threadd">
                         <tr>
                           <th  className = "bg-light">
@@ -255,8 +252,8 @@ const TaskBoard = () => {
                       })}
                     
                      </tbody>
-                    </Table>
-                    <Modal size = "lg" show={showModal} onHide={() => setShowModal(false)} centered>
+                    </Table> */}
+                    {/* <Modal size = "lg" show={showModal} onHide={() => setShowModal(false)} centered>
           <Modal.Header closeButton>
             <Modal.Title  className = "profile-h2">Task Details</Modal.Title>
           </Modal.Header>
@@ -301,7 +298,6 @@ const TaskBoard = () => {
                    </div>
                  </div>
               </div>
-                {/* <p><strong className = 'task-name'>Status:</strong> <span className = {`action-status ${selectedTask.status.replace(/\s+/, "-").toLowerCase()}`} >{selectedTask.status}</span> </p> */}
                 <div className =  "d-flex align-items-center gap-4" >
                    <h3 className = "task-name">Assigned Members:</h3>
                    <h6 className = "api">{selectedTask.assignedMembers.map(member => `${member.firstName} ${member.lastName}`).join(', ')}</h6>
@@ -311,14 +307,14 @@ const TaskBoard = () => {
               <Loader />
             )}
           </Modal.Body>
-        </Modal>
+        </Modal> */}
                     </div>
                      
 
-                <ModalTask
+                {/* <ModalTask
         show={modalShow}
         onHide={() => setModalShow(false)}
-      />
+      /> */}
                 </section>
 
                </section>

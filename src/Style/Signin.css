@@ -2,104 +2,6 @@
     background-image: url('../assets/1881 1.svg');
     background-size: cover;
     background-repeat: no-repeat;
-    min-height: 100vh;
-    
-}
-
-.sign-in-container{
-    background-color: #FFFFFF;
-    width: 430px;
-    border: 2px solid red;
-    border-radius: 8px;
-    padding: 1.1rem 2rem;
-    border: none;
-}
-
-.sign-in-hr{
-    /* margin: 0 auto; */
-    align-items: center;
-}
-
-.sign-in-hr img {
-    width: 33px;
-    height: 33px;
-}
-
-.sign-in-hr h1 {
-    font-family:"Bricolage Grotesque", sans-serif;
-    font-size: 21.03px;
-    font-weight: 700;
-    color: #343536;
-}
-
-.manager h2{
-    font-family: "Inter", sans-serif;
-    font-weight: 700;
-    font-size: 18px;
-    color: #4D4D4D;
-}
-
-label {
-    font-size: 14px;
-    font-weight: 500;
-    font-family: "Inter", sans-serif;
-    color: grey/800;
-}
-
-input{
-    height: 43px;
-    border: none;
-    border-radius: 8px;
-    background-color: #F3F3F3;
-    padding-left: 13px;
-    outline: none;
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 24px;
-    font-family: "Inter", sans-serif;
-    color: grey/800;
-}
-input::placeholder{
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 24px;
-    font-family: "Inter", sans-serif;
-    color: grey/800;
-}
-
-.WORD{
-    margin-bottom: -8px;
-}
-
-.WORD p {
-    font-family: "Inter", sans-serif;
-    font-size: 14px;
-    font-weight: 500;
-    color:  #3439CA;
-}
-
-.color-forget {
-    color: #3439CA;
-}
-
-.password {
-    margin-top: 20px;
-    padding-bottom: 12px;
-}
-
-.email{
-    padding-bottom: 7px;
-}
-
-.btns{
-    height: 44px;
-    background-color: #3439CA;
-    border: none;
-    border-radius: 4px;
-    color: #FFFFFF;
-    font-family: neurial-grotesk;
-    font-weight: 500;
-    font-size: 16px;
 }
 
 
@@ -131,49 +33,7 @@ input::placeholder{
     color:  #3439CA;
 }
 
-.icon-img {
-    width: 17px;
-    height: 17px;
-}
 
-.icon-wrapper {
-    right: 3%;
-    top: 25%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.icon-wrappers {
-    right: 3%;
-    top: 58%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-
-.spans {
-    color: #EC5E5E;
-    font-size: 12px;
-    font-weight: 600;
-  }
-
-.sign-in-containers {
-    background-color: #FFFFFF;
-    width: 430px;
-    border: 2px solid red;
-    border-radius: 8px;
-    padding: 1.1rem 2rem;
-    border: none;
-}
-
-.forgot-pass h2 {
-    font-weight: 500;
-    font-size: 19px;
-    font-family: "Inter", sans-serif;
-    color: #28282B;
-}
 
 .forgot-pass p {
     font-family: "Inter", sans-serif;
@@ -182,27 +42,15 @@ input::placeholder{
     color: #878789;
 }
 
-.bttn{
-    height: 44px;
-    background-color: #3439CA;
-    border: none;
-    border-radius: 4px;
-    color: #FFFFFF;
-    font-family: "Inter", sans-serif;
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 24px;
-}
 
 
 @media(max-width:767px){
 
     .sign-in {
         background-image: none;
-        margin: 20px 0;
     }
 
-    .sign-in-container{
+    /* .sign-in-container{
         width: 100%;
         padding: 13px;
         margin: 0 14px;
@@ -212,10 +60,8 @@ input::placeholder{
         width: 100%;
         padding: 13px;
         margin: 0 14px;
-    }
+    } */
 
-    .sign-in-hr h1 {
-        font-size: 20px;
-    }
+    
 
 }

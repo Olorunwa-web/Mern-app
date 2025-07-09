@@ -7,7 +7,6 @@ import ladypic from '../assets/lady.svg'
 import'../Style/Navbar.css'
 import { useState } from 'react' 
 import Offcanvas from '../Components/Offcanavas'
-import Dropdown from 'react-bootstrap/Dropdown';
 import {Link, Navigate} from 'react-router-dom'
 import AuthContext from "../context/AuthContext"
 import {useNavigate} from "react-router-dom";
@@ -26,7 +25,7 @@ const Navbar = () => {
     
     return (
         <>
-            <nav className = "d-flex justify-content-between navbar-container ">
+            {/* <nav className = "d-flex justify-content-between navbar-container ">
                 <div className = "d-md-none">
                 {['start'].map((placement, idx) => (
         <Offcanvas key={idx} placement={placement} name={placement} />
@@ -49,7 +48,7 @@ const Navbar = () => {
                          </div>
                      </div>
                  </div>
-            </nav>
+            </nav> */}
         </>
     )
 }

@@ -1,5 +1,4 @@
 import React, {useState, useEffect} from 'react'
-import 'bootstrap/dist/css/bootstrap.min.css';
 import { useForm } from "react-hook-form"
 import { yupResolver } from "@hookform/resolvers/yup"
 import * as yup from "yup";
@@ -81,37 +80,43 @@ const PasswordReset = () => {
       const btnText = isClicked ? <Loader /> : "Reset Password";
     return (
         <>
-          <main className = "sign-in d-flex justify-content-center align-items-center">
-              <form className = "sign-in-containers " onSubmit={handleSubmit(onSubmit)}>
-                  <div className = "d-flex gap-2 justify-content-center align-items-center sign-in-hr pb-2">
-                      <img src= {Hrlogo} alt="HR -LOGO"/>
-                      <h1 className = 'mt-2'>HR Manager</h1>
+        <section className = 'bg-none sign-in md:bg-cover min-h-screen w-full flex justify-center items-center'>
+          <main className = "bg-white w-full md:w-[430px] rounded-lg p-6">
+              <form className = " " onSubmit={handleSubmit(onSubmit)}>
+                  <div className = " mb-2 flex gap-2 justify-center items-center">
+                      <img src= {Hrlogo} className ="w-[32px] h-[32px]"/>
+                      <h1 className = 'font-san-sef text-xl text-[#343536] font-bold '>HR Manager</h1>
                   </div>
-                  <div className = "forgot-pass mt-4">
-                      <h2>Check your Email</h2>
-                      <p>We have sent a password recovery instruction to your email.</p>
+                  <div className = "mt-4">
+                      <h2 className = 'text-[#28282B] text-xl font-medium font-inter'>Check your Email</h2>
+                      <p className = 'text-[#878789] text-sm font-medium font-inter '>We have sent a password recovery instruction to your email.</p>
                   </div>
-                  <div className = "my-3 position-relative">
-                      <label htmlFor="password" className = "pb-1">Password</label>
-                      <input type= {isReveal ? 'text' : 'password'} name="password" id="" className = "w-100 input-password" placeholder = "Enter Password" {...register("password")}/>
+                  <div className = "my-3">
+                      <label htmlFor="password" className = "text-gray-800 font-inter text-sm font-medium">Password *</label>
+                      <div className = 'relative'>
+                      <input type= {isReveal ? 'text' : 'password'} name="password" id="" className = "mt-1 w-full bg-[#F3F3F3] rounded-sm py-2 outline-none font-inter text-base font-normal text-[#111014] px-4" placeholder = "Enter Password" {...register("password")}/>
                       <span className = "spans">{errors.password?.message}</span>
-                      <div className = 'position-absolute icon-wrappers'>
-                         <img src= {isReveal ? hidden : show } alt="" className = 'icon-img' onClick = {toggleReveal1}/>
+                      <div className = 'absolute top-4 right-4 '>
+                         <img src= {isReveal ? hidden : show } alt=""  className = 'w-[17px] h-[17px]' onClick = {toggleReveal1}/>
                        </div>
+                      </div>
                   </div>
-                  <div className = "mt-3 position-relative">
-                      <label htmlFor="password" className = "pb-1">Confirm Password</label>
-                      <input type= {isReveal2 ? 'text' : 'password'} name="password" id="" className = "w-100 input-password" placeholder = "Re-enter Password" {...register("confirm password")}/>
+                  <div className = "mt-3 ">
+                      <label htmlFor="password" className = "text-gray-800 font-inter text-sm font-medium">Confirm Password *</label>
+                      <div className = 'relative'>
+                      <input type= {isReveal2 ? 'text' : 'password'} name="password" id="" className = "mt-1 w-full bg-[#F3F3F3] rounded-sm py-2 outline-none font-inter text-base font-normal text-[#111014] px-4" placeholder = "Re-enter Password" {...register("confirm password")}/>
                       <span className = "spans">{errors.confirmpassword?.message}</span>
-                      <div className = 'position-absolute icon-wrappers'>
-                         <img src= {isReveal2 ? hidden : show } alt="" className = 'icon-img' onClick = {toggleReveal2}/>
+                      <div className = 'absolute  top-4 right-4'>
+                         <img src= {isReveal2 ? hidden : show } alt=""  className = 'w-[17px] h-[17px]' onClick = {toggleReveal2}/>
                        </div>
+                      </div>
                   </div>
-                  <div className = "py-2 mt-3 sign-in-btn">
-                      <button  className = "w-100 btns" disabled = {isSubmitting}>{btnText}</button>
+                  <div className = " mt-4 ">
+                      <button  className = "w-full bg-[#3439CA] rounded-sm border-none text-white text-base font-medium  py-2 font-neural mt-3" disabled = {isSubmitting}>{btnText}</button>
                   </div>
               </form>
           </main>
+        </section>
         </> 
     )
 }

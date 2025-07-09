@@ -1,11 +1,9 @@
 import React from 'react';
 import { Outlet,Link, NavLink, useMatch} from 'react-router-dom'
 import '../../Style/Employees.css'
-import Table from 'react-bootstrap/Table';
 import { useEffect, useState } from 'react';
 import Loader from "../../utils/Loader"
 import axios from "axios"
-import Modal from 'react-bootstrap/Modal';
 
 
 const Employees = (props) => {
@@ -140,7 +138,7 @@ const Employees = (props) => {
 
                     <section className = " my-4 employee-task">
                     <div className = "employee-table">
-                        <Table responsive = "lg"  role = "button" hover>
+                        {/* <Table responsive = "lg"  role = "button" hover>
                         <thead>
                             <tr>
                                <th className = "bg-light bor"><span className = "dash-ba ms-2">Name</span></th>
@@ -170,8 +168,8 @@ const Employees = (props) => {
                                    )
                                })}
                            </tbody>
-                        </Table>
-          <Modal show={showModal} onHide={() => setShowModal(false)} centered  {...props}     size="lg"
+                        </Table> */}
+          {/* <Modal show={showModal} onHide={() => setShowModal(false)} centered  {...props}     size="lg"
           >
             <Modal.Header closeButton>
               <Modal.Title className = "profile-h4 padd ps-4">Employee’s Profile</Modal.Title>
@@ -245,7 +243,7 @@ const Employees = (props) => {
                 <Loader />
               )}
             </Modal.Body>
-          </Modal>
+          </Modal> */}
                     </div>
                     <div className = "d-flex justify-content-between align-items-center container py-3">
                         <div>

@@ -2,14 +2,12 @@ import React from 'react'
 import {Dashboard} from '../../db'
 import '../../Style/AdminSummary.css'
 import {DashboardPages} from '../../db'
-import Table from 'react-bootstrap/Table';
 import axios from "axios"
 import { useState } from 'react';
 import peopleImg from "../../assets/Frame 7 (4).svg"
 import taskImg from "../../assets/Frame 7 (1).svg"
 import calenderImg from "../../assets/Frame 7 (2).svg"
 import { useEffect } from 'react';
-import Modal from 'react-bootstrap/Modal';
 import Loader from "../../utils/Loader"
 import dashboardimage from "../../assets/dashboard_31dp_314D1C_FILL0_wght400_GRAD0_opsz24.svg"
 import dashboarddelete  from "../../assets/delete_31dp_EA3323_FILL0_wght400_GRAD0_opsz24.svg"
@@ -115,7 +113,7 @@ const AdminSummary = () => {
     return (
         <>
             <main className = "summary-container">
-                <section className = "pt-3">
+                {/* <section className = "pt-3">
                     <h1 className = "dash mb-2">Dashboard</h1>
                     <div className = "d-flex  justify-content-between  dashboard-flexx d-lg-flex flex-md-wrap" >
                     {data.map((Dashboard)=>{
@@ -134,9 +132,9 @@ const AdminSummary = () => {
                     })}
 
                     </div>
-                </section>
+                </section> */}
                 <section className = "dashboard-task my-4">
-                    <h2 className = "heading-3 pt-3 pb-1 ps-3">Taskboard</h2>
+                    {/* <h2 className = "heading-3 pt-3 pb-1 ps-3">Taskboard</h2> */}
                     <div className = "place-ment employee-table"> 
                     {/* <Table responsive hover>
                       <thead className = "threadd">
@@ -200,7 +198,7 @@ const AdminSummary = () => {
                      </tbody>
                     </Table> */}
 
-                    <Modal size = "lg" show={showModal} onHide={() => setShowModal(false)} centered>
+                    {/* <Modal size = "lg" show={showModal} onHide={() => setShowModal(false)} centered>
           <Modal.Header closeButton>
             <Modal.Title  className = "profile-h2">Task Details</Modal.Title>
           </Modal.Header>
@@ -245,7 +243,6 @@ const AdminSummary = () => {
                    </div>
                 </div>
               </div>
-                {/* <p><strong className = 'task-name'>Status:</strong> <span className = {`action-status ${selectedTask.status.replace(/\s+/, "-").toLowerCase()}`} >{selectedTask.status}</span> </p> */}
                 <div className =  "d-flex align-items-center gap-4 assign-space" >
                    <h3 className = "task-name">Assigned Members:</h3>
                    <h6 className = "api">{selectedTask.assignedMembers.map(member => `${member.firstName} ${member.lastName}`).join(', ')}</h6>
@@ -255,7 +252,7 @@ const AdminSummary = () => {
               <Loader />
             )}
           </Modal.Body>
-        </Modal>
+        </Modal> */}
                     </div>
                 </section>
             </main>

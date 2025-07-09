@@ -1,6 +1,4 @@
 import React, {useEffect} from 'react'
-import Button from 'react-bootstrap/Button';
-import Modal from 'react-bootstrap/Modal';
 import '../Style/Taskboard.css'
 import ModalTasks from '../Components/ModalTasks'
 import tickcircle from '../assets/tick-circle.svg'
@@ -10,7 +8,6 @@ import { useForm } from "react-hook-form"
 import {newTaskSchema} from "../lib/ValidationSchema"
 import axios from "axios";
 import toast, { LoaderIcon } from "react-hot-toast";
-import { CiCircleRemove } from "react-icons/ci";
 import cancel from "../assets/Stockholm-icons (10).svg"
 import add from "../assets/Stockholm-icons (8).svg";
 
@@ -42,7 +39,6 @@ const ModalTask = (props) => {
           );
           setSuggestions(response.data.users);
         } catch (error) {
-          // console.error("Error fetching user suggestions:", error);
         }
       };
       fetchSuggestions();
@@ -98,9 +94,7 @@ const ModalTask = (props) => {
         setSearchQuery("");
         setSuggestions([]);
       }
-      // console.log(req.data);
     } catch (error) {
-      // console.error("Error creating task:", error.response.data.errMsg);
       toast.error(error?.response?.data?.errMsg);
     }finally{
       setIsSubmitting(false)
@@ -178,7 +172,6 @@ const ModalTask = (props) => {
                       className="text-danger "
                     >
                       <img src= {cancel} alt="cancel-btn"/>
-                      {/* <CiCircleRemove fontSize={15} className="mb-2" role="button"/> */}
                     </span>
                   </div>
                 ))}

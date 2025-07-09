@@ -1,6 +1,4 @@
 import React from 'react'
-import Button from 'react-bootstrap/Button';
-import Modal from 'react-bootstrap/Modal';
 import tickcircle from '../../../assets/tick-circle.svg'
 import '../../../Style/Newteam.css'
 import{Link} from 'react-router-dom'
@@ -11,7 +9,7 @@ import{Link} from 'react-router-dom'
 function MyVerticallyCenteredModal(props) {
     return (
         <div>
-        <Modal
+        {/* <Modal
   {...props}
   size="lg"
   aria-labelledby="contained-modal-title-vcenter"
@@ -34,7 +32,7 @@ function MyVerticallyCenteredModal(props) {
       <button className = "cont "  onClick={props.onHide}>Continue</button>
   </div>
  
-</Modal>
+</Modal> */}
         </div>
      
     );
@@ -77,10 +75,10 @@ const EditTeam = () => {
                     <div className = "d-flex gap-3 my-5">
                       <Link to = "/admin-dashboard/employees/teams" className = "cancel"><button className = "cancel">Cancel</button></Link> 
                       <button className = "save" onClick={() => setModalShow(true)} >Save</button>
-                      <MyVerticallyCenteredModal
+                      {/* <MyVerticallyCenteredModal
         show={modalShow}
         onHide={() => setModalShow(false)}
-      />
+      /> */}
                    </div>
                 </section>
             </main>

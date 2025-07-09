@@ -1,10 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import {leaveboardemploy} from "../../Taskboard"
 import "../../Style/EmployeeLeaveboard.css"
-import Table from 'react-bootstrap/Table';
 import {LeaveboardEmploy} from "../../Taskboard"
-import Button from 'react-bootstrap/Button';
-import Modal from 'react-bootstrap/Modal';
 import axios from "axios";
 import toast from "react-hot-toast"
 import { yupResolver } from "@hookform/resolvers/yup"
@@ -221,7 +218,7 @@ const EmployeeLeaveboard = () => {
                     </div>
                     <div className = "dashboard-tasks my-3 pt-2">
                         
-                        <Table responsive hover>
+                        {/* <Table responsive hover>
                         <thead>
                         <tr className = "leave-style ">
                           <th  className = "bg-light ">
@@ -255,13 +252,13 @@ const EmployeeLeaveboard = () => {
                                  )
                              })}
                          </tbody>
-                        </Table>
+                        </Table> */}
                     </div>
                 </section>
-                <MyVerticallyCenteredModal
+                {/* <MyVerticallyCenteredModal
         show={modalShow}
         onHide={() => setModalShow(false)}
-      />
+      /> */}
             </main>
         </>
     )

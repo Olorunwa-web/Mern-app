@@ -1,6 +1,4 @@
 import React from 'react'
-import Button from 'react-bootstrap/Button';
-import Modal from 'react-bootstrap/Modal';
 import '../Style/Payroll.css'
 import {payrolll} from '../Taskboard'
 import tickcircle from '../assets/tick-circle.svg'
@@ -98,12 +96,7 @@ const Modalpay = (props) => {
                    </div>
                 </div>
               </Modal.Body>
-             
             </Modal>
-
-
-           
-
         </div>
             
         </>

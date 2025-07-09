@@ -1,6 +1,4 @@
 import React from 'react'
-import Button from 'react-bootstrap/Button';
-import Modal from 'react-bootstrap/Modal';
 import tickcircle from '../../../assets/tick-circle.svg'
 import '../../../Style/Newteam.css'
 import{Link} from 'react-router-dom'
@@ -56,7 +54,7 @@ const NewTeam = (props) => {
 
     return (
         <>
-             <Modal
+             {/* <Modal
       {...props}
       size="md"
       aria-labelledby="contained-modal-title-vcenter"
@@ -110,10 +108,8 @@ const NewTeam = (props) => {
                     </form>
        </section>
       </Modal.Body>
-      {/* <Modal.Footer>
-        <Button onClick={props.onHide}>Close</Button>
-      </Modal.Footer> */}
-    </Modal>
+      
+    </Modal> */}
 
             {/* <main className = "new-team"> 
                 <section>

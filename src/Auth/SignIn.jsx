@@ -1,5 +1,4 @@
 import React , {useEffect, useState} from 'react'
-import 'bootstrap/dist/css/bootstrap.min.css';
 import { useForm } from "react-hook-form"
 import { yupResolver } from "@hookform/resolvers/yup"
 import * as yup from "yup";
@@ -13,6 +12,10 @@ import { useAuth } from '../context/AuthContext';
 import Loader  from '../utils/Loader';
 import show from '../assets/visibility_24dp_111014_FILL0_wght400_GRAD0_opsz24.svg';
 import hidden from '../assets/visibility_off_24dp_111014_FILL0_wght400_GRAD0_opsz24.svg';
+import Homebackground from '../assets/1881 1.svg'
+
+
+
 
 const SignIn = () => {
     const [reveal,setReveal] = useState(false)
@@ -96,38 +99,41 @@ const SignIn = () => {
 
     return (
         <>
-          <main className = "sign-in d-flex justify-content-center align-items-center">
-              <form className = "sign-in-container" onSubmit={handleSubmit(onSubmit)}>
-                  <div className = "d-flex gap-2 justify-content-center align-items-center sign-in-hr">
-                        <img src= {Hrlogo} alt="HR -LOGO"/>
-                        <h1 className = 'mt-2'>HR Manager</h1>
+          <section className = 'bg-none sign-in md:bg-cover min-h-screen w-full flex justify-center items-center'>
+              <main className = 'bg-white w-full md:w-[430px] rounded-lg p-6'>
+              <form className = "" onSubmit={handleSubmit(onSubmit)}>
+                  <div className = " mb-2 flex gap-2 justify-center items-center">
+                        <img src= {Hrlogo} className ="w-[32px] h-[32px]"/>
+                        <h1 className = 'font-san-sef text-xl text-[#343536] font-bold '>HR Manager</h1>
                   </div>
-                  <div className = "text-center manager my-2">
-                      <h2>Welcome to HR Manager - Where Creativity Meets Opportunity!</h2>
+                  <div className = "text-center mt-3 mb-5 ">
+                      <h2 className = 'font-inter text-[#4D4D4D] font-bold text-lg '>Welcome to HR Manager - Where Creativity Meets Opportunity!</h2>
                   </div>
-                  <div className = "mt-3">
-                      <label htmlFor="email" className = "email">Email</label>
-                      <input type="email" name="email"  className = "w-100" placeholder = "Enter email" {...register("email")}/>
-                      <span className = "spans">{errors.email?.message}</span>
+                  <div className = "my-3">
+                      <label htmlFor="email" className = "text-gray-800 font-inter text-sm font-medium">Email*</label>
+                      <input type="email" name="email"  className = "mt-1 w-full bg-[#F3F3F3] rounded-sm py-2 outline-none font-inter text-base font-normal text-[#111014] px-4" placeholder = "Enter email" {...register("email")}/>
+                      <span className = "text-sm font-inter font-medium text-[#EC5E5E]">{errors.email?.message}</span>
                   </div>
-                  <div className = "password">
-                      <div className = "d-flex WORD justify-content-between">
-                          <label htmlFor="password">Password</label>
-                          <p><Link to = "/auth/forgot-pass" className = 'color-forget'>Forgot Password?</Link></p>
+                  <div className = "mt-4">
+                      <div className = "flex justify-between">
+                          <label htmlFor="password" className = "text-gray-800 text-sm font-inter font-medium ">Password*</label>
+                          <p><Link to = "/auth/forgot-pass" className = 'text-sm font-inter font-medium text-[#3439CA]'>Forgot Password?</Link></p>
                       </div>
-                      <div className = "input-pass position-relative pb-3">
-                        <input type= {reveal ? 'text' : 'password'} name="password" id="" className = "w-100  input-password" placeholder = "Enter Password" {...register("password")}/>
-                        <span className = "spans">{errors.password?.message}</span>
-                        <div className = 'position-absolute icon-wrapper'>
-                            <img src= {reveal ? hidden : show } alt="" className = 'icon-img' onClick = {toggleReveal}/>
+                      <div className = "input-pass relative pb-5">
+                        <input type= {reveal ? 'text' : 'password'} name="password" id="" className = "mt-1 w-full bg-[#F3F3F3] rounded-sm py-2 outline-none font-inter text-base font-normal text-[#111014] px-4" placeholder = "Enter Password" {...register("password")}/>
+                        <span className = "text-sm font-inter font-medium text-[#EC5E5E]">{errors.password?.message}</span>
+                        <div className = 'absolute top-4 right-4'>
+                            <img src= {reveal ? hidden : show } alt="" className = 'w-[17px] h-[17px]' onClick = {toggleReveal}/>
                         </div>
                       </div>
                   </div>
-                  <div className = "py-2 sign-in-btn">
-                      <button  className = "w-100 btns" type="submit" disabled = {isSubmitting}>{btnText}</button>
+                  <div className = "mt-3 ">
+                      <button  className = "w-full bg-[#3439CA] rounded-sm border-none text-white text-base font-medium  py-2 font-neural" type="submit" disabled = {isSubmitting}>{btnText}</button>
                   </div>
               </form>
-          </main>
+
+              </main>
+          </section>
         </>
     )
 }

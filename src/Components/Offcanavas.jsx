@@ -1,7 +1,5 @@
 import React from 'react'
 import { useState, useContext } from 'react';
-import Button from 'react-bootstrap/Button';
-import Offcanvas from 'react-bootstrap/Offcanvas';
 // ==============================
 import {sidebarLink} from '../db';
 import Hrlogo from '../assets/Frame 1000003286.svg';
