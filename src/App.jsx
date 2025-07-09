@@ -81,7 +81,7 @@ function App() {
             <Route path = "/admin-employee/settings" element = {<EmployeeSettings/>}/>
           </Route>
         </Routes>
-        <Toaster toastOptions={{ success: { style: { background: '#f1f9f4', color: '#111214' , fontSize: '13px', fontFamily: "DM Sans, sans-serif" ,border: '1px solid #6bdc6c', boxShadow: 'none' ,}, iconTheme: { primary: '#6bdc6c'}  }, error: { style: { background: 'red',},},}}/>
+        <Toaster toastOptions={{ success: { style: { background: '#f1f9f4', color: '#111214' , fontSize: '13px', fontFamily: "DM Sans, sans-serif" ,border: '1px solid #6bdc6c', boxShadow: 'none',  borderRadius: '10px', padding: '6px 10px' ,}, iconTheme: { primary: '#6bdc6c'}  }, error: { style: { background: '#fcefea',  color: '#111214' , fontSize: '13px', fontFamily: "DM Sans, sans-serif" ,border: '1px solid #e85559', boxShadow: 'none', borderRadius: '10px' }, iconTheme: { primary: '#e85559'} },}}/>
       </BrowserRouter>
     </>
   );
