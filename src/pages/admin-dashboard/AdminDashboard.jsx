@@ -15,7 +15,7 @@ const AdminDashboard = () => {
   const {user} = useContext(AuthContext)
 
   const [open, setOpen] = useState(true);
-  const [isOpen, setisOpen] = useState(true);
+  // const [isOpen, setisOpen] = useState(true);
 
   const [isTrue, setisTrue] = useState(false)
 
@@ -39,71 +39,76 @@ const AdminDashboard = () => {
   }, [location]);
     return (
         <>
-            <main className = "container-flui borderss">
-                <section className = "admin-dashboard-main ">
-                    <section className = {`admin-dashboard-section-1 py-3 ${isOpen ? 'open ps-3' : "closed"}`}>
-                      <div className = 'd-flex flex-column spacings'>
-                      <div className = {`${isOpen ? "": "d-flex justify-content-center align-items-center"}`}>
-                        <div className = "d-flex justify-content-between align-items-center ">
-                           <div className = "d-flex gap-2 ">
-                              <div className = {`hr-logo ${isOpen ? "" : " "}`} onClick = {handleToggle}>
-                                 <img src= {Hrlogo} className = {` ${isOpen ? "" : " "}`}  alt="hr-logo"/>
+                <section className = "admin-dashboard- flex min-h-screen w-full border-2 border-sky-400 ">
+                    <section className = {`fixed top-0 left-0 bg-white h-screen ${open ? "w-67 p-4 " : "w-17 px-3 py-4 border "} transition-all duration-300 md:block hidden overflow-hidden border-r-1 border-[#EBEEF1] `}>
+                      <div className = 'flex flex-col  gap-12 h-9/10 '>
+                        <div className = {`flex items-center ${open ? 'justify-between' : 'justify-center'}  py-1`}>
+                           <div className = {`flex gap-1 ${open ? "block" : "hidden"}   `}>
+                               <div className = 'w-full h-full'>
+                                  <img src= {Hrlogo} className = 'w-[34px] h-[34px]' alt="hr-logo"/>
                               </div>
-                                <div className = {`hr-manager  ${isOpen ? "d-block" : "d-none"}`}>
-                                  <h1>HR Manager</h1>
-                                  <p>{user && user?.email}</p>
+                               <div>
+                                  <h1 className = 'mt-[-1px] font-medium font-san-sef text-[0.93rem] text-[#343536]'>HR Manager</h1>
+                                  <p className = 'mt-[-5px] font-normal font-sans text-xs text-[#ACACAC]'>{user && user?.email}</p>
                                </div>
                            </div>
-                            
-                           <div  className = {`visible-left  ${isOpen ? "d-block visible-left" : "d-none"}`} onClick = {handleToggle}>
-                              <img src= {leftvisible} alt=""/>
+                           <div   onClick = {()=> setOpen(!open)} >
+                             {open ? (
+                               <div className = 'w-[23px] h-[23px]'>
+                                 <img src= {leftvisible} className = 'w-full h-full' alt=""/>
+                               </div>
+                               ) : (
+                                 <div className = 'w-[38px] h-[38px] '>
+                                   <img src= {Hrlogo} alt="" className = 'w-full h-full '/>
+                                 </div>
+                             )}
                             </div>
                          </div>
-                      </div>
                          {/* ======================================= */}
-                         <div className = "my-3">
-                             <h3 className = {` main mb-4  ${isOpen ? "d-block" : "invisible pt-4"}`}>MAIN MENU</h3>
-                             <div className = {`${isOpen ? "" : "d-flex justify-content-center m align-items-center "}`}>
-                             <div className = {`sidebar me- d-flex flex-column ${isOpen ? "gap-2 me-3" : "gap-3  "}`}>
+                         <div className = "my-2 flex flex-col gap-5">
+                             <h3 className = {`font-medium text-xs font-sans text-[#9A9FA5] ${open ? 'opacity-100' : 'opacity-0'}`}>MAIN MENU</h3>
+                               <div className = {`flex flex-col gap-5`}>
                                  {sidebarLink.map((sidebarLinks)=>{
                                      const {id,path,Icon,name, active} = sidebarLinks
                                      return(
-                                        <NavLink  
+                                        <NavLink   
                                         key={id} 
                                         to={path}
-                                        end>
+                                        end 
+                                        >
                                         {({ isActive, isPending }) =>(
                                           <span
-                                             className={`d-flex gap-2  nav-link isPending ? "pending": ${isActive ? "active  " : "" 
+                                             className={`flex gap-2 items-center  duration-300 ${open ? 'ps-4 mr-5': ""}  isPending ? "pending": ${isActive ? "active  bg-[#EDF5FF]  py-[6px] rounded-lg " : "" 
                                           }`}>
-                                          <img className={` ${isOpen ? "d-block images-active mt-1" : "images-actives my-1"}`} src={ isActive ?  active : Icon} alt={name}  />
-                                          <h6 className={`mt-2 heading ${isOpen ? "d-block" : "d-none"}`}>{name}</h6>
+                                          <img className= {`${open ? 'w-[22px] h-[22px]' : "w-[31px] h-[31px] p-1 mx-auto"}`} src={ isActive ?  active : Icon} alt={name}  />
+                                          <h6 className=  {`font-medium font-sans text-sm hover:text-[#3439CA] ${open ? "block" : "hidden"} ${ isActive ? "text-[#3439CA]" : "text-[#343536]"}`}>{name}</h6>
                                         </span>
                                         )}
                                      </NavLink>
                                      )
                                   })}
                              </div>
-                             </div>
                          </div>
                       </div>
-                      <div onClick = {logout}>
-                        {isOpen ? (
-                          <button className = 'logout-btn py-1 d-flex gap-1 justify-content-center'><img src= {Logout} className = 'logout-img' alt=""/>Logout</button>
+                      <div className = {`h-1/10  flex flex-col  ${open ? 'justify-around rounded-lg bg-[#F1F2F3]' : 'justify-center items-center'} `} onClick = {logout}>
+                        {open ? (
+                          <div className = {`flex items-center gap-1 ${open ? 'ps-4' : ''}`}>
+                            <img src= {Logout} className = 'w-7 h-7' alt=""/>
+                            <p className = 'font-sans font-normal text- text-[#343536]'>Logout</p>
+                          </div>
                           ) : (
-                            <div className = 'd-flex justify-content-center align-items-center mx-4'> 
-                              <img src= {Logout} alt=""/>
+                            <div className = ' flex justify-center rounded-md bg-[#F1F2F3] p-1 mx-1 items-center'> 
+                              <img src= {Logout} alt="" className = 'w-7 h-7'/>
                             </div>
                         )}
                       </div>
                     </section>
                     {/* section-2 */}
-                    <section className = {`admin-dashboard-section-2  ${isOpen ? 'is-open' : 'is-closed'}` }>
+                    <section className = 'admin-dashboard-section- max-w-full flex-0 md:flex-1 min-h-screen border-2 border-red-400 '>
                         <Navbar/>
                         <Outlet/>
                     </section>
-                </section>
-            </main>
+             </section>
         </>
     )
 }

@@ -1,27 +1,20 @@
-.sidebar .active{
+/* .sidebar .active{
     background-color: #EDF5FF;
     border-radius: 7px;
     color: #3439CA;
-}
+} */
 
-/* .borderss {
-    border: 4px solid red; 
-    overflow: hidden; 
-}   */
+ 
 
-.admin-dashboard-main{
+/* .admin-dashboard-main{
     display: flex;
     height: 100vh;
     width: 100%;
-    border: 4px solid red;
-}
+    border: 1px solid red;
+} */
+  
 
-.hr-logo img {
-    width: 31px;
-    height: 31px;
-}
-
-.admin-dashboard-section-1 {
+/* .admin-dashboard-section-1 {
     width: 228px;
     position: fixed;
     top: 0;
@@ -32,29 +25,25 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    /* border-right:  1px solid #ebeef1; */
     overflow: hidden;
     z-index: 100;
-}
+} */
 
-.spacings {
-    gap: 2.5rem;
-    
-}
 
-.closed {
+
+/* .closed {
     width: 4rem; 
-}
+} */
 
-.admin-dashboard-section-2 {
+/* .admin-dashboard-section-2 {
     min-height: 100vh;
     flex: 1;
     width: 100%;
-    /* background-color: #F7F9FA; */
+    background-color: #F7F9FA;
     border:2px yellow solid;
     margin-left:  228px; 
     transition: margin-left 0.3s ease-in-out;
-}
+} */
 
 .is-closed {
     margin-left: 4rem;
@@ -70,18 +59,17 @@
 
 }
 
-.arrow-up{
+/* .arrow-up{
     margin-bottom: 1px;
 }
 
 .arrow-down{
     margin-top: -30px;
-}
+} */
 
-.hr-manager h1{
+/* .hr-manager h1{
     font-size: 14px;
     font-weight: 500;
-    /* line-height: 19.2px; */
     color: #343536;
     font-family: "Bricolage Grotesque", sans-serif;
     margin-bottom: 0;
@@ -93,16 +81,16 @@
     font-weight: 400;
     color: #ACACAC;
     margin-top: -1px;
-}
+}  */
 
-.main {
+/* .main {
     font-family: "DM Sans", sans-serif;
     font-size: 11px;
     font-weight: 400;
     color: #9A9FA5;
-}
+} */
 
-.heading {
+/* .heading {
     font-family: "DM Sans", sans-serif;
     font-size: 13px;
     font-weight: 500;
@@ -121,7 +109,7 @@
 .nav-link {
     transition: all 0.3s ease;
     padding: 3px 9px;
-}
+} */
 
 .logout-btn {
     width: 100px;
