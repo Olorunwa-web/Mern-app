@@ -95,7 +95,7 @@ const Navbar = () => {
                                       </div>
                                       <div>
                                          <h1 className = 'mt-[-1px] font-medium font-san-sef text-[0.93rem] text-[#343536]'>HR Manager</h1>
-                                         <p className = 'mt-[-5px] font-normal font-sans text-xs text-[#ACACAC]'>{user && user?.email}</p>
+                                         <p className = 'mt-[-5px] font-normal font-sans text-[13px] text-[#ACACAC]'>{user && user?.email}</p>
                                       </div>
                                    </div>
                                     <div onClick={() => setIsOpen(false)}>
