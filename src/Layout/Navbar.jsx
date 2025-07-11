@@ -104,7 +104,7 @@ const Navbar = () => {
                                 </div>
                              </div>
                              <form className = "relative px-4">
-                               <input type="search" name="" id="" value = {searchText} onChange={(e) => setSearchText(e.target.value)} placeholder = "Search" className = "w-full bg-[#F7F9FA] border-1 border-[#E0E0E0] py-2 pl-3 pr-8 rounded-lg outline-none appearance-none font-poppins font-normal text-sm "/>
+                               <input type="search" name="" id="" value = {searchText} onChange={(e) => setSearchText(e.target.value)} placeholder = "Search" className = "w-full bg-[#F7F9FA] border-1 border-[#E0E0E0] py-2 pl-3 pr-8 rounded-lg outline-none appearance-none font-poppins font-normal text-base "/>
                                  {!searchText && (
                                    <div className = 'absolute right-7 top-1/2 transform -translate-y-1/2 w-5 h-5'>
                                       <img src= {searchbtn} alt=""/>
@@ -119,7 +119,7 @@ const Navbar = () => {
                            </div>
                            <div className = "px-4 my-2 flex flex-col gap-5">
                              <h3 className = 'font-medium text-xs font-sans text-[#9A9FA5]'>MAIN MENU</h3>
-                               <div className = {`flex flex-col gap-5`}>
+                               <div className = {`flex flex-col gap-6`}>
                                  {sidebarLink.map((sidebarLinks)=>{
                                      const {id,path,Icon,name, active} = sidebarLinks
                                      return(
@@ -130,10 +130,10 @@ const Navbar = () => {
                                         >
                                         {({ isActive, isPending }) =>(
                                           <span
-                                             className={`flex gap-2 items-center m duration-300  ps-4 mr-7  isPending ? "pending": ${isActive ? "active  bg-[#EDF5FF]  py-[6px] rounded-lg " : "" 
+                                             className={`flex gap-2 items-center m duration-300  ps-4 mr-7  isPending ? "pending": ${isActive ? "active  bg-[#EDF5FF]  py-[7px] rounded-lg " : "" 
                                           }`}>
-                                          <img className= 'w-5 h-5'  src={ isActive ?  active : Icon} alt={name}  />
-                                          <h6 className=  {`font-medium font-sans text-sm hover:text-[#3439CA] ${ isActive ? "text-[#3439CA]" : "text-[#343536]"}`}>{name}</h6>
+                                          <img className= 'w-6 h-6'  src={ isActive ?  active : Icon} alt={name}  />
+                                          <h6 className=  {`font-medium font-sans text-base hover:text-[#3439CA] ${ isActive ? "text-[#3439CA]" : "text-[#343536]"}`}>{name}</h6>
                                         </span>
                                         )}
                                      </NavLink>
@@ -149,7 +149,7 @@ const Navbar = () => {
                    
                 </div>
                 <form className = "relative md:block hidden">
-                    <input type="search" name="" id="" value = {searchText} onChange={(e) => setSearchText(e.target.value)} placeholder = "Search" className = "w-full bg-[#F7F9FA] border-1 border-[#E0E0E0] py-2 px-4 rounded-sm outline-none appearance-none font-poppins font-normal text-sm "/>
+                    <input type="search" name="" id="" value = {searchText} onChange={(e) => setSearchText(e.target.value)} placeholder = "Search" className = "w-full bg-[#F7F9FA] border-1 border-[#E0E0E0] py-2 px-4 rounded-sm outline-none appearance-none font-poppins font-normal text-base "/>
                     {!searchText && (
                       <div className = 'absolute right-3 top-1/2 transform -translate-y-1/2 w-5 h-5'>
                         <img src= {searchbtn} alt=""/>
