@@ -181,7 +181,7 @@ const Navbar = () => {
                    
                 </div>
                 <form className = "relative md:block hidden">
-                    <input type="search" name="" id="" value = {searchText} onChange={(e) => setSearchText(e.target.value)} placeholder = "Search" className = "w-ful xl:w-[320px] bg-[#F7F9FA] border-1 border-[#E0E0E0] py-2 pr-4 pl-4 xl:pr-8 xl:pl-5 rounded-sm outline-none appearance-none font-poppins font-normal text-base "/>
+                    <input type="search" name="" id="" value = {searchText} onChange={(e) => setSearchText(e.target.value)} placeholder = "Search" className = "w-ful xl:w-[320px] bg-[#F7F9FA] border-1 border-[#E0E0E0] py-1 pr-4 pl-4 xl:pr-8 xl:pl-5 rounded-sm outline-none appearance-none font-poppins font-normal text-base "/>
                     {!searchText && (
                       <div className = 'absolute right-3 top-1/2 transform -translate-y-1/2 w-5 h-5'>
                         <img src= {searchbtn} alt=""/>
