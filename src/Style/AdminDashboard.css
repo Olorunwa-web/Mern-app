@@ -45,7 +45,7 @@
     transition: margin-left 0.3s ease-in-out;
 } */
 
-.is-closed {
+/* .is-closed {
     margin-left: 4rem;
 }
 
@@ -57,7 +57,7 @@
     width: 23px;
     height: 23px;
 
-}
+} */
 
 /* .arrow-up{
     margin-bottom: 1px;
@@ -111,7 +111,7 @@
     padding: 3px 9px;
 } */
 
-.logout-btn {
+/* .logout-btn {
     width: 100px;
     border: 1px none;
     background-color: white;
@@ -159,7 +159,7 @@
     .space-pad {
         padding: 6px;
     }
-}
+} */
 
 
 

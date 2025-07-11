@@ -1,4 +1,4 @@
-.navbar-container{
+/* .navbar-container{
     border-bottom: 1px solid  #F1F1F1;
     padding: 16px 2rem 12px 2rem ;
     border: 2px solid;
@@ -8,9 +8,15 @@
     width: 100%;
     background-color: #FEFFFF;
     z-index: 10;
-}
+} */
 
-.inputs{
+input[type="search"]::-webkit-search-cancel-button {
+    -webkit-appearance: none;
+    appearance: none;
+    display: none;
+  }
+
+/* .inputs{
     width: 270px;
     height: 37px;
     border: 1px solid #E0E0E0 ;
@@ -67,7 +73,6 @@
     font-weight: 500;
     line-height: 24px;
     color:#161E54;
-    /* padding-top: 5px; */
 }
 
 
@@ -87,7 +92,6 @@
 @media(max-width:767px){
     .navbar-container{
         padding: 0 15px;
-        /* border: 2px solid red !important; */
         width: 100%;
         border: none;
     }
@@ -104,6 +108,6 @@
     }
 
 }
-
+ */
 
 

@@ -1,6 +1,5 @@
-.summary-container{
+/* .summary-container{
     padding: 0 2rem ;
-    /* border: 2px solid red; */
 }
 
 .dashboard-flex{
@@ -152,7 +151,6 @@ input[type = "checkbox"] {
 }
 
 .merge{
-    /* margin: 0 auto; */
     border: 1px solid;
 }
 
@@ -214,13 +212,7 @@ input[type = "checkbox"] {
     gap: 49px;
 }
 
-/* .spacing{
-    margin-left: 3.4rem;
-} */
 
-/* .task-test {
-    margin: 0 auto;
-} */
 
 
 @media(max-width:767px){
@@ -232,7 +224,6 @@ input[type = "checkbox"] {
 
     .summary-container{
         padding:0 15px;
-        /* border: 2px solid; */
         width: 100%;
     }
 
@@ -285,19 +276,16 @@ input[type = "checkbox"] {
 
     .completed{
         font-size: 15px;
-        /* padding: 3px 10px; */
 
     }
     
     .in-progress{
         font-size: 15px;
-        /* padding: 3px 10px; */
 
     }
     
     .planned{
         font-size: 15px;
-        /* padding: 3px 10px; */
     }
 
     .fix{
@@ -368,11 +356,7 @@ input[type = "checkbox"] {
         
     }
 
-    /* .dashboard-flexx{
-        flex-direction: column;
-        gap: 10px;
-    } */
-
+   
     .dashboard-flex{
         width: 49%;
         margin-bottom: 13px;
@@ -465,9 +449,7 @@ input[type = "checkbox"] {
 
     }
 
-    /* .spacing{
-        margin-left: 18rem !important;
-    } */
+   
 
     .task-test {
         margin: 0;
@@ -644,9 +626,8 @@ input[type = "checkbox"] {
 
     .spacing{
         margin-left: 18rem !important;
-        /* margin-right: 30px; */
     }
 
    
 }
-
+ */
