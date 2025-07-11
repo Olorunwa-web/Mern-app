@@ -76,7 +76,7 @@ const Navbar = () => {
                 <div className = ' flex justify-between items-center px-4 md:px-[2rem] py-3 md:py-3 '>
                 <div className = "flex md:hidden">
                     <div onClick={() => setIsOpen(true)} className = 'w-full h-full'>
-                       <img src= {menu}  alt=""  className = 'w-9 h-9 transform  scale-y-[-1] transition-all duration-300 ' />
+                       <img src= {menu}  alt=""  className = 'w-10 h-10 transform  scale-y-[-1] transition-all duration-300 ' />
                     </div>
                     {isOpen && (
                        <div className="fixed inset-0 z-40 transition-opacity duration-200"></div>
@@ -91,7 +91,7 @@ const Navbar = () => {
                                   <div className = 'flex justify-between items-center px-4 '>
                                     <div className = 'flex gap-1 '>
                                        <div className = 'w-full h-full'>
-                                          <img src= {Hrlogo} className = 'w-[34px] h-[34px]' alt="hr-logo"/>
+                                          <img src= {Hrlogo} className = 'w-[35px] h-[35px]' alt="hr-logo"/>
                                       </div>
                                       <div>
                                          <h1 className = 'mt-[-1px] font-medium font-san-sef text-[0.93rem] text-[#343536]'>HR Manager</h1>
@@ -119,7 +119,7 @@ const Navbar = () => {
                            </div>
                            <div className = "px-4 my-2 flex flex-col gap-5">
                              <h3 className = 'font-medium text-xs font-sans text-[#9A9FA5]'>MAIN MENU</h3>
-                               <div className = {`flex flex-col gap-6`}>
+                               <div className = {`flex flex-col gap-[1rem]`}>
                                  {sidebarLink.map((sidebarLinks)=>{
                                      const {id,path,Icon,name, active} = sidebarLinks
                                      return(
@@ -130,10 +130,10 @@ const Navbar = () => {
                                         >
                                         {({ isActive, isPending }) =>(
                                           <span
-                                             className={`flex gap-2 items-center m duration-300  ps-4 mr-7  isPending ? "pending": ${isActive ? "active  bg-[#EDF5FF]  py-[7px] rounded-lg " : "" 
+                                             className={`flex gap-2 items-center m duration-300  ps-4 mr-7  isPending ? "pending": ${isActive ? "active  bg-[#EDF5FF]  py-[6px] rounded-lg " : "" 
                                           }`}>
-                                          <img className= 'w-6 h-6'  src={ isActive ?  active : Icon} alt={name}  />
-                                          <h6 className=  {`font-medium font-sans text-base hover:text-[#3439CA] ${ isActive ? "text-[#3439CA]" : "text-[#343536]"}`}>{name}</h6>
+                                          <img className= 'w-5 h-5' src={ isActive ?  active : Icon} alt={name}  />
+                                          <h6 className=  {`font-medium font-sans text-[0.92rem] hover:text-[#3439CA] ${ isActive ? "text-[#3439CA]" : "text-[#343536]"}`}>{name}</h6>
                                         </span>
                                         )}
                                      </NavLink>
