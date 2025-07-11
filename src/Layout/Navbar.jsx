@@ -119,7 +119,7 @@ const Navbar = () => {
                            </div>
                            <div className = "px-4 my-2 flex flex-col gap-5">
                              <h3 className = 'font-medium text-xs font-sans text-[#9A9FA5]'>MAIN MENU</h3>
-                               <div className = {`flex flex-col gap-[1.3rem]`}>
+                               <div className = {`flex flex-col gap-[1.4rem]`}>
                                  {sidebarLink.map((sidebarLinks)=>{
                                      const {id,path,Icon,name, active} = sidebarLinks
                                      return(
