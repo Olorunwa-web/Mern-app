@@ -119,7 +119,7 @@ const Navbar = () => {
                            </div>
                            <div className = "px-4 my-2 flex flex-col gap-5">
                              <h3 className = 'font-medium text-xs font-sans text-[#9A9FA5]'>MAIN MENU</h3>
-                               <div className = {`flex flex-col gap-[1.2rem]`}>
+                               <div className = {`flex flex-col gap-[1.3rem]`}>
                                  {sidebarLink.map((sidebarLinks)=>{
                                      const {id,path,Icon,name, active} = sidebarLinks
                                      return(
@@ -130,9 +130,9 @@ const Navbar = () => {
                                         >
                                         {({ isActive, isPending }) =>(
                                           <span
-                                             className={`flex gap-2 items-center m duration-300  ps-4 mr-7  isPending ? "pending": ${isActive ? "active  bg-[#EDF5FF]  py-[6px] rounded-lg " : "" 
+                                             className={`flex gap-2 items-center m duration-300  ps-4 mr-7  isPending ? "pending": ${isActive ? "active  bg-[#EDF5FF]  py-2 rounded-lg " : "" 
                                           }`}>
-                                          <img className= 'w-5 h-5' src={ isActive ?  active : Icon} alt={name}  />
+                                          <img className= 'w-6 h-6' src={ isActive ?  active : Icon} alt={name}  />
                                           <h6 className=  {`font-medium font-sans text-[0.92rem] hover:text-[#3439CA] ${ isActive ? "text-[#3439CA]" : "text-[#343536]"}`}>{name}</h6>
                                         </span>
                                         )}
