@@ -14,7 +14,9 @@ import close from '../assets/close_20dp_B2B2B2_FILL0_wght400_GRAD0_opsz20.svg';
 import searchbtn from '../assets/searchIcon.svg';
 import closemenu from '../assets/close_32dp_000000_FILL0_wght400_GRAD0_opsz40.svg'
 import Hrlogo from '../assets/Frame 1000003286.svg';
+import handwave from '../assets/waving-hand-svgrepo-com.svg'
 import {sidebarLink} from '../db';
+import axios from "axios";
 
 
 
@@ -29,6 +31,8 @@ const Navbar = () => {
 
     const [searchText, setSearchText] = useState("");
 
+    const [profile, setProfile] = useState({});
+    const token = localStorage.getItem("hr-token")
 
     function handleReveal(){
         isTrue ? setisTrue(false) : setisTrue(true)
@@ -68,15 +72,43 @@ const Navbar = () => {
       const handleClear = () => {
         setSearchText("");
       };
+
+ 
+      useEffect(() => {
+          async function userProfile() {
+            try {
+              const req = await axios.get("https://mern-backend-1-9jn6.onrender.com/api/employee/user/profile", {
+                headers: {
+                  Authorization: `Bearer ${token}`,
+                },
+              });
+      
+              if (req.data.success) {
+                setProfile(req.data.employee);
+              } else {
+                console.error(req.data.errMsg);
+              }
+            } catch (error) {
+              console.error("Error fetching profile:", error);
+            }
+          }
+          userProfile();
+        }, [token]);
       
 
     return (
         <>
             <nav className = "sticky w-full top-0 z-999 mt-1 border-b-1 border-[#F1F1F1]  navbar-contai ">
-                <div className = ' flex justify-between items-center px-4 md:px-[2rem] py-3 md:py-3 '>
+                <div className = ' flex justify-between items-center px-4 md:px-[1.5rem] lg:px-[2rem] py-3 md:py-3 '>
+                <div className = 'flex items-center gap-1 hidden lg:flex'>
+                    <img src= {handwave} className = 'w-6 h-6' alt=""/>
+                    <div>
+                        <span className = 'font-sans font-medium text-[#343536] text-lg'>Welcome Back, <span className = 'font-sans font-medium text-[#343536] text-lg'>{user && user.firstName.charAt(0).toUpperCase() + user.firstName.slice(1) }</span></span>
+                    </div>
+                </div>
                 <div className = "flex md:hidden">
                     <div onClick={() => setIsOpen(true)} className = 'w-full h-full'>
-                       <img src= {menu}  alt=""  className = 'w-10 h-10 transform  scale-y-[-1] transition-all duration-300 ' />
+                       <img src= {menu}  alt=""  className = 'w-11 h-11 transform  scale-y-[-1] transition-all duration-300 ' />
                     </div>
                     {isOpen && (
                        <div className="fixed inset-0 z-40 transition-opacity duration-200"></div>
@@ -162,17 +194,31 @@ const Navbar = () => {
                     )}
                 </form>
                  <div className = "flex gap-4 items-center ">
-                     <div className = 'w-5 h-5 '>
-                         <img src= {NotificationIcon} alt="notification-img" className = "note-icon d-none d-lg-block"/>
+                     <div className = 'flex gap-4 bg-[#F7F9FA] py-[3px] px-[7px] border-1 border-[#E0E0E0]  rounded-full'>
+                       <div className = ' hidde md:bloc '>
+                          <img src= {NotificationIcon} alt="notification-img" className = "w-6 h-6 md:w-5 md:w-5"/>
+                       </div>
+                        <div className = ' hidde md:bloc '>
+                          <img src= {messageIcon} alt="message-img" className = "w-6 h-6 md:w-5 md:w-5"/>
+                        </div>
                      </div>
-                     <div className = 'w-5 h-5 '>
-                         <img src= {messageIcon} alt="message-img" className = "message-icon d-none d-lg-block"/>
-                     </div>
-                     <div className = "flex gap-2  items-center">
-                         <img src= {ladypic} alt="lady-pic" className = " w-8 h-8 md:w-9 md:h-9 "/>
-                         <div className = " ">
-                              <span className = 'font-sans font-medium text-[0.94rem]'>{user && user.firstName}</span>
+                     <div className = "flex gap-2 relative px- rel items-center">
+                         {/* <div className = " w-8 h-8 hover:border-3 hover:border-[#78808A] md:w-9 md:h-9 flex justify-center bg-[#3439CA] rounded-full items-center ">
+                             <span className = 'font-sans text-white font-normal text-sm'>{user && user?.email.slice(0,2).toUpperCase()}</span>
+                         </div> */}
+                         <div className = " w-full h-full" >
+                            <img src= {profile.profileImage || ladypic} alt="lady-pic" className = " w-10 h-10  md:w-9 md:h-9 rounded-full" />
                          </div>
+                            <div className = 'w-2 h-2 p-1 border-2 border-white absolute right-0 bottom-0 bg-[#61ca53] rounded-full'></div>
+                         {/* <div className = 'flex flex-col lg:flex hidden'>
+                             <div className = 'flex gap-1 mb-[-3px]'>
+                                <span className = 'font-sans font-medium text-[#161E54] text-[0.94rem]'>{user && user.firstName.charAt(0).toUpperCase() + user.firstName.slice(1) }</span>
+                                <span className = 'font-sans font-medium text-[#161E54] text-[0.94rem]'>{user && user.lastName.charAt(0).toUpperCase() + user.lastName.slice(1)}</span>
+                             </div>
+                             <div className = 'mt-[-4px]'>
+                                <span className = 'font-normal font-sans text-sm text-[#78808A]'>{user && user.role}</span>
+                             </div>
+                         </div> */}
                      </div>
                  </div>
                 </div>

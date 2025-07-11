@@ -43,14 +43,10 @@ const AdminDashboard = () => {
                     <aside className = {`fixed top-0 left- bg-white h-screen ${open ? "w-67 p-4 " : "w-17 px-3 py-4  "} transition-all duration-300 md:block hidden overflow-hidden border-r-1 border-[#EBEEF1] `}>
                       <div className = 'flex flex-col  gap-12 h-9/10 '>
                         <div className = {`flex items-center ${open ? 'justify-between' : 'justify-center'}  py-1`}>
-                           <div className = {`flex gap-1 ${open ? "block" : "hidden"}   `}>
-                               <div className = 'w-full h-full'>
-                                  <img src= {Hrlogo} className = 'w-[34px] h-[34px]' alt="hr-logo"/>
-                              </div>
-                               <div>
-                                  <h1 className = 'mt-[-1px] font-medium font-san-sef text-[0.93rem] text-[#343536]'>HR Manager</h1>
-                                  <p className = 'mt-[-5px] font-normal font-sans text-xs text-[#ACACAC]'>{user && user?.email}</p>
-                               </div>
+                           <div className = {`flex gap-1 items-center ${open ? "block" : "hidden"}   `}>
+                                <img src= {Hrlogo} className = 'w-[34px] h-[34px]' alt="hr-logo"/>
+                                  <h1 className = ' font-medium font-san-sef text-[0.96rem] text-[#343536]'>HR Manager</h1>
+                                  {/* <p className = 'mt-[-5px] font-normal font-sans text-xs text-[#ACACAC]'>{user && user?.email}</p> */}
                            </div>
                            <div   onClick = {()=> setOpen(!open)} >
                              {open ? (
