@@ -40,7 +40,7 @@ const AdminDashboard = () => {
     return (
         <>
                 <section className = "admin-dashboard- flex min-h-screen w-full  ">
-                    <aside className = {`fixed top-0 left- bg-white h-screen ${open ? "w-67 p-4 " : "w-17 px-3 py-4  "} transition-all duration-300 md:block hidden overflow-hidden border-r-1 border-[#EBEEF1] `}>
+                    <aside className = {`fixed top-0 left- bg-white h-screen ${open ? "w-65 md:w-60 p-4 " : "w-16 px-3 py-4  "} transition-all duration-300 md:block hidden overflow-hidden border-r-1 border-[#EBEEF1] `}>
                       <div className = 'flex flex-col  gap-12 h-9/10 '>
                         <div className = {`flex items-center ${open ? 'justify-between' : 'justify-center'}  py-1`}>
                            <div className = {`flex gap-1 items-center ${open ? "block" : "hidden"}   `}>
@@ -100,7 +100,7 @@ const AdminDashboard = () => {
                       </div>
                     </aside>
                     {/* section-2 */}
-                    <section className = {`admin-dashboard-section- max-w-full flex-1  border-red-400 ${open ? 'md:ml-67 ' : 'md:ml-17'}`}>
+                    <section className = {`admin-dashboard-section- max-w-full flex-1  border-red-400 ${open ? 'md:ml-60 ml-65  ' : 'md:ml-16'}`}>
                         <Navbar/>
                         <Outlet/>
                     </section>
