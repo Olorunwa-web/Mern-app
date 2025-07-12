@@ -129,7 +129,7 @@ const AdminDashboard = () => {
                       </div>
                     </section>
                     {/* section-2 */}
-                    <section className = {`admin-dashboard-section- max-w-full flex-1 border-2 border-red-400 ${open ? 'md:ml-64 lg:ml-67  ' : 'md:ml-17'}`}>
+                    <section className = {`admin-dashboard-section- max-w-full flex-1  ${open ? 'md:ml-64 lg:ml-67  ' : 'md:ml-17'}`}>
                         <Navbar/>
                         <Outlet/>
                     </section>

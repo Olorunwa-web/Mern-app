@@ -122,7 +122,7 @@ const AdminSummary = () => {
                     {data.map((Dashboard)=>{
                         const { title, count} = Dashboard
                         return(
-                                <div key = {title} className = {`flex w-full xl:w-[32%] py-3 px-4 ${open ? 'md:w-full lg:w-[48%] ' : 'md:w-[48%] lg:w-[48%] '} justify-between items-center border-1 border-[#F1F2F3] rounded-[10px]`}>
+                                <div key = {title} className = {`flex w-full  py-3 px-4 ${open ? 'md:w-full lg:w-[48%] xl:w-[31%] ' : 'md:w-[48%] lg:w-[48%] xl:w-[31%]'} justify-between items-center border-1 border-[#F1F2F3] rounded-[10px]`}>
                                     <div className = "flex flex-col gap-4 ">
                                         <h6 className = 'font-sans font-medium text-base text-[#706D6D] '>{title}</h6>
                                         <h1 className = 'font-poppins font-semibold text-3xl text-[#1E1E1E]'>{count} </h1>
