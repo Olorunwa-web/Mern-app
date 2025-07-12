@@ -7,7 +7,7 @@ const PrivateRoute = ({children}) => {
     const {user, isLoading} = useContext(AuthContext)
 
     if (isLoading){
-        return <div className = 'min-h-screen flex justify-center items-center bg-[#FFFFFF] '><PropagateLoader color= '#3439CA' loading= {true} size = {20} /></div>
+        return <div className = 'min-h-screen flex justify-center items-center bg-[#FFFFFF] '><PropagateLoader color= '#3439CA' loading= {true} size = {17} /></div>
     }
   return user ? children : <Navigate to="/auth/sign-in"/>
     

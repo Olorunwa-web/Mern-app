@@ -14,8 +14,11 @@ import close from '../assets/close_20dp_B2B2B2_FILL0_wght400_GRAD0_opsz20.svg';
 import searchbtn from '../assets/searchIcon.svg';
 import closemenu from '../assets/close_32dp_000000_FILL0_wght400_GRAD0_opsz40.svg'
 import Hrlogo from '../assets/Frame 1000003286.svg';
-import handwave from '../assets/waving-hand-svgrepo-com.svg'
+import handwave from '../assets/waving-hand-svgrepo-com.svg';
+import Logout from '../assets/logout_20dp_ACACAC_FILL0_wght400_GRAD0_opsz20.svg';
 import {sidebarLink} from '../db';
+import 'simplebar-react/dist/simplebar.min.css';
+import SimpleBar from 'simplebar-react';
 import axios from "axios";
 
 
@@ -103,7 +106,7 @@ const Navbar = () => {
                 <div className = 'flex items-center gap-1 hidden lg:flex'>
                     <img src= {handwave} className = 'w-6 h-6' alt=""/>
                     <div>
-                        <span className = 'font-sans font-medium text-[#343536] text-lg'>Welcome Back, <span className = 'font-sans font-medium text-[#343536] text-lg'>{user && user.firstName.charAt(0).toUpperCase() + user.firstName.slice(1) }</span></span>
+                        <span className = 'font-sans font-medium text-[#161E54] text-lg'>Welcome Back, <span className = 'font-sans font-medium text-[#161E54] text-lg'>{user && user?.firstName?.charAt(0).toUpperCase() + user.firstName.slice(1) }</span></span>
                     </div>
                 </div>
                 <div className = "flex md:hidden">
@@ -115,20 +118,16 @@ const Navbar = () => {
                      )}
                      <div
                       ref = {sidebarRef}
-                      className={`fixed top-0 right-0 min-h-screen border-l-1 border-[#F1F1F1] w-[80%] bg-white z-50 transform transition-transform duration-200 ${isOpen ? "-translate-x-0" : "translate-x-full"}`}>
-                         <div className = 'py-4 '>
+                      className={`fixed top-0 right-0 min-h-screen  overflow-y-auto border-l-1 border-[#F1F1F1] w-[80%] bg-white z-50 transform transition-transform duration-200 ${isOpen ? "-translate-x-0" : "translate-x-full"}`}>
+                        <SimpleBar style={{ maxHeight: '100vh' }}>
+                         <div className = 'py-4 min-h-screen   flex flex-col justify-between '>
                              <div className = 'flex flex-col gap-8'>
-                              <div className = 'flex flex-col gap-3'>
-                               <div className = 'border-b-1 border-[#EBEEF1] pb-3'>
+                              <div className = 'flex flex-col z-999 bg-white sticky top-0 gap-3'>
+                               <div className = 'border-b-1 border-[#EBEEF1]  pb-3'>
                                   <div className = 'flex justify-between items-center px-4 '>
-                                    <div className = 'flex gap-1 '>
-                                       <div className = 'w-full h-full'>
-                                          <img src= {Hrlogo} className = 'w-[35px] h-[35px]' alt="hr-logo"/>
-                                      </div>
-                                      <div>
-                                         <h1 className = 'mt-[-1px] font-medium font-san-sef text-[0.93rem] text-[#343536]'>HR Manager</h1>
-                                         <p className = 'mt-[-5px] font-normal font-sans text-[13px] text-[#ACACAC]'>{user && user?.email}</p>
-                                      </div>
+                                    <div className = 'flex gap-1 items-center '>
+                                       <img src= {Hrlogo} className = 'w-[35px] h-[35px]' alt="hr-logo"/>
+                                       <h1 className = 'mt-[-1px] font-medium font-san-sef text-base text-[#343536]'>HR Manager</h1>
                                    </div>
                                     <div onClick={() => setIsOpen(false)}>
                                        <img src= {closemenu} className = 'w-6 h-6' alt=""/>
@@ -171,12 +170,37 @@ const Navbar = () => {
                                      </NavLink>
                                      )
                                   })}
+                               </div>
+                            </div>
+                         </div>
+                         {/*  */}
+                         <div className = 'px-4 bg-[#F1F2F3] py-4 overflow-y-auto' >
+                          <div className = {`flex flex-col h-full gap-6 `}>
+                             <div  className = {` flex items-center`}>
+                               <div onClick = {logout} className = 'cursor-pointer ps-5  flex items-center gap-1'>
+                                 <img src= {Logout} className = 'w-6 h-6' alt=""/>
+                                 <p className = 'font-sans font-normal text-base text-[#8C8C8C]'>Logout</p>
+                               </div>
                              </div>
+                             <div className = ''>
+                             <div className = 'flex gap-2 items-center h bg-white border-1 border-[#E0E0E0] rounded-2xl py-2 px-2'>
+                               <div className = " w-7 h-7 hover:border-3 hover:border-[#78808A] md:w-7 md:h-7 flex justify-center bg-[#3439CA] rounded-full items-center ">
+                                 <span className = 'font-sans text-white font-medium text-xs'>{user && user?.email?.slice(0,2).toUpperCase()}</span>
+                               </div>
+                               <div className = 'flex flex-col gap-[3px]'>
+                                 <div className = ' mb-[-3px]'>
+                                   <span className = 'font-sans font-medium text-[#161E54] text-[0.94rem]'>{user && user?.firstName?.charAt(0).toUpperCase() + user?.firstName?.slice(1) }</span>
+                                   {/* <span className = 'font-sans font-medium text-[#161E54] text-[0.94rem]'>{user && user?.lastName?.charAt(0).toUpperCase() + user?.lastName?.slice(1) }</span> */}
+                                 </div>
+                                 <p className = 'mt-[-5px] font-normal font-sans text-xs text-[#ACACAC]'>{user && user?.email}</p>
+                               </div>
+                              </div>
+                             </div>
+                           </div>
+                         </div>
                          </div>
 
-                             </div>
-
-                         </div>
+                        </SimpleBar>
                      </div>
                    
                 </div>
@@ -206,14 +230,14 @@ const Navbar = () => {
                          {/* <div className = " w-8 h-8 hover:border-3 hover:border-[#78808A] md:w-9 md:h-9 flex justify-center bg-[#3439CA] rounded-full items-center ">
                              <span className = 'font-sans text-white font-normal text-sm'>{user && user?.email.slice(0,2).toUpperCase()}</span>
                          </div> */}
-                         <div className = " w-full h-full" >
+                         <div className = " w-full cursor-pointer  h-full" >
                             <img src= {profile.profileImage || ladypic} alt="lady-pic" className = " w-10 h-10  md:w-9 md:h-9 rounded-full" />
                          </div>
                             <div className = 'w-2 h-2 p-1 border-2 border-white absolute right-0 bottom-0 bg-[#61ca53] rounded-full'></div>
                          {/* <div className = 'flex flex-col lg:flex hidden'>
                              <div className = 'flex gap-1 mb-[-3px]'>
-                                <span className = 'font-sans font-medium text-[#161E54] text-[0.94rem]'>{user && user.firstName.charAt(0).toUpperCase() + user.firstName.slice(1) }</span>
-                                <span className = 'font-sans font-medium text-[#161E54] text-[0.94rem]'>{user && user.lastName.charAt(0).toUpperCase() + user.lastName.slice(1)}</span>
+                                <span className = 'font-sans font-medium text-[#161E54] text-[0.94rem]'>{user && user?.firstName?.charAt(0).toUpperCase() + user.firstName?.slice(1) }</span>
+                                <span className = 'font-sans font-medium text-[#161E54] text-[0.94rem]'>{user && user?.lastName?.charAt(0).toUpperCase() + user.lastName?.slice(1)}</span>
                              </div>
                              <div className = 'mt-[-4px]'>
                                 <span className = 'font-normal font-sans text-sm text-[#78808A]'>{user && user.role}</span>

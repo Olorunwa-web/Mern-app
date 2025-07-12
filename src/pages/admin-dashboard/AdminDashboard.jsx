@@ -10,6 +10,10 @@ import Navbar from '../../Layout/Navbar';
 import AuthContext from "../../context/AuthContext";
 import leftvisible from '../../assets/dock_to_left_20dp_ACACAC_FILL0_wght400_GRAD0_opsz20.svg';
 import Logout from '../../assets/logout_20dp_ACACAC_FILL0_wght400_GRAD0_opsz20.svg';
+import 'simplebar-react/dist/simplebar.min.css';
+import SimpleBar from 'simplebar-react';
+
+
 
 const AdminDashboard = () => {
   const {user} = useContext(AuthContext)
@@ -39,9 +43,10 @@ const AdminDashboard = () => {
   }, [location]);
     return (
         <>
-                <section className = "admin-dashboard- flex min-h-screen w-full  ">
-                    <aside className = {`fixed top-0 left- bg-white h-screen ${open ? "w-64 md:w-60 p-4 " : "w-16 px-3 py-4  "} transition-all duration-300 md:block hidden overflow-hidden border-r-1 border-[#EBEEF1] `}>
-                      <div className = 'flex flex-col  gap-12 h-9/10 '>
+                <section className = "admin-dashboard- flex min-h-screen w-full ">
+                    <section className = {`fixed top-0  h-full  overflow-y-auto bg-white min-h-scree ${open ? "lg:w-67 md:w-66 p-4 flex  " : "w-17 px-3 py-4  "} transition-all duration-300 md:block hidden overflow-hidden border-r-1 border-[#EBEEF1] `}>
+                      <div className = 'flex flex-col justify-between h-full'>
+                      <div className = 'flex flex-col  gap-12  '>
                         <div className = {`flex items-center ${open ? 'justify-between' : 'justify-center'}  py-1`}>
                            <div className = {`flex gap-1 items-center ${open ? "block" : "hidden"}   `}>
                                 <img src= {Hrlogo} className = 'w-[34px] h-[34px]' alt="hr-logo"/>
@@ -50,11 +55,11 @@ const AdminDashboard = () => {
                            </div>
                            <div   onClick = {()=> setOpen(!open)} >
                              {open ? (
-                               <div className = 'w-[23px] h-[23px]'>
+                               <div className = 'cursor-pointer w-[23px] h-[23px]'>
                                  <img src= {leftvisible} className = 'w-full h-full' alt=""/>
                                </div>
                                ) : (
-                                 <div className = 'w-[38px] h-[38px] '>
+                                 <div className = 'cursor-pointer w-[38px] h-[38px] '>
                                    <img src= {Hrlogo} alt="" className = 'w-full h-full '/>
                                  </div>
                              )}
@@ -86,21 +91,45 @@ const AdminDashboard = () => {
                              </div>
                          </div>
                       </div>
-                      <div className = {`h-1/10  flex flex-col  ${open ? 'justify-around rounded-lg bg-[#F1F2F3]' : 'justify-center items-center'} `} onClick = {logout}>
+                      <div className = {`flex flex-col  ${open ? 'justify-between items-center rounded-lg bg-[#F1F2F3] lg:p-4 md:p-3' : 'justify-center items-center'} `} >
                         {open ? (
-                          <div className = {`flex items-center gap-1 ${open ? 'ps-4' : ''}`}>
-                            <img src= {Logout} className = 'w-7 h-7' alt=""/>
-                            <p className = 'font-sans font-normal text- text-[#343536]'>Logout</p>
-                          </div>
+                          <div className = {`flex flex-col gap-4 h-full justify-betweeen `}>
+                             <div  className = {` flex items-center  ${open ? '' : ''}`}>
+                               <div onClick = {logout} className = 'cursor-pointer flex items-center gap-1'>
+                                 <img src= {Logout} className = 'w-6 h-6' alt=""/>
+                                 <p className = 'font-sans font-normal text-[0.98rem] text-[#8C8C8C]'>Logout</p>
+                               </div>
+                             </div>
+                             <div className = ' flex justify-center items-end'>
+                             <div className = 'flex gap-2 items-center h bg-white border-1 border-[#E0E0E0] rounded-2xl py-2 px-2'>
+                               <div className = " w-7 h-7 hover:border-3 hover:border-[#78808A] md:w-7 md:h-7 flex justify-center bg-[#3439CA] rounded-full items-center ">
+                                 <span className = 'font-sans text-white font-medium text-xs'>{user && user?.email?.slice(0,2).toUpperCase()}</span>
+                               </div>
+                               <div className = 'flex flex-col gap-[3px]'>
+                                 <div className = ' mb-[-3px]'>
+                                   <span className = 'font-sans font-medium text-[#161E54] text-[0.94rem]'>{user && user?.firstName?.charAt(0).toUpperCase() + user?.firstName?.slice(1) }</span>
+                                 </div>
+                                 <p className = 'mt-[-5px] font-normal font-sans text-xs text-[#ACACAC]'>{user && user?.email}</p>
+                               </div>
+                              </div>
+                             </div>
+                           </div>
+                          
                           ) : (
-                            <div className = ' flex justify-center rounded-md bg-[#F1F2F3] p-1 mx-1 items-center'> 
-                              <img src= {Logout} alt="" className = 'w-7 h-7'/>
-                            </div>
+                            <div className = 'flex flex-col gap-4 justify-center items-center mb-2'>
+                              <div onClick = {logout} className = ' flex justify-center rounded-md bg-[#F1F2F3] p-1 mx-1 items-center'> 
+                                <img src= {Logout} alt="" className = 'w-6 h-6'/>
+                              </div>
+                              <div className = " w-7 h-7 hover:border-3 hover:border-[#78808A] md:w-8 md:h-8 flex justify-center bg-[#3439CA] rounded-full items-center ">
+                                <span className = 'font-sans text-white font-medium text-xs'>{user && user?.email?.slice(0,2).toUpperCase()}</span>
+                              </div>
+                             </div>
                         )}
                       </div>
-                    </aside>
+                      </div>
+                    </section>
                     {/* section-2 */}
-                    <section className = {`admin-dashboard-section- max-w-full flex-1  border-red-400 ${open ? 'md:ml-60 ml-64  ' : 'md:ml-16'}`}>
+                    <section className = {`admin-dashboard-section- max-w-full flex-1  border-red-400 ${open ? 'md:ml-66 lg:ml-67  ' : 'md:ml-17'}`}>
                         <Navbar/>
                         <Outlet/>
                     </section>
