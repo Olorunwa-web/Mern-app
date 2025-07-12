@@ -119,8 +119,8 @@ const Navbar = () => {
                      <div
                       ref = {sidebarRef}
                       className={`fixed top-0 right-0 min-h-screen  overflow-y-auto border-l-1 border-[#F1F1F1] w-[80%] bg-white z-50 transform transition-transform duration-200 ${isOpen ? "-translate-x-0" : "translate-x-full"}`}>
-                        <SimpleBar style={{ maxHeight: '100vh' }}>
-                         <div className = 'py-4 min-h-screen   flex flex-col justify-between '>
+                        <SimpleBar style={{ maxHeight: '100vh'}}>
+                         <div className = 'py-4 h-full flex flex-col justify-between gap-10 '>
                              <div className = 'flex flex-col gap-8'>
                               <div className = 'flex flex-col z-999 bg-white sticky top-0 gap-3'>
                                <div className = 'border-b-1 border-[#EBEEF1]  pb-3'>
