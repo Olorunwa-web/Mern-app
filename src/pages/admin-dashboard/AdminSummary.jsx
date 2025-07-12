@@ -3,7 +3,7 @@ import {Dashboard} from '../../db'
 import '../../Style/AdminSummary.css'
 import {DashboardPages} from '../../db'
 import axios from "axios"
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import peopleImg from "../../assets/Frame 7 (4).svg"
 import taskImg from "../../assets/Frame 7 (1).svg"
 import calenderImg from "../../assets/Frame 7 (2).svg"
@@ -11,7 +11,7 @@ import { useEffect } from 'react';
 import Loader from "../../utils/Loader"
 import dashboardimage from "../../assets/dashboard_31dp_314D1C_FILL0_wght400_GRAD0_opsz24.svg"
 import dashboarddelete  from "../../assets/delete_31dp_EA3323_FILL0_wght400_GRAD0_opsz24.svg"
-
+import OpenContext from '../../context/OpenContext'
 
 const AdminSummary = () => {
     const [data, setData] = useState([])
@@ -22,6 +22,7 @@ const AdminSummary = () => {
     const [error, setError] = useState(null)
     const [showModal, setShowModal] = useState(false);
     const [isLoading,setIsLoading] = useState(false);
+    const { open } = useContext(OpenContext);
 
     const getCounts = async ()=>{
         try {
@@ -112,27 +113,29 @@ const AdminSummary = () => {
 
     return (
         <>
-            <main className = "summary-container">
-                {/* <section className = "pt-3">
-                    <h1 className = "dash mb-2">Dashboard</h1>
-                    <div className = "d-flex  justify-content-between  dashboard-flexx d-lg-flex flex-md-wrap" >
+            <main className = "px-3 md:px-0 lg:px-0 w-19/20 mx-auto max-w-full">
+              <section className = ''>
+
+                <section className = "py-6">
+                    <h1 className = "mb-3 font-inter text-xl text-[#161E54] font-medium  ">Dashboard</h1>
+                    <div className = "flex flex-col gap-7 md:gap-6 lg:gap- w-full md:flex-wrap md:flex-row lg:flex-row  justify-between" >
                     {data.map((Dashboard)=>{
                         const { title, count} = Dashboard
                         return(
-                                <div key = {title} className = "d-flex justify-content-between dashboard-flex">
-                                    <div className = "total">
-                                        <h6>{title}</h6>
-                                        <h1>{count} </h1>
+                                <div key = {title} className = {`flex w-full xl:w-[32%] py-3 px-4 ${open ? 'md:w-full lg:w-[48%] ' : 'md:w-[48%] lg:w-[48%] '} justify-between items-center border-1 border-[#F1F2F3] rounded-[10px]`}>
+                                    <div className = "flex flex-col gap-4 ">
+                                        <h6 className = 'font-sans font-medium text-base text-[#706D6D] '>{title}</h6>
+                                        <h1 className = 'font-poppins font-semibold text-3xl text-[#1E1E1E]'>{count} </h1>
                                     </div>
                                     <div>
-                                      {title === "Total Employees" ?   <img src={peopleImg} className = 'people-img' alt="event-img" loading="lazy" /> :title === "Total Tasks" ? <img src={taskImg} alt="event-img" className = 'people-img' loading="lazy" /> :<img src={calenderImg} alt="event-img" className = 'people-img' loading="lazy" /> }
+                                      {title === "Total Employees" ?   <img src={peopleImg} className = 'w-16 h-16' alt="event-img" loading="lazy" /> :title === "Total Tasks" ? <img src={taskImg} alt="event-img" className = 'w-16 h-16' loading="lazy" /> :<img src={calenderImg} alt="event-img" className = 'w-16 h-16' loading="lazy" /> }
                                     </div>
                                 </div>
                             )  
                     })}
 
                     </div>
-                </section> */}
+                </section>
                 <section className = "dashboard-task my-4">
                     {/* <h2 className = "heading-3 pt-3 pb-1 ps-3">Taskboard</h2> */}
                     <div className = "place-ment employee-table"> 
@@ -255,6 +258,7 @@ const AdminSummary = () => {
         </Modal> */}
                     </div>
                 </section>
+              </section>
             </main>
         </>
     )

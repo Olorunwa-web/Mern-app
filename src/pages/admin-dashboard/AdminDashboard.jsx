@@ -12,13 +12,13 @@ import leftvisible from '../../assets/dock_to_left_20dp_ACACAC_FILL0_wght400_GRA
 import Logout from '../../assets/logout_20dp_ACACAC_FILL0_wght400_GRAD0_opsz20.svg';
 import 'simplebar-react/dist/simplebar.min.css';
 import SimpleBar from 'simplebar-react';
-
+import OpenContext from '../../context/OpenContext'
 
 
 const AdminDashboard = () => {
   const {user} = useContext(AuthContext)
 
-  const [open, setOpen] = useState(true);
+  const { open, setOpen } = useContext(OpenContext);
   // const [isOpen, setisOpen] = useState(true);
 
   const [isTrue, setisTrue] = useState(false)
@@ -43,12 +43,12 @@ const AdminDashboard = () => {
   }, [location]);
     return (
         <>
-                <section className = "admin-dashboard- flex min-h-screen w-full ">
-                    <section className = {`fixed top-0  h-full  overflow-y-auto bg-white min-h-scree ${open ? "lg:w-67 md:w-66 p-4 flex  " : "w-17 px-3 py-4  "} transition-all duration-300 md:block hidden overflow-hidden border-r-1 border-[#EBEEF1] `}>
+                <section className = "admin-dashboard-  flex  min-h-screen   ">
+                    <section className = {`fixed top-0  h-full  overflow-y-auto bg-white min-h-scree ${open ? "lg:w-67 md:w-64 p-4 flex  " : "w-17 px-3 py-4  "} transition-all duration-300 md:block hidden overflow-hidden border-r-1 border-[#EBEEF1] `}>
                       <div className = 'flex flex-col justify-between h-full'>
                       <div className = 'flex flex-col  gap-12  '>
-                        <div className = {`flex items-center ${open ? 'justify-between' : 'justify-center'}  py-1`}>
-                           <div className = {`flex gap-1 items-center ${open ? "block" : "hidden"}   `}>
+                        <div className = {`flex items-center  bg-white z-999 sticky top-0 ${open ? 'justify-between' : 'justify-center'}  py-1`}>
+                           <div className = {`flex gap-1 items-center  ${open ? "block" : "hidden"}   `}>
                                 <img src= {Hrlogo} className = 'w-[34px] h-[34px]' alt="hr-logo"/>
                                   <h1 className = ' font-medium font-san-sef text-[0.96rem] text-[#343536]'>HR Manager</h1>
                                   {/* <p className = 'mt-[-5px] font-normal font-sans text-xs text-[#ACACAC]'>{user && user?.email}</p> */}
@@ -129,7 +129,7 @@ const AdminDashboard = () => {
                       </div>
                     </section>
                     {/* section-2 */}
-                    <section className = {`admin-dashboard-section- max-w-full flex-1  border-red-400 ${open ? 'md:ml-66 lg:ml-67  ' : 'md:ml-17'}`}>
+                    <section className = {`admin-dashboard-section- max-w-full flex-1 border-2 border-red-400 ${open ? 'md:ml-64 lg:ml-67  ' : 'md:ml-17'}`}>
                         <Navbar/>
                         <Outlet/>
                     </section>

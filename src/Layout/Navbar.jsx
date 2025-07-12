@@ -101,8 +101,8 @@ const Navbar = () => {
 
     return (
         <>
-            <nav className = "sticky w-full top-0 z-999 mt-1 border-b-1 border-[#F1F1F1]  navbar-contai ">
-                <div className = ' flex justify-between items-center px-4 md:px-[1.5rem]  xl:px-[2rem] py-3 md:py-3 '>
+            <nav className = "sticky w-full top-0 z-999 mt-1  border-b-1 border-[#F1F1F1]  navbar-contai ">
+                <div className = ' flex justify-between  items-center px-3 md:px-0 lg:px-0 w-19/20 mx-auto max-w-full py-3 md:py-3 '>
                 <div className = 'flex items-center gap-1 hidden lg:flex'>
                     <img src= {handwave} className = 'w-6 h-6' alt=""/>
                     <div>
