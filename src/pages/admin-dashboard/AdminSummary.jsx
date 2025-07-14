@@ -135,9 +135,16 @@ const AdminSummary = () => {
       }
 
       const handleOpenModal = (_id) => {
-        setIsModalOpen(true);        
+        setIsOpen(true);        
         getTaskById(_id);         
       };
+
+      // const handleOpenModal = async (_id) => {
+      //   setIsOpen(true);
+      //   setIsLoading(true);
+      //   await getTaskById(_id);
+      //   setIsLoading(false);
+      // };
 
     return (
         <>
@@ -221,7 +228,7 @@ const AdminSummary = () => {
                            </td>
                            <td className = "">
                              <div className = "flex  gap-2 ">
-                               <img className = 'w-5 h-5' src= {dashboardimage} alt="" role = "button" onClick = {()=>{ setIsOpen(true); getTaskById(_id);}}/>
+                               <img className = 'w-5 h-5' src= {dashboardimage} alt="" role = "button" onClick = {()=> handleOpenModal(_id)}  />
                                <img className = 'w-5 h-5' src= {dashboarddelete} alt="" role = "button" onClick = {()=>deleteTask(_id)} />
                              </div>
                            </td>
@@ -237,7 +244,7 @@ const AdminSummary = () => {
 
                     {isOpen && (
                         <div className="fixed inset-0 px-4 md:px-0 bg-black/60 flex items-center justify-center z-50">
-                        <div ref={modalRef} className="bg-white rounded-xl shadow-lg  w-full max-w-2xl text-center">
+                        <div ref={modalRef} onClick={(e) => e.stopPropagation()} className="bg-white rounded-xl shadow-lg transform transition-all duration-100 ease-in-out  opacity-100 animate-modalFade w-full max-w-2xl text-center">
                           <div className = 'flex  py-3 px-4 justify-between items-center border-b-1 border-[#D9D9D9] '>
                             <h2 className = 'font-sans font-semibold text-xl '>Task Details</h2>
                             <img src= {cancel} onClick={() => setIsOpen(false)} className = 'w-7 h-7' alt=""/>
@@ -245,13 +252,13 @@ const AdminSummary = () => {
                           <div>
                             {selectedTask ? (
                               <>
-                               <section className = 'm-4 flex flex-col gap-3  md:w-8/9 max-w-full'>
-                                <div className = "flex w-full flex-col md:flex-row gap-y-4 justify-between ">
-                                    <div className =  "flex md:gap-6 md:w-4/6 w-full   align-items-center justify-between ">
+                               <section className = 'm-4 py-2 flex flex-col gap-3  md:w-8/9 max-w-full'>
+                                <div className = "flex w-full flex-col md:flex-row gap-x- gap-y-4 justify-between ">
+                                    <div className =  "flex md:gap-6 md:w-4/8  w-full   align-items-center justify-between ">
                                        <span className = "font-sans font-normal text-sm md:text-base text-[#747474]">Task Name:</span>
                                        <span className = "font-sans font-medium text-sm md:text-base text-[#1A1A1A]">{selectedTask.title}</span>
                                     </div>
-                                    <div className = "flex md:gap-10 border md:w-2/6 w-full align-items-center justify-between  ">
+                                    <div className = "flex md:gap-10  md:w-3/8 w-full align-items-center justify-between  ">
                                        <span className = "font-sans font-normal text-sm md:text-base text-[#747474]">Team:</span>
                                        <div>
                                           {selectedTask.assignedMembers.map((img)=>{
@@ -263,32 +270,32 @@ const AdminSummary = () => {
                                      </div>
                                 </div>
                                 <div className = "flex w-full flex-col md:flex-row gap-y- justify-between ">
-                                    <div className =  "flex md:gap-6 w-full md:w-4/6 align-items-center justify-between md:justify-star ">
+                                    <div className =  "flex md:gap-6 w-full md:w-4/8 align-items-center justify-between md:justify-star ">
                                        <span className = "font-sans font-normal text-sm md:text-base text-[#747474]">Start Date:</span>
                                        <span className = "font-sans font-medium text-sm md:text-base text-[#1A1A1A]">{selectedTask.startDate.slice(0, 10)}</span>
                                     </div>
-                                    <div className =  "flex md:gap w-full md:w-2/6 align-items-center justify-between ">
+                                    <div className =  "flex md:gap w-full md:w-3/8 align-items-center justify-between ">
                                        <span className = "font-sans font-normal text-sm md:text-base text-[#747474]">End Date:</span>
                                        <span className = "font-sans font-medium text-sm md:text-base text-[#1A1A1A]">{selectedTask.endDate.slice(0, 10)}</span>
                                     </div>
                                 </div>
                                 <div className = "flex w-full flex-col md:flex-row gap-y-4  md:justify-between ">
-                                    <div className =  "flex md:gap-6 w-full md:w-4/6 align-items-center justify-between md:justify-start ">
+                                    <div className =  "flex md:gap-6 w-full md:w-4/8 align-items-center justify-between md:justify-star ">
                                        <span className = "font-sans font-normal text-sm md:text-base text-[#747474]">Assigned Member:</span>
                                        <span className = "font-sans font-medium text-sm md:text-base text-[#1A1A1A]">{selectedTask.assignedMembers.map(member => `${member.firstName}`).join(', ')}</span>
                                     </div>
-                                    <div className =  "flex md:gap w-full md:w-2/6 align-items-center justify-between ">
+                                    <div className =  "flex md:gap w-full md:w-3/8 align-items-center justify-between ">
                                        <span className = "font-sans font-normal text-sm md:text-base text-[#747474]">Status:</span>
                                        <span className = {` font-inter font-regular text-sm rounded-full px-4 py-1
-                                   ${selectedTask.status.toLowerCase() === "planned"  ? "bg-[#FFF5E3] text-[#F29B07]  " :
-                                     selectedTask.status.toLowerCase() === "completed" ? "bg-[#E5FFF7] text-[#0D805D]" :
-                                     selectedTask.status.toLowerCase() === "in progress" ? "bg-[#9DD2EF42]  text-[#137FF2] " :
-                                     ""
-                                  } 
-                               
-                               `}>{selectedTask.status}</span>
+                                          ${selectedTask.status.toLowerCase() === "planned"  ? "bg-[#FFF5E3] text-[#F29B07]  " :
+                                          selectedTask.status.toLowerCase() === "completed" ? "bg-[#E5FFF7] text-[#0D805D]" :
+                                          selectedTask.status.toLowerCase() === "in progress" ? "bg-[#9DD2EF42]  text-[#137FF2] " :
+                                          ""
+                                        } 
+                                     `}>{selectedTask.status}</span>
                                     </div>
                                 </div>
+                                <hr className = 'border-[#00000017] py-3'/>
                                </section>
                               </>
                               ) : (
