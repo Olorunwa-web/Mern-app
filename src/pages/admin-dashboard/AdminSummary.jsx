@@ -170,7 +170,7 @@ const AdminSummary = () => {
                              <span className = 'font-inter font-medium text-sm text-[#292929]'>{title}</span>
                            </td>
                            <td className = {` ${open ? 'md:whitespace-nowra' : ''}`}>
-                             <div className =  ' flex -space-x-1 overflow-hidden'>
+                             <div className =  ' flex -space-x-[2px] overflow-hidden'>
                                {dashboards.assignedMembers.map((img)=>{
                                    return(
                                         <img src={img.profileImage} key = {img._id} alt=""  className = "inline-block h-6 w-6 rounded-full ring-2 ring-white"/>
