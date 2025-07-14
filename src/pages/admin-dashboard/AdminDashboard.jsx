@@ -101,7 +101,7 @@ const AdminDashboard = () => {
                                </div>
                              </div>
                              <div className = ' flex justify-center items-end'>
-                             <div className = 'flex gap-2 items-center h bg-white border-1 border-[#E0E0E0] rounded-2xl py-2 px-2'>
+                             <div className = 'flex gap-2 items-center h bg-white border-1 border-[#E0E0E0] rounded-lg py-2 px-2'>
                                <div className = " w-7 h-7 hover:border-3 hover:border-[#78808A] md:w-7 md:h-7 flex justify-center bg-[#3439CA] rounded-full items-center ">
                                  <span className = 'font-sans text-white font-medium text-xs'>{user && user?.email?.slice(0,2).toUpperCase()}</span>
                                </div>
