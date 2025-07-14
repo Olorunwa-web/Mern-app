@@ -96,8 +96,8 @@ const AdminDashboard = () => {
                           <div className = {`flex flex-col gap-4 h-full justify-betweeen `}>
                              <div  className = {` flex items-center  ${open ? '' : ''}`}>
                                <div onClick = {logout} className = 'cursor-pointer flex items-center gap-1'>
-                                 <img src= {Logout} className = 'w-6 h-6' alt=""/>
-                                 <p className = 'font-sans font-normal text-[0.98rem] text-[#8C8C8C]'>Logout</p>
+                                 <img src= {Logout} className = 'w-5 h-5' alt=""/>
+                                 <p className = 'font-sans font-normal text-[0.92rem] text-[#8C8C8C]'>Logout</p>
                                </div>
                              </div>
                              <div className = ' flex justify-center items-end'>

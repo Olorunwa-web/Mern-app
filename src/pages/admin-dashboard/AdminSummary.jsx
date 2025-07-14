@@ -7,14 +7,14 @@ import { useState, useContext } from 'react';
 import peopleImg from "../../assets/Frame 7 (4).svg"
 import taskImg from "../../assets/Frame 7 (1).svg"
 import calenderImg from "../../assets/Frame 7 (2).svg"
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import Loader from "../../utils/Loader"
 import dashboardimage from "../../assets/dashboard_31dp_314D1C_FILL0_wght400_GRAD0_opsz24.svg"
 import dashboarddelete  from "../../assets/delete_31dp_EA3323_FILL0_wght400_GRAD0_opsz24.svg"
 import OpenContext from '../../context/OpenContext';
 import 'simplebar-react/dist/simplebar.min.css';
 import SimpleBar from 'simplebar-react';
-
+import cancel from '../../assets/Stockholm-icons (11).svg'
 const AdminSummary = () => {
     const [data, setData] = useState([])
     const [data2, setData2] = useState([])
@@ -25,6 +25,28 @@ const AdminSummary = () => {
     const [showModal, setShowModal] = useState(false);
     const [isLoading,setIsLoading] = useState(false);
     const { open } = useContext(OpenContext);
+    const [isOpen, setIsOpen] = useState(false);
+    const modalRef = useRef();
+
+
+    useEffect(() => {
+      function handleClickOutside(event) {
+        if (modalRef.current && !modalRef.current.contains(event.target)) {
+          setIsOpen(false);
+        }
+      }
+  
+      if (isOpen) {
+        document.addEventListener("mousedown", handleClickOutside);
+      } else {
+        document.removeEventListener("mousedown", handleClickOutside);
+      }
+  
+      return () => {
+        document.removeEventListener("mousedown", handleClickOutside);
+      };
+    }, [isOpen]);
+
 
     const getCounts = async ()=>{
         try {
@@ -112,6 +134,10 @@ const AdminSummary = () => {
         }
       }
 
+      const handleOpenModal = (_id) => {
+        setIsModalOpen(true);        
+        getTaskById(_id);         
+      };
 
     return (
         <>
@@ -137,11 +163,11 @@ const AdminSummary = () => {
                            })}
                      </div>
                 </section>
-                <section className = "mt-5 border-[0.5px] border-[#E4E8ED] rounded-lg"> 
+                <section className = "my-5 border-[0.1px] border-[#E4E8ED] rounded-lg"> 
                     <h2 className = "font-inter font-medium text-xl ps-4 py-2  borde text-[#292929] ">Taskboard</h2>
                     <SimpleBar forceVisible="x" autoHide={false} style={{ maxWidth: '100%' }}>
                    <div className = "min-w-[1000px] w-full"> 
-                    <table  className=" table-auto w-full ">
+                    <table  className=" table-auto w-full border-[0.5px] border-[#E4E8ED] rounded-lg ">
                       <thead className = " ">
                         <tr className = 'text-left bg-[#F7F9FB] rounded  '>
                           <th className = 'whitespace-nowra py-2 ps-4 font-inter font-medium text-base text-[#292929]'>
@@ -166,7 +192,7 @@ const AdminSummary = () => {
                           const{_id, title,assignedMembers,startDate,endDate,status} = dashboards
                           return(   
                          <tr key = {_id}  className=" bg-white shadow-sm hover:bg-[#F7F9FB] transition duration-200">
-                           <td className = "px-4   ps-4 whitespace-nowrap">
+                           <td className = "px-4 ps-4 whitespace-nowrap">
                              <span className = 'font-inter font-medium text-sm text-[#292929]'>{title}</span>
                            </td>
                            <td className = {` ${open ? 'md:whitespace-nowra' : ''}`}>
@@ -195,7 +221,7 @@ const AdminSummary = () => {
                            </td>
                            <td className = "">
                              <div className = "flex  gap-2 ">
-                               <img className = 'w-5 h-5' src= {dashboardimage} alt="" role = "button" onClick = {()=>getTaskById(_id)}/>
+                               <img className = 'w-5 h-5' src= {dashboardimage} alt="" role = "button" onClick = {()=>{ setIsOpen(true); getTaskById(_id);}}/>
                                <img className = 'w-5 h-5' src= {dashboarddelete} alt="" role = "button" onClick = {()=>deleteTask(_id)} />
                              </div>
                            </td>
@@ -206,6 +232,74 @@ const AdminSummary = () => {
                     </table>
                     </div>
                     </SimpleBar>
+
+                    {/*  */}
+
+                    {isOpen && (
+                        <div className="fixed inset-0 px-4 md:px-0 bg-black/60 flex items-center justify-center z-50">
+                        <div ref={modalRef} className="bg-white rounded-xl shadow-lg  w-full max-w-2xl text-center">
+                          <div className = 'flex  py-3 px-4 justify-between items-center border-b-1 border-[#D9D9D9] '>
+                            <h2 className = 'font-sans font-semibold text-xl '>Task Details</h2>
+                            <img src= {cancel} onClick={() => setIsOpen(false)} className = 'w-7 h-7' alt=""/>
+                          </div>
+                          <div>
+                            {selectedTask ? (
+                              <>
+                               <section className = 'm-4 flex flex-col gap-3  md:w-8/9 max-w-full'>
+                                <div className = "flex w-full flex-col md:flex-row gap-y-4 justify-between ">
+                                    <div className =  "flex md:gap-6 md:w-4/6 w-full   align-items-center justify-between ">
+                                       <span className = "font-sans font-normal text-sm md:text-base text-[#747474]">Task Name:</span>
+                                       <span className = "font-sans font-medium text-sm md:text-base text-[#1A1A1A]">{selectedTask.title}</span>
+                                    </div>
+                                    <div className = "flex md:gap-10 border md:w-2/6 w-full align-items-center justify-between  ">
+                                       <span className = "font-sans font-normal text-sm md:text-base text-[#747474]">Team:</span>
+                                       <div>
+                                          {selectedTask.assignedMembers.map((img)=>{
+                                             return(
+                                              <img src={img?.profileImage} alt="" className = "inline-block h-6 w-6 rounded-full ring-2 ring-white" />
+                                              )
+                                          })}
+                                        </div>
+                                     </div>
+                                </div>
+                                <div className = "flex w-full flex-col md:flex-row gap-y- justify-between ">
+                                    <div className =  "flex md:gap-6 w-full md:w-4/6 align-items-center justify-between md:justify-star ">
+                                       <span className = "font-sans font-normal text-sm md:text-base text-[#747474]">Start Date:</span>
+                                       <span className = "font-sans font-medium text-sm md:text-base text-[#1A1A1A]">{selectedTask.startDate.slice(0, 10)}</span>
+                                    </div>
+                                    <div className =  "flex md:gap w-full md:w-2/6 align-items-center justify-between ">
+                                       <span className = "font-sans font-normal text-sm md:text-base text-[#747474]">End Date:</span>
+                                       <span className = "font-sans font-medium text-sm md:text-base text-[#1A1A1A]">{selectedTask.endDate.slice(0, 10)}</span>
+                                    </div>
+                                </div>
+                                <div className = "flex w-full flex-col md:flex-row gap-y-4  md:justify-between ">
+                                    <div className =  "flex md:gap-6 w-full md:w-4/6 align-items-center justify-between md:justify-start ">
+                                       <span className = "font-sans font-normal text-sm md:text-base text-[#747474]">Assigned Member:</span>
+                                       <span className = "font-sans font-medium text-sm md:text-base text-[#1A1A1A]">{selectedTask.assignedMembers.map(member => `${member.firstName}`).join(', ')}</span>
+                                    </div>
+                                    <div className =  "flex md:gap w-full md:w-2/6 align-items-center justify-between ">
+                                       <span className = "font-sans font-normal text-sm md:text-base text-[#747474]">Status:</span>
+                                       <span className = {` font-inter font-regular text-sm rounded-full px-4 py-1
+                                   ${selectedTask.status.toLowerCase() === "planned"  ? "bg-[#FFF5E3] text-[#F29B07]  " :
+                                     selectedTask.status.toLowerCase() === "completed" ? "bg-[#E5FFF7] text-[#0D805D]" :
+                                     selectedTask.status.toLowerCase() === "in progress" ? "bg-[#9DD2EF42]  text-[#137FF2] " :
+                                     ""
+                                  } 
+                               
+                               `}>{selectedTask.status}</span>
+                                    </div>
+                                </div>
+                               </section>
+                              </>
+                              ) : (
+                              <Loader/>
+                            )}
+                            
+                          </div>
+                        </div>
+                      </div>
+                    )}
+
                     {/* <Modal size = "lg" show={showModal} onHide={() => setShowModal(false)} centered>
           <Modal.Header closeButton>
             <Modal.Title  className = "profile-h2">Task Details</Modal.Title>
