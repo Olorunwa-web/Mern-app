@@ -2,76 +2,19 @@ import React from 'react'
 import {Taskboard} from '../../Taskboard'
 import {DashboardPages} from '../../db'
 import '../../Style/Taskboard.css'
-import ModalTask from '../../Components/ModalTask'
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext, useRef } from 'react';
 import arrowDown from '../../assets/Frame 10.svg';
-import ModalTasks from '../../Components/ModalTasks';
 import axios from "axios"
 import Loader from "../../utils/Loader"
-import dashboardimage from "../../assets/dashboard_31dp_314D1C_FILL0_wght400_GRAD0_opsz24.svg"
-import dashboarddelete  from "../../assets/delete_31dp_EA3323_FILL0_wght400_GRAD0_opsz24.svg"
-
-
-
-function MyVerticallyCenteredModal(params) {
-    const newtask = params.newtask;
-
-
-    return (
-      <Modal
-        {...params}
-        size="lg"
-        aria-labelledby="contained-modal-title-vcenter"
-        centered
-      >
-        <Modal.Header closeButton>
-          <Modal.Title id="contained-modal-title-vcenter">
-             <h1 className = "profile-h1 ps-3 leave">Task Details</h1>
-          </Modal.Title>
-        </Modal.Header>
-        {newtask && (
-                <Modal.Body>
-                  <section className = "px-3 spacess">
-                      <div className = "d-flex gap-5 align-items-center my-4 fixed">
-                          <div className = "d-flex align-items-center website-width">
-                              <span className = "TEXT">Task Name:</span>
-                              <span className = "TEXT">{newtask.task}</span>
-                          </div>
-                          <div className = "d-flex align-items-center team-width">
-                              <span className = "TEXT">Team:</span>
-                              <img src= {newtask.images} alt="" />
-                          </div>
-                      </div>
-                      <div className = 'd-flex gap-5 my-4'>
-                          <div className = "website-width">
-                              <span className = "TEXT">{newtask.start}</span>
-                          </div>
-                          <div className = "team-width">
-                              <span className = "TEXT">{newtask.end}</span>
-                          </div>
-                      </div>
-                      <div className = "d-flex gap-4 align-items-center my-3">
-                          <div className = "d-flex align-items-center website-width">
-                              <span className = "TEXT">Description:</span>
-                              <span className = "TEXT">Nil</span>
-                          </div>
-                          <div className = "d-flex  align-items-center team-width">
-                              <span className = 'TEXT'>Status:</span>
-                              <div className = "d-flex gap-2">
-                                 <span className = {`action-status ${newtask.action.replace(/\s+/, "-").toLowerCase()}`}>{newtask.action} </span>
-                                 <img src= {arrowDown} alt=""/>
-                              </div>
-                          </div>
-                      </div>
-                  </section>
-                </Modal.Body>
-            )}
-                
-              </Modal>
-    );
-  }
-
-
+import dashboardimage from "../../assets/ellipsis-svgrepo-com.svg"
+import dashboarddelete  from "../../assets/icons8-delete.svg";
+import OpenContext from '../../context/OpenContext';
+import 'simplebar-react/dist/simplebar.min.css';
+import SimpleBar from 'simplebar-react';
+import cancel from '../../assets/Stockholm-icons (11).svg';
+import toast, { LoaderIcon } from "react-hot-toast";
+import add from "../../assets/Stockholm-icons (8).svg";
+import ModalTask from '../../Components/ModalTask'
 
 const TaskBoard = () => {
 
@@ -80,17 +23,41 @@ const TaskBoard = () => {
 
     const [selectedTask, setSelectedTask] = useState(null);
     const [error, setError] = useState(null)
-    const [showModal, setShowModal] = useState(false);
     const [isLoading,setIsLoading] = useState(false);
+    const [isOpen, setIsOpen] = useState(false);
+    const [isOpen2, setIsOpen2] = useState(false)
+     const modalRef = useRef();
 
+     const [isModalOpen, setIsModalOpen] = useState(false);
 
+    const { open } = useContext(OpenContext);
 
+    useEffect(() => {
+      function handleClickOutside(event) {
+        if (modalRef.current && !modalRef.current.contains(event.target)) {
+          setIsOpen(false);
+        }
+      }
+  
+      if (isOpen) {
+        document.addEventListener("mousedown", handleClickOutside);
+      } else {
+        document.removeEventListener("mousedown", handleClickOutside);
+      }
+  
+      return () => {
+        document.removeEventListener("mousedown", handleClickOutside);
+      };
+    }, [isOpen]);
 
-    const [modalShow, setModalShow] = useState(false);
-    const [modalShow1, setModalShow1] = React.useState(false);
-    // const [selectedTask , setselectedTask] = useState(null)
+    // =============== to create new task ============ 
 
+   
 
+// ============================================================================= task
+
+    
+  
     const getTasks = async ()=>{
         try {
             const req = await axios.get("https://mern-backend-1-9jn6.onrender.com/api/task", {
@@ -156,166 +123,189 @@ const TaskBoard = () => {
         }
       }
 
+      const handleOpenModal = (_id) => {
+        setIsOpen(true);        
+        getTaskById(_id);         
+      };
+// ====================== api for create  new task  =======================================================
+
+
+
+// =============================================================
 
 
     return (
         <>
-           <main className = "summary-container mt-2">
-               <section>
-                   <div className = "d-flex justify-content-between align-items-center "> 
-                   <div>
-                        <h1 className = "task-h1">Taskboard</h1>
-                        <h4 className = "dash-h4">Dashboard/Taskboard</h4>
+           <main className = "px-3 md:px-0 lg:px-0 w-19/20 mx-auto max-w-full">
+               <section className = '' >
+                   <div className = "my-5 flex justify-between items-center "> 
+                   <div className = 'flex flex-col gap-1'>
+                        <h1 className = "font-sans text-xl text-[#161E54] font-medium">Taskboard</h1>
+                        <h4 className = "font-sans text-base text-[#404040] font-medium">Dashboard/Taskboard</h4>
                    </div>
                     <div>
-                         <button className = "new-task" onClick={() => setModalShow(true)} >New Task</button>  
-                 </div>
+                         <button className = "bg-[#3439CA] cursor-pointer p-2 rounded-sm text-white font-medium text-sm font-neural " onClick= {() => setIsModalOpen(true)}  >New Task</button>  
                    </div>
-                   <div className = "d-flex justify-content-between taskboard-flexx d-lg-flex flex-md-wrap my-4 ">
+                   </div>
+                   <div className = 'my-6'>
+                   <div className = " flex flex-col gap-7 md:gap-6 lg:gap- w-full md:flex-wrap md:flex-row lg:flex-row  justify-between ">
                        {Taskboard.map((taskss)=>{
                            const {id,names,number,Icons} = taskss
                            return(
-                               <div key = {id} className = " taskboard-flex ">
-                                   <div className = "d-flex justify-content-between" >
-                                       <h5 className = "namess">{names}</h5>
-                                       <img src= {Icons} alt=""/>
+                               <div key = {id} className = {`flex w-full  py-4 px-4 ${open ? 'md:w-full lg:w-[48%] xl:w-[23%] ' : 'md:w-[48%] lg:w-[23%] xl:w-[23%]'} justify-between  border-1 border-[#F1F2F3] rounded-[10px]`}>
+                                   <div className = "flex flex-col gap-4" >
+                                       <h5 className = "font-sans font-medium text-base text-[#2F2B2BB0]">{names}</h5>
+                                       <h1 className = "font-sans font-bold text-[2rem] text-[#1E1E1E]">{number}</h1>
                                    </div>
                                    <div>
-                                       <h1 className = "numbers">{number}</h1>
+                                       <img src= {Icons} className = 'md:w-8 md:h-8' alt=""/>
                                    </div>
                                </div>
                            )
                        })} 
                    </div>
+                   </div>
 
-                   <section className = "dashboard-tasks my-4">
-                    <h2 className = "heading-3 pt-2  ps-3">Taskboard</h2>
-                    <div className = "employee-table"> 
-                    {/* <Table responsive = "lg" hover>
-                      <thead className = "threadd">
-                        <tr>
-                          <th  className = "bg-light">
-                              <span className = "dash-bar ms-2">Task</span>
+                   <section className = "my-5 border-[0.1px] border-[#E4E8ED] rounded-lg"> 
+                    <h2 className = "font-inter font-medium text-xl ps-4 py-2  text-[#292929] ">Taskboard</h2>
+                    <SimpleBar forceVisible="x" autoHide={false} style={{ maxWidth: '100%' }}>
+                   <div className = "min-w-[1000px] w-full"> 
+                    <table  className=" table-auto w-full border-[0.5px] border-[#E4E8ED] rounded-lg ">
+                      <thead className = " ">
+                        <tr className = 'text-left bg-[#F7F9FB]   '>
+                          <th className = 'whitespace-nowra py-2 ps-4 font-inter font-medium text-base text-[#292929]'>
+                              Task
                           </th>
-                          <th  className = "bg-light">
-                              <span className = "dash-bar ">Team</span>
+                          <th className = " py-2  font-inter font-medium text-base text-[#292929]">
+                              Team
                           </th>
-                          <th  className = "bg-light">
-                              <span className = "dash-bar">Duration</span>
+                          <th className = " py-2 font-inter font-medium text-base text-[#292929]">
+                              Duration
                           </th>
-                          <th  className = "bg-light text-center">
-                              <span className = "dash-bar">Action</span>
+                          <th className = "whitespace-nowrap py-2 text-center font-inter font-medium text-base text-[#292929]">
+                              Action
                           </th>
-                          <th className = "text-center bg-light">
-                              <span className = "dash-bar"></span>
+                          <th className = "whitespace-nowrap py-2 font-inter font-medium text-base text-[#292929]">
+                              
                           </th>
                         </tr>
                       </thead>
-                      <tbody>
+                      <tbody className = 'divide-y divide-[#E4E8ED] '>
                       {data2.map((dashboards) =>{
                           const{_id, title,assignedMembers,startDate,endDate,status} = dashboards
                           return(   
-                         <tr key = {_id} className = "">
-                           <td>
-                               <div className = "mt-2 pt-1 ms-2 head">
-                                 <span className = "heading-task">{title}</span> 
-                               </div>
+                         <tr key = {_id}  className=" bg-white shadow-sm hover:bg-[#F7F9FB] transition duration-200">
+                           <td className = "px-4 ps-4 whitespace-nowrap">
+                             <span className = 'font-inter font-medium text-sm text-[#292929]'>{title}</span>
                            </td>
-                           <td>
-                             <div className = "head-pic">
+                           <td className = {` ${open ? 'md:whitespace-nowra' : ''}`}>
+                             <div className =  ' flex -space-x-[2px] overflow-hidden'>
                                {dashboards.assignedMembers.map((img)=>{
                                    return(
-                                        <img src={img.profileImage} key = {img._id} alt=""  className = "k mt-2 pt-1"/>
-                                   )
-                               })}
+                                        <img src={img.profileImage} key = {img._id} alt=""  className = "inline-block h-6 w-6 rounded-full ring-2 ring-white"/>
+                                     )
+                                 })}
                              </div>
                            </td>
-                           <td>
-                               <div className = "mt-2 head-date ">
-                                   <p className = "start">Start: {startDate.slice(0, 10)}</p>
-                                   <p className = "end">End: {endDate.slice(0, 10)}</p>
-                               </div>
+                           <td className = ' flex flex-col whitespace-nowrap'>
+                                 <span className = "font-inter font-normal text-sm text-[#292929]">Start: {startDate.slice(0, 10)}</span>
+                                 <span className = "font-inter font-normal text-sm text-[#8C8C8C]">End: {endDate.slice(0, 10)}</span>
                            </td>
-                           <td>
-                               <div className = "mt-3 text-center ">
-                                 <p className = {`action-status ${status.replace(/\s+/, "-").toLowerCase()}`} >{status}</p>
-                               </div>
+                           <td className = ' whitepsace-nowrap py-3 mx- text-center '>
+                               {/* <span className = {`action-status ${status.replace(/\s+/, "-").toLowerCase()}`} >{status}</span> */}
+                               <span className = {` font-inter font-regular text-sm rounded-full px-4 py-1
+                                   ${status.toLowerCase() === "planned"  ? "bg-[#FFF5E3] text-[#F29B07]  " :
+                                     status.toLowerCase() === "completed" ? "bg-[#E5FFF7] text-[#0D805D]" :
+                                     status.toLowerCase() === "in progress" ? "bg-[#9DD2EF42]  text-[#137FF2] " :
+                                     ""
+                                  } 
+                               
+                               `}>{status}</span>
                            </td>
-                           <td className = " ">
-                             <div className = "d-flex justify-content-center mt-3 gap-2 ">
-                               <img src= {dashboardimage} alt="" role = "button" onClick = {()=>getTaskById(_id)}/>
-                               <img src= {dashboarddelete} alt="" role = "button" onClick = {()=>deleteTask(_id)} />
+                           <td className = "">
+                             <div className = "flex  gap-3 items-center ">
+                               <img className = 'w-5 h-5' src= {dashboarddelete} alt="" role = "button" onClick = {()=>deleteTask(_id)} />
+                               <img className = 'w-6 h-6' src= {dashboardimage} alt="" role = "button" onClick = {()=> handleOpenModal(_id)}  />
                              </div>
                            </td>
                          </tr>
                           )
                       })}
-                    
                      </tbody>
-                    </Table> */}
-                    {/* <Modal size = "lg" show={showModal} onHide={() => setShowModal(false)} centered>
-          <Modal.Header closeButton>
-            <Modal.Title  className = "profile-h2">Task Details</Modal.Title>
-          </Modal.Header>
-          <Modal.Body>
-            {selectedTask ? (
-              <>
-                <div className = "d-flex justify-content-between mt-2 fix mb-3">
-                <div className =  "d-flex align-items-center task-space ">
-                   <h3 className = "task-name">Task Name:</h3>
-                   <h6 className = "api">{selectedTask.title}</h6>
-                </div>
-                <div className = "d-flex align-items-center task-spaces">
-                   <h3 className = "task-name">Team:</h3>
-                   <div>
-                  {selectedTask.assignedMembers.map((img)=>{
-                  return(
-                    <img src={img?.profileImage} alt="" className = "k" />
-                  )
-                })}
-                   </div>
-                </div>
-              </div>
-              <div className = "d-flex justify-content-between  mb-3 fix">
-                <div className =  "d-flex align-items-center task-spacess ">
-                   <h3 className = "task-name">Start Date:</h3>
-                   <h6 className = "api">{selectedTask.startDate.slice(0, 10)}</h6>
-                 </div>
-                <div className =  "d-flex align-items-center task-spacesss">
-                   <h3 className = "task-name">End Date:</h3>
-                   <h6 className = "api">{selectedTask.endDate.slice(0, 10)}</h6>
-                 </div>
-              </div>
-              <div className = "d-flex justify-content-between  mb-3 fix">
-                <div className =  "d-flex align-items-center task-sppace">
-                   <h3 className = "task-name">Description:</h3>
-                   <h6 className = "api">Nil</h6>
-                 </div>
-                <div className =  "d-flex align-items-center task-sppaces">
-                   <h3 className = "task-name">Status:</h3>
-                   <div className = 'task-test'>
-                      <h6 className = {`action-status  ${selectedTask.status.replace(/\s+/, "-").toLowerCase()}`} >{selectedTask.status}</h6>
-                   </div>
-                 </div>
-              </div>
-                <div className =  "d-flex align-items-center gap-4" >
-                   <h3 className = "task-name">Assigned Members:</h3>
-                   <h6 className = "api">{selectedTask.assignedMembers.map(member => `${member.firstName} ${member.lastName}`).join(', ')}</h6>
-                </div>
-              </>
-            ) : (
-              <Loader />
-            )}
-          </Modal.Body>
-        </Modal> */}
+                    </table>
                     </div>
-                     
+                    </SimpleBar>
 
-                {/* <ModalTask
-        show={modalShow}
-        onHide={() => setModalShow(false)}
-      /> */}
+                    {/*  */}
+
+                    {isOpen && (
+                        <div className="fixed inset-0 px-4 md:px-0 bg-black/30 flex items-center justify-center z-50">
+                        <div ref={modalRef} onClick={(e) => e.stopPropagation()} className="bg-white rounded-xl shadow-lg transform transition-all duration-100 ease-in-out  opacity-100 animate-modalFade w-full max-w-2xl text-center">
+                          <div className = 'flex  py-3 px-4 justify-between items-center border-b-1 border-[#D9D9D9] '>
+                            <h2 className = 'font-sans text-[#292929] font-semibold text-xl '>Task Details</h2>
+                            <img src= {cancel} onClick={() => setIsOpen(false)} className = 'w-7 h-7' alt=""/>
+                          </div>
+                          <div>
+                            {selectedTask ? (
+                              <>
+                               <section className = 'm-4 py-  flex flex-col gap-3  md:w-8/9 max-w-full'>
+                                <div className = "flex w-full flex-col md:flex-row gap-x- gap-y-4 justify-between ">
+                                    <div className =  "flex md:gap-6 md:w-4/8  w-full   align-items-center justify-between ">
+                                       <span className = "font-sans font-normal text-sm md:text-bas text-[#747474]">Task Name:</span>
+                                       <span className = "font-sans font-medium text-sm md:text-bas text-[#1A1A1A]">{selectedTask.title}</span>
+                                    </div>
+                                    <div className = "flex md:gap-10  md:w-3/8 w-full align-items-center justify-between  ">
+                                       <span className = "font-sans font-normal text-sm  text-[#747474]">Team:</span>
+                                       <div>
+                                          {selectedTask.assignedMembers.map((img)=>{
+                                             return(
+                                              <img src={img?.profileImage} alt="" className = "inline-block h-6 w-6 rounded-full ring-2 ring-white" />
+                                              )
+                                          })}
+                                        </div>
+                                     </div>
+                                </div>
+                                <div className = "flex w-full flex-col md:flex-row gap-y- justify-between ">
+                                    <div className =  "flex md:gap-6 w-full md:w-4/8 align-items-center justify-between md:justify-star ">
+                                       <span className = "font-sans font-normal text-sm  text-[#747474]">Start Date:</span>
+                                       <span className = "font-sans font-medium text-sm  text-[#1A1A1A]">{selectedTask.startDate.slice(0, 10)}</span>
+                                    </div>
+                                    <div className =  "flex md:gap w-full md:w-3/8 align-items-center justify-between ">
+                                       <span className = "font-sans font-normal text-sm  text-[#747474]">End Date:</span>
+                                       <span className = "font-sans font-medium text-sm  text-[#1A1A1A]">{selectedTask.endDate.slice(0, 10)}</span>
+                                    </div>
+                                </div>
+                                <div className = "flex w-full mb-2 flex-col md:flex-row gap-y-4  md:justify-between ">
+                                    <div className =  "flex md:gap-6 w-full md:w-4/8 items-cente justify-between md:justify-star ">
+                                       <span className = "font-sans font-normal text-sm  text-[#747474]">Assigned Member:</span>
+                                       <span className = "font-sans font-medium text-sm md:text-bas text-[#1A1A1A]">{selectedTask.assignedMembers.map(member => `${member.firstName}`).join(', ')}</span>
+                                    </div>
+                                    <div className =  "flex md:gap w-full md:w-3/8 items-center justify-between ">
+                                       <span className = "font-sans font-normal text-sm md:text-bas text-[#747474]">Status:</span>
+                                       <span className = {` font-inter font-regular text-sm rounded-full px-4 py-1
+                                          ${selectedTask.status.toLowerCase() === "planned"  ? "bg-[#FFF5E3] text-[#F29B07]  " :
+                                          selectedTask.status.toLowerCase() === "completed" ? "bg-[#E5FFF7] text-[#0D805D]" :
+                                          selectedTask.status.toLowerCase() === "in progress" ? "bg-[#9DD2EF42]  text-[#137FF2] " :
+                                          ""
+                                        } 
+                                     `}>{selectedTask.status}</span>
+                                    </div>
+                                </div>
+                                <hr className = 'border-[#00000017] py-2'/>
+                               </section>
+                              </>
+                              ) : (
+                              <Loader/>
+                            )}
+                            
+                          </div>
+                        </div>
+                      </div>
+                    )}
                 </section>
+
+                {/*  */}
+                <ModalTask isModalOpen = {isModalOpen} setIsModalOpen = {setIsModalOpen} /> 
 
                </section>
            </main>

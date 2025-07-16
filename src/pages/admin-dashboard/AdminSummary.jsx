@@ -9,12 +9,17 @@ import taskImg from "../../assets/Frame 7 (1).svg"
 import calenderImg from "../../assets/Frame 7 (2).svg"
 import { useEffect, useRef } from 'react';
 import Loader from "../../utils/Loader"
-import dashboardimage from "../../assets/dashboard_31dp_314D1C_FILL0_wght400_GRAD0_opsz24.svg"
-import dashboarddelete  from "../../assets/delete_31dp_EA3323_FILL0_wght400_GRAD0_opsz24.svg"
+import dashboardimage from "../../assets/ellipsis-svgrepo-com.svg"
+import dashboarddelete  from "../../assets/icons8-delete.svg";
 import OpenContext from '../../context/OpenContext';
 import 'simplebar-react/dist/simplebar.min.css';
 import SimpleBar from 'simplebar-react';
-import cancel from '../../assets/Stockholm-icons (11).svg'
+import cancel from '../../assets/Stockholm-icons (11).svg';
+
+
+
+
+
 const AdminSummary = () => {
     const [data, setData] = useState([])
     const [data2, setData2] = useState([])
@@ -139,20 +144,14 @@ const AdminSummary = () => {
         getTaskById(_id);         
       };
 
-      // const handleOpenModal = async (_id) => {
-      //   setIsOpen(true);
-      //   setIsLoading(true);
-      //   await getTaskById(_id);
-      //   setIsLoading(false);
-      // };
+      
 
     return (
         <>
             <main className = "px-3 md:px-0 lg:px-0 w-19/20 mx-auto max-w-full">
               <section className = ''>
-
                 <section className = "py-7">
-                    <h1 className = "mb-5 font-inter text-2xl md:text-xl text-[#161E54] font-medium  ">Dashboard</h1>
+                    <h1 className = "mb-5 font-inter text-xl text-[#161E54] font-medium  ">Dashboard</h1>
                     <div className = "flex flex-col gap-7 md:gap-6 lg:gap- w-full md:flex-wrap md:flex-row lg:flex-row  justify-between" >
                     {data.map((Dashboard)=>{
                         const { title, count} = Dashboard
@@ -227,9 +226,9 @@ const AdminSummary = () => {
                                `}>{status}</span>
                            </td>
                            <td className = "">
-                             <div className = "flex  gap-2 ">
-                               <img className = 'w-5 h-5' src= {dashboardimage} alt="" role = "button" onClick = {()=> handleOpenModal(_id)}  />
+                             <div className = "flex  gap-3 items-center ">
                                <img className = 'w-5 h-5' src= {dashboarddelete} alt="" role = "button" onClick = {()=>deleteTask(_id)} />
+                               <img className = 'w-6 h-6' src= {dashboardimage} alt="" role = "button" onClick = {()=> handleOpenModal(_id)}  />
                              </div>
                            </td>
                          </tr>
@@ -243,23 +242,23 @@ const AdminSummary = () => {
                     {/*  */}
 
                     {isOpen && (
-                        <div className="fixed inset-0 px-4 md:px-0 bg-black/60 flex items-center justify-center z-50">
+                        <div className="fixed inset-0 px-4 md:px-0 bg-black/30 flex items-center justify-center z-50">
                         <div ref={modalRef} onClick={(e) => e.stopPropagation()} className="bg-white rounded-xl shadow-lg transform transition-all duration-100 ease-in-out  opacity-100 animate-modalFade w-full max-w-2xl text-center">
                           <div className = 'flex  py-3 px-4 justify-between items-center border-b-1 border-[#D9D9D9] '>
-                            <h2 className = 'font-sans font-semibold text-xl '>Task Details</h2>
+                            <h2 className = 'font-sans text-[#292929] font-semibold text-xl '>Task Details</h2>
                             <img src= {cancel} onClick={() => setIsOpen(false)} className = 'w-7 h-7' alt=""/>
                           </div>
                           <div>
                             {selectedTask ? (
                               <>
-                               <section className = 'm-4 py-2 flex flex-col gap-3  md:w-8/9 max-w-full'>
+                               <section className = 'm-4 py-  flex flex-col gap-3  md:w-8/9 max-w-full'>
                                 <div className = "flex w-full flex-col md:flex-row gap-x- gap-y-4 justify-between ">
                                     <div className =  "flex md:gap-6 md:w-4/8  w-full   align-items-center justify-between ">
-                                       <span className = "font-sans font-normal text-sm md:text-base text-[#747474]">Task Name:</span>
-                                       <span className = "font-sans font-medium text-sm md:text-base text-[#1A1A1A]">{selectedTask.title}</span>
+                                       <span className = "font-sans font-normal text-sm md:text-bas text-[#747474]">Task Name:</span>
+                                       <span className = "font-sans font-medium text-sm md:text-bas text-[#1A1A1A]">{selectedTask.title}</span>
                                     </div>
                                     <div className = "flex md:gap-10  md:w-3/8 w-full align-items-center justify-between  ">
-                                       <span className = "font-sans font-normal text-sm md:text-base text-[#747474]">Team:</span>
+                                       <span className = "font-sans font-normal text-sm md:text-bas text-[#747474]">Team:</span>
                                        <div>
                                           {selectedTask.assignedMembers.map((img)=>{
                                              return(
@@ -270,22 +269,22 @@ const AdminSummary = () => {
                                      </div>
                                 </div>
                                 <div className = "flex w-full flex-col md:flex-row gap-y- justify-between ">
-                                    <div className =  "flex md:gap-6 w-full md:w-4/8 align-items-center justify-between md:justify-star ">
-                                       <span className = "font-sans font-normal text-sm md:text-base text-[#747474]">Start Date:</span>
-                                       <span className = "font-sans font-medium text-sm md:text-base text-[#1A1A1A]">{selectedTask.startDate.slice(0, 10)}</span>
+                                    <div className =  "flex md:gap-6 w-full md:w-4/8 items-center justify-between md:justify-star ">
+                                       <span className = "font-sans font-normal text-sm  text-[#747474]">Start Date:</span>
+                                       <span className = "font-sans font-medium text-sm  text-[#1A1A1A]">{selectedTask.startDate.slice(0, 10)}</span>
                                     </div>
                                     <div className =  "flex md:gap w-full md:w-3/8 align-items-center justify-between ">
-                                       <span className = "font-sans font-normal text-sm md:text-base text-[#747474]">End Date:</span>
-                                       <span className = "font-sans font-medium text-sm md:text-base text-[#1A1A1A]">{selectedTask.endDate.slice(0, 10)}</span>
+                                       <span className = "font-sans font-normal text-sm  text-[#747474]">End Date:</span>
+                                       <span className = "font-sans font-medium text-sm  text-[#1A1A1A]">{selectedTask.endDate.slice(0, 10)}</span>
                                     </div>
                                 </div>
-                                <div className = "flex w-full flex-col md:flex-row gap-y-4  md:justify-between ">
-                                    <div className =  "flex md:gap-6 w-full md:w-4/8 align-items-center justify-between md:justify-star ">
-                                       <span className = "font-sans font-normal text-sm md:text-base text-[#747474]">Assigned Member:</span>
-                                       <span className = "font-sans font-medium text-sm md:text-base text-[#1A1A1A]">{selectedTask.assignedMembers.map(member => `${member.firstName}`).join(', ')}</span>
+                                <div className = "flex w-full mb-2 flex-col md:flex-row gap-y-4  md:justify-between ">
+                                    <div className =  "flex md:gap-6 w-full md:w-4/8 items-cente justify-between md:justify-star ">
+                                       <span className = "font-sans font-normal text-sm  text-[#747474]">Assigned Member:</span>
+                                       <span className = "font-sans font-medium text-sm  text-[#1A1A1A]">{selectedTask.assignedMembers.map(member => `${member.firstName}`).join(', ')}</span>
                                     </div>
-                                    <div className =  "flex md:gap w-full md:w-3/8 align-items-center justify-between ">
-                                       <span className = "font-sans font-normal text-sm md:text-base text-[#747474]">Status:</span>
+                                    <div className =  "flex md:gap w-full md:w-3/8 items-center justify-between ">
+                                       <span className = "font-sans font-normal text-sm md:text-b text-[#747474]">Status:</span>
                                        <span className = {` font-inter font-regular text-sm rounded-full px-4 py-1
                                           ${selectedTask.status.toLowerCase() === "planned"  ? "bg-[#FFF5E3] text-[#F29B07]  " :
                                           selectedTask.status.toLowerCase() === "completed" ? "bg-[#E5FFF7] text-[#0D805D]" :
@@ -295,7 +294,7 @@ const AdminSummary = () => {
                                      `}>{selectedTask.status}</span>
                                     </div>
                                 </div>
-                                <hr className = 'border-[#00000017] py-3'/>
+                                <hr className = 'border-[#00000017] py-2'/>
                                </section>
                               </>
                               ) : (
@@ -306,62 +305,6 @@ const AdminSummary = () => {
                         </div>
                       </div>
                     )}
-
-                    {/* <Modal size = "lg" show={showModal} onHide={() => setShowModal(false)} centered>
-          <Modal.Header closeButton>
-            <Modal.Title  className = "profile-h2">Task Details</Modal.Title>
-          </Modal.Header>
-          <Modal.Body>
-            {selectedTask ? (
-              <>
-              <div className = "d-flex justify-content-between mt-2 fix mb-3">
-                <div className =  "d-flex align-items-center task-space ">
-                   <h3 className = "task-name">Task Name:</h3>
-                   <h6 className = "api">{selectedTask.title}</h6>
-                </div>
-                <div className = "d-flex align-items-center task-spaces">
-                   <h3 className = "task-name">Team:</h3>
-                   <div>
-                  {selectedTask.assignedMembers.map((img)=>{
-                  return(
-                    <img src={img?.profileImage} alt="" className = "k" />
-                  )
-                })}
-                   </div>
-                </div>
-              </div>
-              <div className = "d-flex justify-content-between  mb-3 fix">
-                <div className =  "d-flex align-items-center task-spacess ">
-                   <h3 className = "task-name">Start Date:</h3>
-                   <h6 className = "api">{selectedTask.startDate.slice(0, 10)}</h6>
-                 </div>
-                <div className =  "d-flex align-items-center task-spacesss">
-                   <h3 className = "task-name">End Date:</h3>
-                   <h6 className = "api">{selectedTask.endDate.slice(0, 10)}</h6>
-                 </div>
-              </div>
-              <div className = "d-flex justify-content-between mb-3 fix">
-                <div className =  "d-flex align-items-center task-sppace">
-                   <h3 className = "task-name">Description:</h3>
-                   <h6 className = "api">Nil</h6>
-                 </div>
-                <div className =  "d-flex align-items-center  task-sppaces">
-                   <h3 className = "task-name">Status:</h3>
-                   <div className = 'task-test'>
-                     <h6 className = {`action-status spacin  ${selectedTask.status.replace(/\s+/, "-").toLowerCase()}`} >{selectedTask.status}</h6>
-                   </div>
-                </div>
-              </div>
-                <div className =  "d-flex align-items-center gap-4 assign-space" >
-                   <h3 className = "task-name">Assigned Members:</h3>
-                   <h6 className = "api">{selectedTask.assignedMembers.map(member => `${member.firstName} ${member.lastName}`).join(', ')}</h6>
-                </div>
-              </>
-            ) : (
-              <Loader />
-            )}
-          </Modal.Body>
-        </Modal> */}
                 </section>
               </section>
             </main>

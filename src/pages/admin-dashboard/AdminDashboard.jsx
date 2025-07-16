@@ -79,7 +79,7 @@ const AdminDashboard = () => {
                                         >
                                         {({ isActive, isPending }) =>(
                                           <span
-                                             className={`flex gap-2 items-center  duration-300 ${open ? 'ps-4 mr-2': ""}  isPending ? "pending": ${isActive ? "active  bg-[#EDF5FF]  py-[6px] rounded-lg " : "" 
+                                             className={`flex gap-2 items-center  duration-300 ${open ? 'ps-3 mr-5': ""}  isPending ? "pending": ${isActive ? "active  bg-[#EDF5FF]  py-[6px] rounded-lg " : "" 
                                           }`}>
                                           <img className= {`${open ? 'w-[22px] h-[22px]' : "w-[31px] h-[31px] p-1 mx-auto"}`} src={ isActive ?  active : Icon} alt={name}  />
                                           <h6 className=  {`font-medium font-sans text-sm hover:text-[#3439CA] ${open ? "block" : "hidden"} ${ isActive ? "text-[#3439CA]" : "text-[#343536]"}`}>{name}</h6>
