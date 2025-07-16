@@ -136,15 +136,15 @@ const ModalTask = ( {isModalOpen, setIsModalOpen}) => {
                 <form action="" className = 'flex flex-col gap-4' onSubmit={handleSubmit}>
                    <div className = "flex  flex-col gap-1">
                       <label htmlFor="" className = "font-sans text-[#111014] text-sm font-medium">Task Title</label>
-                      <input type="text" name="" id="" className = "w-full border-1 border-[#959595] px-3 font-sans text-sm outline-none font-normal text-[#878789]  rounded-sm py-2 " placeholder = "Enter Task Title" value = {title}  onChange={(e) => setTitle(e.target.value)} autoFocus />
+                      <input type="text" name="" id="" className = "w-full border-1 border-[#959595] px-3 font-sans text-base md:text-sm outline-none font-normal text-[#878789]  rounded-sm py-2 " placeholder = "Enter Task Title" value = {title}  onChange={(e) => setTitle(e.target.value)} autoFocus />
                   </div>
                   <div className = "flex flex-col gap-1">
                       <label htmlFor="" className = "font-sans text-[#111014] text-sm font-medium">Task Description</label> 
-                      <textarea name="" id="" cols="30" rows="4"  className = "w-full border-1 border-[#959595]  font-sans text-sm outline-none font-normal py-2 px-3 text-[#878789]  rounded-sm resize-none "  value={description} onChange={(e) => setDescription(e.target.value)}></textarea>
+                      <textarea name="" id="" cols="30" rows="4"  className = "w-full border-1 border-[#959595]  font-sans text-base md:text-sm outline-none font-normal py-2 px-3 text-[#878789]  rounded-sm resize-none "  value={description} onChange={(e) => setDescription(e.target.value)}></textarea>
                   </div>
                   <div className = "flex flex-col gap-1 ">
                       <label htmlFor="" className = "font-sans text-[#111014] text-sm font-medium">Assign Persons</label>
-                      <input type="text" name="" id="" className = "w-full border-1 border-[#959595] px-3 font-sans text-sm outline-none font-normal text-[#878789]  rounded-sm py-2" placeholder = "Search for employee" value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)}/>
+                      <input type="text" name="" id="" className = "w-full border-1 border-[#959595] px-3 font-sans text-base md:text-sm outline-none font-normal text-[#878789]  rounded-sm py-2" placeholder = "Search for employee" value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)}/>
                          {suggestions.length > 0 && (
                            <div className="suggestions-list list-unstyled assigned-memb flex gap-2 flex-wrap " role="button">
                              {suggestions.map((suggestion) => (
@@ -172,17 +172,17 @@ const ModalTask = ( {isModalOpen, setIsModalOpen}) => {
                       <div className = "w-full md:w-1/2 flex flex-col gap-1">
                           <label htmlFor="" className = "font-sans text-[#111014] text-sm font-medium">Start Date</label>
                           {/* <DatePicker className = 'w-full border-1 border-[#959595] px-3 font-sans text-sm outline-none font-normal text-[#878789]  rounded-sm py-2'   placeholderText = 'Select Date' selected = {startDate} value = {startDate} onChange={(e) => setStartDate(e.target.value)} /> */}
-                          <input type="date" name="" id="" placeholder = "select Date" className = "w-full border-1 border-[#959595] px-3 font-sans text-sm outline-none font-normal text-[#878789]  rounded-sm py-2" value={startDate} onChange={(e) => setStartDate(e.target.value)}/>
+                          <input type="date" name="" id="" placeholder = "select Date" className = "w-full border-1 border-[#959595] px-3 font-sans text-base md:text-sm outline-none font-normal text-[#878789]  rounded-sm py-2" value={startDate} onChange={(e) => setStartDate(e.target.value)}/>
                        </div>
                        <div className = "w-full md:w-1/2 flex flex-col gap-1">
                           <label htmlFor="" className = "font-sans text-[#111014] text-sm font-medium">End Date</label>
                           {/* <DatePicker className = {`w-full border-1 border-[#959595] px-3 font-sans text-sm outline-none font-normal text-[#878789]  rounded-sm py-2`}  placeholderText = 'Select Date' selected = {endDate} value = {endDate} onChange={(e) => setEndDate(e.target.value)} /> */}
-                          <input type="date" name="" id="" placeholder = "select Date" className = "w-full border-1 border-[#959595] px-3 font-sans text-sm outline-none font-normal text-[#878789]  rounded-sm py-2" value={endDate} onChange={(e) => setEndDate(e.target.value)}/>
+                          <input type="date" name="" id="" placeholder = "select Date" className = "w-full border-1 border-[#959595] px-3 font-sans text-base md:text-sm outline-none font-normal text-[#878789]  rounded-sm py-2" value={endDate} onChange={(e) => setEndDate(e.target.value)}/>
                        </div>
                     </div>
                     <div className = "flex flex-col gap-1">
                        <label htmlFor="" className = "font-sans text-[#111014] text-sm font-medium">Task Status</label>
-                       <select name="" id="" className = "w-full border-1 border-[#959595] px-3 font-sans text-sm outline-none font-normal text-[#878789]  rounded-sm py-2 " value = {status} onChange={(e) => setStatus(e.target.value)}>
+                       <select name="" id="" className = "w-full border-1 border-[#959595] px-3 font-sans text-base md:text-sm outline-none font-normal text-[#878789]  rounded-sm py-2 " value = {status} onChange={(e) => setStatus(e.target.value)}>
                          <option hidden selected >Select Status</option>
                          <option value="Planned" className= "labelss">Planned</option>
                          <option value="In progress" className = "labelss">In progress</option>
@@ -190,8 +190,8 @@ const ModalTask = ( {isModalOpen, setIsModalOpen}) => {
                        </select>
                      </div>
                      <div className = "flex w-full gap-3 my-3">
-                         <button className = "w-full py-2 border border-[#DB3E3E] text-sm text-[#DB3E3E] hover:text-white hover:bg-[#DB3E3E] rounded-sm " onClick = {reset}>Cancel</button>
-                         <button className = "w-full py-2 bg-[#3439CA] rounded-sm text-sm text-[#F3F2FB] " type = "submit"  disabled = {setIsSubmitting}>{btnText}</button>
+                         <button className = "w-full py-2 border border-[#DB3E3E] text-base md:text-sm text-[#DB3E3E] hover:text-white hover:bg-[#DB3E3E] rounded-sm " onClick = {reset}>Cancel</button>
+                         <button className = "w-full py-2 bg-[#3439CA] rounded-sm  text-base md:text-sm text-[#F3F2FB] " type = "submit"  disabled = {setIsSubmitting}>{btnText}</button>
                       </div>
                 </form>
               </div>

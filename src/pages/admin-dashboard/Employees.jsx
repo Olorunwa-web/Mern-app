@@ -260,7 +260,7 @@ const Employees = (props) => {
                                        <div className = 'my- w-full  md:w-9/12 max-w-full borde   flex flex-col gap-y-3 md:flex-row md:justify-between'>
                                           <div className = "md:border-r-1 md:pr-8 border-[#D9D9D9] flex justify-between md:flex-col ">
                                             <h3 className = "font-sans font-normal text-sm text-[#747474]">Mobile Number</h3>
-                                            <h6 className = "font-sans font-medium text-sm text-[#1A1A1A]">0{selectedTask?.mobileNumber}</h6>
+                                            <h6 className = "font-sans font-medium text-sm text-[#1A1A1A]">{selectedTask?.mobileNumber}</h6>
                                          </div>
                                          <div className = "md:border-r-1 md:pr-8 border-[#D9D9D9] flex justify-between md:flex-col">
                                             <h3 className = "font-sans font-normal text-sm text-[#747474]">Date of Birth</h3>
