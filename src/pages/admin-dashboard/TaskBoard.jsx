@@ -5,7 +5,7 @@ import '../../Style/Taskboard.css'
 import { useState, useEffect, useContext, useRef } from 'react';
 import arrowDown from '../../assets/Frame 10.svg';
 import axios from "axios"
-import Loader from "../../utils/Loader"
+import Loadings from "../../utils/Loadings"
 import dashboardimage from "../../assets/ellipsis-svgrepo-com.svg"
 import dashboarddelete  from "../../assets/icons8-delete.svg";
 import OpenContext from '../../context/OpenContext';
@@ -25,7 +25,6 @@ const TaskBoard = () => {
     const [error, setError] = useState(null)
     const [isLoading,setIsLoading] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
-    const [isOpen2, setIsOpen2] = useState(false)
      const modalRef = useRef();
 
      const [isModalOpen, setIsModalOpen] = useState(false);
@@ -98,7 +97,7 @@ const TaskBoard = () => {
 
 
       if (isLoading) {
-        return <div className="vh-100 d-flex justify-content-center"> <Loader/> </div>;
+        return <div className="min-h-screen flex items-center justify-center"> <Loadings/> </div>;
       }
 
 
@@ -240,7 +239,7 @@ const TaskBoard = () => {
 
                     {isOpen && (
                         <div className="fixed inset-0 px-4 md:px-0 bg-black/30 flex items-center justify-center z-50">
-                        <div ref={modalRef} onClick={(e) => e.stopPropagation()} className="bg-white rounded-xl shadow-lg transform transition-all duration-100 ease-in-out  opacity-100 animate-modalFade w-full max-w-2xl text-center">
+                        <div ref={modalRef} onClick={(e) => e.stopPropagation()} className="bg-white rounded-xl shadow-lg transform transition-all duration-100 ease-in-out  opacity-100 animate-modalFade w-full max-w-2xl">
                           <div className = 'flex  py-3 px-4 justify-between items-center border-b-1 border-[#D9D9D9] '>
                             <h2 className = 'font-sans text-[#292929] font-semibold text-xl '>Task Details</h2>
                             <img src= {cancel} onClick={() => setIsOpen(false)} className = 'w-7 h-7' alt=""/>
@@ -250,11 +249,11 @@ const TaskBoard = () => {
                               <>
                                <section className = 'm-4 py-  flex flex-col gap-3  md:w-8/9 max-w-full'>
                                 <div className = "flex w-full flex-col md:flex-row gap-x- gap-y-4 justify-between ">
-                                    <div className =  "flex md:gap-6 md:w-4/8  w-full   align-items-center justify-between ">
+                                    <div className =  "flex  md:w-5/9  w-full   align-items-center justify-between ">
                                        <span className = "font-sans font-normal text-sm md:text-bas text-[#747474]">Task Name:</span>
                                        <span className = "font-sans font-medium text-sm md:text-bas text-[#1A1A1A]">{selectedTask.title}</span>
                                     </div>
-                                    <div className = "flex md:gap-10  md:w-3/8 w-full align-items-center justify-between  ">
+                                    <div className = "flex   md:w-3/9 w-full center justify-between  ">
                                        <span className = "font-sans font-normal text-sm  text-[#747474]">Team:</span>
                                        <div>
                                           {selectedTask.assignedMembers.map((img)=>{
@@ -265,22 +264,22 @@ const TaskBoard = () => {
                                         </div>
                                      </div>
                                 </div>
-                                <div className = "flex w-full flex-col md:flex-row gap-y- justify-between ">
-                                    <div className =  "flex md:gap-6 w-full md:w-4/8 align-items-center justify-between md:justify-star ">
+                                <div className = "flex w-full gap-4 flex-col md:flex-row gap-y- justify-between ">
+                                    <div className =  "flex  w-full md:w-5/9 items-center justify-between md:justify-star ">
                                        <span className = "font-sans font-normal text-sm  text-[#747474]">Start Date:</span>
                                        <span className = "font-sans font-medium text-sm  text-[#1A1A1A]">{selectedTask.startDate.slice(0, 10)}</span>
                                     </div>
-                                    <div className =  "flex md:gap w-full md:w-3/8 align-items-center justify-between ">
+                                    <div className =  "flex w-full md:w-3/9 align-items-center justify-between ">
                                        <span className = "font-sans font-normal text-sm  text-[#747474]">End Date:</span>
                                        <span className = "font-sans font-medium text-sm  text-[#1A1A1A]">{selectedTask.endDate.slice(0, 10)}</span>
                                     </div>
                                 </div>
                                 <div className = "flex w-full mb-2 flex-col md:flex-row gap-y-4  md:justify-between ">
-                                    <div className =  "flex md:gap-6 w-full md:w-4/8 items-cente justify-between md:justify-star ">
+                                    <div className =  "flex  w-full md:w-5/9 items-cente justify-between md:justify-star ">
                                        <span className = "font-sans font-normal text-sm  text-[#747474]">Assigned Member:</span>
                                        <span className = "font-sans font-medium text-sm md:text-bas text-[#1A1A1A]">{selectedTask.assignedMembers.map(member => `${member.firstName}`).join(', ')}</span>
                                     </div>
-                                    <div className =  "flex md:gap w-full md:w-3/8 items-center justify-between ">
+                                    <div className =  "flex md:gap w-full md:w-3/9 items-center justify-between ">
                                        <span className = "font-sans font-normal text-sm md:text-bas text-[#747474]">Status:</span>
                                        <span className = {` font-inter font-regular text-sm rounded-full px-4 py-1
                                           ${selectedTask.status.toLowerCase() === "planned"  ? "bg-[#FFF5E3] text-[#F29B07]  " :
@@ -295,7 +294,7 @@ const TaskBoard = () => {
                                </section>
                               </>
                               ) : (
-                              <Loader/>
+                              <Loadings/>
                             )}
                             
                           </div>
