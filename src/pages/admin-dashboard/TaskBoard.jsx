@@ -144,7 +144,7 @@ const TaskBoard = () => {
                         <h4 className = "font-sans text-base text-[#404040] font-medium">Dashboard/Taskboard</h4>
                    </div>
                     <div>
-                         <button className = "bg-[#3439CA] cursor-pointer p-2 rounded-sm text-white font-medium text-sm font-neural " onClick= {() => setIsModalOpen(true)}  >New Task</button>  
+                         <button className = "bg-[#3439CA] cursor-pointer p-2 rounded-sm text-[#F3F2FB] font-medium text-sm font-neural " onClick= {() => setIsModalOpen(true)}  >New Task</button>  
                    </div>
                    </div>
                    <div className = 'my-6'>

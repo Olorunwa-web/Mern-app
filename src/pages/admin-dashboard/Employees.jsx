@@ -3,7 +3,11 @@ import { Outlet,Link, NavLink, useMatch} from 'react-router-dom'
 import '../../Style/Employees.css'
 import { useEffect, useState } from 'react';
 import Loader from "../../utils/Loader"
-import axios from "axios"
+import axios from "axios";
+import 'simplebar-react/dist/simplebar.min.css';
+import SimpleBar from 'simplebar-react';
+
+
 
 
 const Employees = (props) => {
@@ -91,53 +95,101 @@ const Employees = (props) => {
    
     return (
         <>
-            <main className = 'summary-containers' >
-                <section className = "pt-3">
+            <main className = ' px-3 md:px-0 lg:px-0 w-19/20 mx-auto max-w-full' >
+                <section className = "my-4">
                 {Match ? 
                 (
                     <section>
-                    <div className = "employ-tags">
-                        <h1>Employee</h1>
-                        <h4>Dashboard/Employee</h4>
+                    <div className = "flex flex-col gap-1">
+                        <h1 className = 'font-sans font-medium text-xl text-[#161E54]'>Employee</h1>
+                        <h4 className = 'font-sans font-medium text-base text-[#404040]'>Dashboard/Employee</h4>
                     </div>
-                    <div className = 'd-flex justify-content-between align-items-center line mt-3'>
-                        <div className = "d-flex gap-4 spacess">
-                        <NavLink
-                        className = "admin-employees-nav-link all-employees"
-                      end>
-                      {({ isActive}) =>(
-                        <span
-                          className={`d-flex gap-2 align-items-center pt-3 nav-link-header   ${isActive ? "is-Active" : "" 
-                          }`}
-                        > 
-                        All Employees
-                        </span>
-                      )}
-                    </NavLink>
+                    <div className = 'flex justify-between items-center pb-2 border-b-2 border-[#F3F3F3] line my-7'>
+                        <div className = "flex gap-4  ">
+                          <NavLink
+                             className = ""
+                             end> 
+                            {({ isActive}) =>(
+                             <span
+                               className={`font-sans font-medium text-[0.97rem] pb-4  ${isActive ? "is-Active  text-[#111014] border-b-2 border-[#6D5DD3]  " : "text-[#878789]" 
+                             }`}> 
+                               All Employees
+                             </span>
+                             )}
+                           </NavLink>
 
-                      <NavLink
-                        to = "/admin-dashboard/employees/teams"
-                        className = "admin-employees-nav-link all-employees"
-                      end>
-                      {({ isActive}) =>(
-                        <span
-                          className={`d-flex gap-2 align-items-center pt-3 nav-link-header  ${isActive ? "is-Active" : "" 
-
-                          }`}
-                        > 
-                        Teams
-                        </span>
-                      )}
-                    </NavLink>
-                        </div>
-                        <div>
-                            <Link className = "but" to = "/admin-dashboard/employees/newemployee"><button className = "buttonss">New Employee</button></Link>
-                        </div>
-                    </div>
+                           <NavLink
+                               to = "/admin-dashboard/employees/teams"
+                               className = ""
+                             end>
+                             {({ isActive}) =>(
+                              <span
+                                className={`font-sans font-medium text-[0.97rem] pb-4  ${isActive ? " text-[#111014] border-b-2 border-[#6D5DD3]" : "text-[#878789]" 
+                               }`}> 
+                                Teams
+                               </span>
+                               )}
+                            </NavLink>
+                         </div>
+                         <div>
+                             <Link className = "" to = "/admin-dashboard/employees/newemployee"><button className = "bg-[#3439CA] p-2 rounded-sm text-[#F3F2FB] text-neural text-sm font-medium  ">New Employee</button></Link>
+                          </div>
+                      </div>
 
 
                     <section className = " my-4 employee-task">
-                    <div className = "employee-table">
+                      <div className = "">
+                        <SimpleBar forceVisible="x" autoHide={false} style={{ maxWidth: '100%' }}>
+                          <div className = "min-w-[1000px] w-full border-[0.5px] border-[#E4E8ED] rounded-lg ">
+                            <table className=" table-auto w-full ">
+                            <thead className = " ">
+                              <tr className = 'text-left    '>
+                                 <th className = 'whitespace-nowra py-2 bg-[#F7F9FB] rounded-ss-lg ps-4 font-inter font-medium text-base text-[#292929]'>
+                                  Name
+                                 </th>
+                                 <th className = "whitespace-nowra py-2 bg-[#F7F9FB] font-inter font-medium text-base text-[#292929]">
+                                  Email
+                                 </th>
+                                 <th className = "whitespace-nowra py-2 bg-[#F7F9FB] font-inter font-medium text-base text-[#292929]">
+                                  Team
+                                 </th>
+                                 <th className = "whitespace-nowrap py-2 bg-[#F7F9FB] font-inter font-medium text-base text-[#292929]">
+                                  Supervisor
+                                 </th>
+                                 <th className = "whitespace-nowrap py-2 bg-[#F7F9FB] rounded-tr-lg font-inter font-medium text-base text-[#292929]">
+                                  Status 
+                                 </th>
+                               </tr>
+                            </thead>
+                            <tbody className = 'divide-y  divide-[#E4E8ED] '>
+                              {employees.map((allemployees)=>{
+                                  const {_id, profileImage, firstName,lastName, email,department,employmentStatus} = allemployees
+                                     return(
+                                       <tr  key = {_id} onClick={()=>handleRowClick(_id)}>
+                                          <td  className = "flex gap-2 py-2 items-center ps-4">
+                                               <img src={profileImage} alt="" className = "w-7 h-7 rounded-full"/>
+                                               <span className = "font-sans font-medium text-sm text-[#292929]">{`${firstName} ${lastName}`}</span>
+                                          </td>
+                                          <td className = '' ><span className = "font-sans font-medium text-sm text-[#292929] ">{email}</span></td>
+                                          <td className = ""><span className = "font-sans font-medium text-sm text-[#292929]" >{department?.name}</span></td>
+                                          <td className = ""><span className = "font-sans font-medium text-sm text-[#292929] " >{allemployees ?.department?.manager.firstName}</span></td>
+                                          {/* <td className = "table-cell pt-3"><span className = {`action-status ${employmentStatus.replace(/\s+/, "-").toLowerCase()}`}>{employmentStatus}</span></td> */}
+                                          <td>
+                                            <span className = {` font-inter font-regular text-sm rounded-full px-4 py-1
+                                              ${employmentStatus.toLowerCase() === "hybrid"  ? "bg-[#E2E3F8] text-[#3439CA]  " :
+                                                employmentStatus.toLowerCase() === "remote" ? "bg-[#F6ECDC] text-[#F29B07]" :
+                                                employmentStatus.toLowerCase() === "on-site" ? "bg-[#E7F9F3]  text-[#0D805D] " :
+                                                ""
+                                                }`}>{employmentStatus}</span>
+                                          </td>
+                                       </tr>
+                                      )
+                                   })}
+                              </tbody>
+                            </table>
+                          </div>
+                        </SimpleBar>
+
                         {/* <Table responsive = "lg"  role = "button" hover>
                         <thead>
                             <tr>

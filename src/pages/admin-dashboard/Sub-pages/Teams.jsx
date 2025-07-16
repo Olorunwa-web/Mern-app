@@ -74,47 +74,43 @@ const Teams = () => {
 
     return (
         <>
-            <main className = "">
+            <main className = "b ">
                 {match ? (
                      <section className = "">
-                     <div className = "employ-tags">
-                         <h1>Employee</h1>
-                         <h4>Dashboard/Employee</h4>
+                     <div className = "flex flex-col gap-1">
+                         <h1 className = 'font-sans font-medium text-xl text-[#161E54]'>Employee</h1>
+                         <h4 className = 'font-sans font-medium text-base text-[#404040]'>Dashboard/Employee</h4>
                      </div>
-                     <div className = 'd-flex justify-content-between align-items-center line mt-3'>
-                     <div className = "d-flex gap-4 spacess">
+                     <div className = 'flex justify-between items-center pb-2 border-b-2 border-[#F3F3F3] line my-7'>
+                      <div className = "flex gap-4 ">
                         <NavLink
-                        to = "/admin-dashboard/employees"
-                        className = "admin-employees-nav-link all-employees"
-                      end>
-                      {({ isActive}) =>(
-                        <span
-                          className={`d-flex gap-2 align-items-center pt-3 nav-link-header   ${isActive ? "is-Active" : "" 
-                          }`}
-                        > 
-                        All Employees
-                        </span>
-                      )}
-                    </NavLink>
+                          to = "/admin-dashboard/employees"
+                          className = ""
+                          end>
+                          {({ isActive}) =>(
+                          <span
+                            className={` font-sans font-medium text-[0.97rem] pb-4   ${isActive ? "is-Active text-[#111014] border-b-2 border-[#6D5DD3]" : "text-[#878789]" 
+                             }`}> 
+                              All Employees
+                           </span>
+                           )}
+                         </NavLink>
 
-                      <NavLink
-                        to = "/admin-dashboard/employees/teams"
-                        className = "admin-employees-nav-link all-employees"
-                      end>
-                      {({ isActive}) =>(
-                        <span
-                          className={`d-flex gap-2 align-items-center pt-3 nav-link-header  ${isActive ? "is-Active" : "" 
-
-                          }`}
-                        > 
-                        Teams
-                        </span>
-                      )}
-                    </NavLink>
+                          <NavLink
+                            to = "/admin-dashboard/employees/teams"
+                            className = ""
+                            end>
+                            {({ isActive}) =>(
+                              <span
+                                 className={`font-sans font-medium text-[0.97rem] pb-4  ${isActive ? "is-Active text-[#111014] border-b-2 border-[#6D5DD3] " : "text-[#878789]" }`}> 
+                                 Teams
+                              </span>
+                             )}
+                           </NavLink>
                         </div>
                          
                          <div>
-                             <button className = "buttonsss" onClick={() => setModalShow12(true)}>New Team</button>
+                             <button className = "bg-[#3439CA] p-2 rounded-sm text-[#F3F2FB] text-neural text-sm font-medium" onClick={() => setModalShow12(true)}>New Team</button>
                              <NewTeam
         show={modalShow12}
         onHide={() => setModalShow12(false)}

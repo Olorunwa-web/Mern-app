@@ -8,6 +8,7 @@ import { useForm } from "react-hook-form"
 import {newTaskSchema} from "../lib/ValidationSchema"
 import axios from "axios";
 import toast, { LoaderIcon } from "react-hot-toast";
+import Loader from '../utils/Loader'
 import add from '../assets/Stockholm-icons (8).svg'
 import cancel from "../assets/Stockholm-icons (10).svg"
 import canceled from '../assets/Stockholm-icons (11).svg';
@@ -119,7 +120,7 @@ const ModalTask = ( {isModalOpen, setIsModalOpen}) => {
     setSearchQuery("");
     setSuggestions([]);
   }
-  const btnText = isSubmitting ? <LoaderIcon/> : "Save";
+  const btnText = isSubmitting ? <Loader/> : "Save";
 
 
  

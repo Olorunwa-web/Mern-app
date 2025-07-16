@@ -193,7 +193,7 @@ const AdminSummary = () => {
                           </th>
                         </tr>
                       </thead>
-                      <tbody className = 'divide-y divide-[#E4E8ED] '>
+                      <tbody  className = 'divide-y divide-[#E4E8ED] '>
                       {data2.map((dashboards) =>{
                           const{_id, title,assignedMembers,startDate,endDate,status} = dashboards
                           return(   

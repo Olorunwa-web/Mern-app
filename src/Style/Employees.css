@@ -1,4 +1,4 @@
-.summary-containers{
+/* .summary-containers{
     padding: 0 51px ;
     width: 100%;
 }
@@ -64,7 +64,6 @@
     background-image: url("../assets/Stockholm-icons (8).svg");
     background-repeat: no-repeat;
     background-position: 10% 50%;
-    /* padding-left: 24px; */
     border: none;
     padding: 8px 10px 8px 27px;
     
@@ -290,7 +289,6 @@
     }
 
     .edit-profil{
-        /* width: 70px !important; */
         font-size: 12px !important;
 
     }
@@ -329,7 +327,6 @@
     .buttonss{
         width: 100%;
         font-size: 14px;
-        /* height: 100%; */
         background-position: 3% 50%;
         padding: 8px 7px 8px 24px ;
     }
@@ -340,7 +337,6 @@
 
     .summary-containers{
         padding:0  !important;
-        /* border: 2px solid; */
         width: 100%;
     }
 
@@ -417,7 +413,6 @@
 
     .spacess{
         gap: 9px !important;
-        /* border: 2px solid ; */
     }
 
     .employ-head{
@@ -470,7 +465,6 @@
         overflow-x: scroll;
         width: 507px;
         margin-left: 0;
-        /* width: 30rem; */
     }
 
     .previous{
@@ -546,9 +540,7 @@
 
 @media (min-width:766px) and (max-width:768px){
 
-    /* .on-site{
-        font-size: 15px;
-    } */
+    
 
     .summary-containers{
         padding: 0 5px !important;
@@ -844,4 +836,4 @@
 
    
 }
-
+ */
