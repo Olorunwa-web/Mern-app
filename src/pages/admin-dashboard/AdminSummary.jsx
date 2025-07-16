@@ -159,7 +159,7 @@ const AdminSummary = () => {
                                 <div key = {title} className = {`flex w-full  py-3 px-4 ${open ? 'md:w-full lg:w-[48%] xl:w-[31%] ' : 'md:w-[48%] lg:w-[48%] xl:w-[31%]'} justify-between items-center border-1 border-[#F1F2F3] rounded-[10px]`}>
                                     <div className = "flex flex-col gap-4 ">
                                         <h6 className = 'font-sans font-medium text-base text-[#706D6D] '>{title}</h6>
-                                        <h1 className = 'font-poppins font-semibold text-3xl text-[#1E1E1E]'>{count} </h1>
+                                        <h1 className = 'font-poppins font-semibold text-[1.7rem] text-[#1E1E1E]'>{count} </h1>
                                     </div>
                                     <div>
                                       {title === "Total Employees" ?   <img src={peopleImg} className = 'w-15 h-15' alt="event-img" loading="lazy" /> :title === "Total Tasks" ? <img src={taskImg} alt="event-img" className = 'w-15 h-15' loading="lazy" /> :<img src={calenderImg} alt="event-img" className = 'w-15 h-15' loading="lazy" /> }
