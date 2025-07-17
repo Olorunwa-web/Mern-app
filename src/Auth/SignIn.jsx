@@ -118,7 +118,7 @@ const SignIn = () => {
                   </div>
                   <div className = "my-3">
                       <label htmlFor="email" className = "text-gray-800 font-inter text-sm font-medium">Email*</label>
-                      <input type="email" name="email"  className = "mt-1 w-full bg-[#F3F3F3] rounded-sm py-2 outline-none font-inter text-base font-normal text-[#111014] px-4" placeholder = "Enter email" {...register("email")}/>
+                      <input type="email" name="email"  className = "mt-1 w-full bg-[#F3F3F3] rounded-sm py-2 focus:shadow-md focus:border-1 focus:border-blue-600 focus:outline focus:outline-blue-600 font-inter text-base font-normal text-[#111014] px-4" placeholder = "Enter email" {...register("email")}/>
                       <span className = "text-xs font-inter font-medium text-[#EC5E5E]">{errors.email?.message}</span>
                   </div>
                   <div className = "mt-4">
@@ -127,7 +127,7 @@ const SignIn = () => {
                           <p><Link to = "/auth/forgot-pass" className = 'text-sm font-inter font-medium text-[#3439CA]'>Forgot Password?</Link></p>
                       </div>
                       <div className = "input-pass relative pb-5">
-                        <input type= {reveal ? 'text' : 'password'} name="password" id="" className = "mt-1 w-full bg-[#F3F3F3] rounded-sm py-2 outline-none font-inter text-base font-normal text-[#111014] px-4" placeholder = "Enter Password" {...register("password")}/>
+                        <input type= {reveal ? 'text' : 'password'} name="password" id="" className = "mt-1 w-full bg-[#F3F3F3] rounded-sm focus:shadow-md focus:border-1 focus:border-blue-600 focus:outline focus:outline-blue-600 py-2  font-inter text-base font-normal text-[#111014] px-4" placeholder = "Enter Password" {...register("password")}/>
                         <span className = "text-xs font-inter font-medium text-[#EC5E5E]">{errors.password?.message}</span>
                         <div className = 'absolute top-4 right-4'>
                             <img src= {reveal ? hidden : show } alt="" className = 'w-[17px] h-[17px]' onClick = {toggleReveal}/>

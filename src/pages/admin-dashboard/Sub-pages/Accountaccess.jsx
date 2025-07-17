@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import {Link, useNavigate} from 'react-router-dom'
 import ModalX from '../../../Components/ModalX'
 import { yupResolver } from "@hookform/resolvers/yup"
@@ -7,10 +7,16 @@ import * as yup from "yup";
 import {userSchema} from '../../../lib/ValidationSchema'
 import axios from "axios"
 import toast from "react-hot-toast"
+import OpenContext from '../../../context/OpenContext';
+
+
+
 
 const Accountaccess = () => {
     const [modalShow, setModalShow] = React.useState(false);
     const navigate = useNavigate();
+
+    const { open } = useContext(OpenContext)
     
     
     const {
@@ -93,22 +99,22 @@ const Accountaccess = () => {
         <>
             <main>
                 <form onSubmit={handleSubmit(onSubmit)}>
-                <section>
-                <div className = "d-lg-flex gap-4">
-                    <div className = " mobile ">
-                        <label htmlFor="" className = "labels">Password</label>
-                        <input type="password" name="" id="password" className = "w-100 add-input" placeholder = "Enter Password"  {...register("password")}/> 
-                        <span className = "spans">{errors.password?.message}</span>      
+                <section className = 'flex flex-col gap-y-4'>
+                <div className =  {`flex flex-col  ${open ? "md:flex-col lg:flex-row gap-y-4 gap-x-6  " : "md:flex-row gap-x-6"}`}>
+                    <div className = "w-full flex flex-col gap-2 ">
+                        <label htmlFor="" className = "font-sans font-medium text-sm text-[#111014]">Password*</label>
+                        <input type="" name="" id="password" className = "w-full bg-white border-1 rounded-[5px] focus:shadow-sm focus:border-1 focus:border-blue-600 focus:outline focus:outline-blue-600 font-sans font-normal md:text-sm text-base text-[#878789] px-3 py-2 border-[#959595]" placeholder = "Enter Password"  {...register("password")}/> 
+                        <span className = "text-xs mt-[-3px] font-inter font-medium text-[#EC5E5E]">{errors.password?.message}</span>      
                     </div>
-                    <div className = " mobilee">
-                        <label htmlFor="" className = "labels">Confirm Password</label>
-                        <input type="password" name="" id="confirmpassword" className = "w-100 add-input" placeholder = "Enter Password"  {...register("confirmPassword")}/>
-                        <span className = "spans">{errors.confirmPassword?.message}</span>     
+                    <div className = "w-full flex flex-col gap-2">
+                        <label htmlFor="" className = "font-sans font-medium text-sm text-[#111014]">Confirm Password*</label>
+                        <input type="password" name="" id="confirmpassword" className = "w-full bg-white border-1 rounded-[5px] focus:shadow-sm focus:border-1 focus:border-blue-600 focus:outline focus:outline-blue-600 font-sans font-normal md:text-sm text-base text-[#878789] px-3 py-2 border-[#959595]" placeholder = "Enter Password"  {...register("confirmPassword")}/>
+                        <span className = "text-xs mt-[-3px] font-inter font-medium text-[#EC5E5E]">{errors.confirmPassword?.message}</span>     
                      </div>
                 </div> 
-                <div className = "d-flex gap-3 my-5">
-                    <button className = "cancel" disabled = {isSubmitting}>Cancel</button>
-                    <button className = "save" type = "submit" onClick={() => setModalShow(true)} >Save & Continue</button>
+                <div className = "flex gap-3 my-4">
+                    <button className = "w-full md:w-40 py-2 border border-[#DB3E3E]  font-medium text-base md:text-sm text-[#DB3E3E] hover:text-white hover:bg-[#DB3E3E] rounded-sm" disabled = {isSubmitting}>Cancel</button>
+                    <button className = "w-full md:w-40 py-2 bg-[#3439CA] rounded-sm font-medium   text-base md:text-sm text-[#F3F2FB]" type = "submit" onClick={() => setModalShow(true)} >Save & Continue</button>
                 </div>
                 </section>
                       <ModalX

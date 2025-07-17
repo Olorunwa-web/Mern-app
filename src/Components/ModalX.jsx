@@ -7,7 +7,7 @@ const ModalX = (props) => {
     return (
         <>
             <div>
-            <Modal
+            {/* <Modal
       {...props}
       size="md"
       aria-labelledby="contained-modal-title-vcenter"
@@ -29,7 +29,7 @@ const ModalX = (props) => {
       <div className = "const mb-4">
           <button className = "cont" onClick={props.onHide}>Continue</button>
       </div>
-    </Modal>
+    </Modal> */}
             </div>
         </>
     )

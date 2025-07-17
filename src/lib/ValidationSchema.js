@@ -1,5 +1,7 @@
 import * as yup from "yup"
 
+
+
 export const signInSchema = yup
 .object({
     email: yup.string().required('Email is required').email("invalid email format"),
@@ -22,15 +24,17 @@ export const forgotpasswordSchema = yup
 
   export const personalinfoSchema = yup
   .object().shape({
-    firstName: yup.string().required("Firstname cannot be empty"),
-    lastName: yup.string().required("Lastname cannot be empty"),
+    firstName: yup.string().required("Firstname is required"),
+    lastName: yup.string().required("Lastname is required"),
     mobileNumber: yup.string().required('Phone Number is required').max(10, 'Must be a valid phone number (10 digits)'), 
     email: yup.string().required('Email is required').email("invalid email format"),
     dateofBirth: yup.date().nullable().required('Date of Birth must be a valid date').typeError(' Date of Birth is required'),
     maritalStatus: yup.string().required("pick an option").oneOf(["single", "married"], "You must select an option!"),
     gender: yup.string().required("pick an option").oneOf(["male", "female"], 'You must select an option!'),
-    address: yup.string().required("Address cannot be empty"),
-    profileImage: yup.mixed().required("Profile Image is required ").nullable(),
+    address: yup.string().required("Address is required"),
+    profileImage: yup.mixed().required("Profile Image is required ").test("fileExists", "Profile Image is required", (value) => {
+      return value && value.length > 0;
+    }),
   })
   .required()
 
@@ -38,8 +42,9 @@ export const forgotpasswordSchema = yup
   .object().shape({
     officeOfEmployment: yup.string().required("Office of Employment is required"),
     jobTitle: yup.string().oneOf(["Product Designer","Front-end","Back-end","Cyber Security", "Customer Rep", "Data Analyst"], "Job Title is required"),
-    department: yup.string().required("Department is required"),
     // department: yup.string().required("Department is required"),
+    
+    department: yup.string().oneOf(["Administration",  "Operations","Product", "Marketing"], "Department is required"),
     employmentStatus: yup.string().required("pick an option").oneOf(["on-site", "remote", "hybrid"], 'You must select an option!'),
   
   })
@@ -47,7 +52,7 @@ export const forgotpasswordSchema = yup
 
   export const salarySchema = yup
   .object().shape({
-    salary: yup.number().positive("Amount must be positive").required("This field is required").nullable().typeError("Amount must be positive"),
+    salary: yup.number().positive("Amount must be positive").required("This field is required").nullable().typeError("Amount is required"),
     startDate: yup.string().required("start date is required"),
   })
   .required()
@@ -117,7 +122,7 @@ export const personalInformation = yup.object().shape({
   gender: yup.string().oneOf(["male", "female"], "Gender is required")
   .required("Gender is required"),
   address: yup.string().required("Address is required"),
-  // profileImage: yup.mixed().required("Profile Image is required").nullable(),
+  profileImage: yup.mixed().required("Profile Image is required").nullable(),
 });
 
 export const professional = yup.object().shape({

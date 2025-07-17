@@ -110,7 +110,7 @@ const Navbar = () => {
                     </div>
                 </div>
                 <div className = "flex md:hidden">
-                    <div onClick={() => setIsOpen(true)} className = 'w-full h-full'>
+                    <div onClick={() => setIsOpen(true)} className = 'w-full h-full '>
                        <img src= {menu}  alt=""  className = 'w-11 h-11 transform  scale-y-[-1] transition-all duration-300 ' />
                     </div>
                     {isOpen && (

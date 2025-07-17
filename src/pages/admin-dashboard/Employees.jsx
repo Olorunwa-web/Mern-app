@@ -109,14 +109,14 @@ const Employees = (props) => {
                         <h1 className = 'font-sans font-medium text-xl text-[#161E54]'>Employee</h1>
                         <h4 className = 'font-sans font-medium text-base text-[#404040]'>Dashboard/Employee</h4>
                     </div>
-                    <div className = 'flex justify-between items-center pb-2 border-b-2 border-[#F3F3F3] line my-7'>
+                    <div className = 'flex justify-between items-center pb-2 border-b-2 border-[#F3F3F3]  my-7'>
                         <div className = "flex gap-4  ">
                           <NavLink
                              className = ""
                              end> 
                             {({ isActive}) =>(
                              <span
-                               className={`font-sans font-medium text-[0.97rem] pb-4  ${isActive ? "is-Active  text-[#111014] border-b-2 border-[#6D5DD3]  " : "text-[#878789]" 
+                               className={`font-sans font-medium text-[0.97rem] pb-4 ${isActive ? "is-Active  text-[#111014] border-b-2 border-[#6D5DD3]  " : "text-[#878789]" 
                              }`}> 
                                All Employees
                              </span>

@@ -1,4 +1,4 @@
-.upload-img{
+/* .upload-img{
     height: 200px;
     width: 200px;
     margin-bottom: 37px;
@@ -227,9 +227,6 @@
   
 }
 
-/* input[type = "file"]{
-    display: none;
-} */
 
 .label-upload{
     font-family: neurial-grotesk;
@@ -296,7 +293,6 @@
     }
 
     .scroll-employee{
-        /* border: 2px solid ; */
         overflow-x: scroll;
     }
 
@@ -357,4 +353,4 @@
     }
 
     
-}
+} */

@@ -69,7 +69,7 @@ const ForgotPass = () => {
                   </div>
                   <form action="" className = '' onSubmit={handleSubmit(handleForgotPwd)}>
                   <div className = "mt-2 mb-3">
-                      <input type="email" name="email" id="" className = " w-full bg-[#F3F3F3] rounded-sm py-2 outline-none font-inter text-base font-normal text-[#111014] px-4" placeholder = "Enter your email address to reset your password" {...register("email")}/>
+                      <input type="email" name="email" id="" className = " w-full bg-[#F3F3F3] rounded-sm py-2 focus:shadow-md focus:border-1 focus:border-blue-600 focus:outline focus:outline-blue-600 font-inter text-base font-normal text-[#111014] px-4" placeholder = "Enter your email address to reset your password" {...register("email")}/>
                       <span className = "text-xs font-inter font-medium text-[#EC5E5E]">{errors.email?.message}</span>
                   </div>
                     <button className = "w-full bg-[#3439CA] rounded-sm border-none text-white text-base font-medium  py-2 font-neural mt-3" type = 'submit' disabled = {isSubmitting}>{btnText}</button>
