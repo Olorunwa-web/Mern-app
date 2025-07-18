@@ -1,7 +1,7 @@
 import React from 'react';
 import { Outlet,Link, NavLink, useMatch} from 'react-router-dom'
 import '../../Style/Employees.css'
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import Loadings from "../../utils/Loadings"
 import axios from "axios";
 import 'simplebar-react/dist/simplebar.min.css';
@@ -22,6 +22,27 @@ const Employees = (props) => {
   const [selectedTask, setSelectedTask] = useState(null);
   const [showModal, setShowModal] = useState(false);
   const token = localStorage.getItem("hr-token");
+  const modalRef = useRef();
+
+  // ================================================
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (modalRef.current && !modalRef.current.contains(event.target)) {
+        setShowModal(false);
+      }
+    }
+
+    if (showModal) {
+      document.addEventListener("mousedown", handleClickOutside);
+    } else {
+      document.removeEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [showModal]);
+  // =====================================================
 
 
   const fetchEmployees = async () => {
@@ -235,7 +256,7 @@ const Employees = (props) => {
 
                         {showModal && (
                           <div className="fixed inset-0 px-3 md:px-0 bg-black/30  flex items-center justify-center z-50">
-                            <div onClick={(e) => e.stopPropagation()} className="bg-white rounded-xl p-1 shadow-lg transform transition-all duration-100 ease-in-out   opacity-100 animate-modalFade w-full max-w-xl ">
+                            <div ref= {modalRef} onClick={(e) => e.stopPropagation()} className="bg-white rounded-xl p-1 shadow-lg transform transition-all duration-100 ease-in-out   opacity-100 animate-modalFade w-full max-w-xl ">
                               <div>
                                 {selectedTask ? (
                                   <>

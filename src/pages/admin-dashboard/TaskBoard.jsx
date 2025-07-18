@@ -151,7 +151,7 @@ const TaskBoard = () => {
                        {Taskboard.map((taskss)=>{
                            const {id,names,number,Icons} = taskss
                            return(
-                               <div key = {id} className = {`flex w-full  py-4 px-4 ${open ? 'md:w-full lg:w-[48%] xl:w-[23%] ' : 'md:w-[48%] lg:w-[23%] xl:w-[23%]'} justify-between  border-1 border-[#F1F2F3] rounded-[10px]`}>
+                               <div key = {id} className = {`flex w-full  py-4 px-4 ${open ? 'md:w-[47%]  lg:w-[48%] xl:w-[23%] ' : 'md:w-[48%] lg:w-[23%] xl:w-[23%]'} justify-between  border-1 border-[#F1F2F3] rounded-[10px]`}>
                                    <div className = "flex flex-col gap-4" >
                                        <h5 className = "font-sans font-medium text-base text-[#2F2B2BB0]">{names}</h5>
                                        <h1 className = "font-sans font-bold text-[1.8rem] text-[#1E1E1E]">{number}</h1>

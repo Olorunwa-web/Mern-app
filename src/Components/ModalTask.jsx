@@ -126,8 +126,8 @@ const ModalTask = ( {isModalOpen, setIsModalOpen}) => {
  
     return (
         <>
-          <div onClick={() => setIsModalOpen(false)}  className="fixed inset-0 px-4 md:px-0 bg-black/30 flex items-center min-h-screen   justify-center z-50">
-            <div onClick={(e) => e.stopPropagation()} className="bg-white rounded-xl shadow-lg transform  max-h-screen overflow-y-auto transition-all duration-100 ease-in-out opacity-100 animate-modalFade w-full max-w-lg ">
+          <div  className="fixed inset-0 py-10  px-4 md:px-0 bg-black/30 flex items-center screen   justify-center z-50">
+            <div onClick={(e) => e.stopPropagation()} className=" bg-white rounded-xl shadow-lg transform  max-h-full overflow-y-auto transition-all duration-100 ease-in-out opacity-100 animate-modalFade w-full max-w-lg ">
               <div className = 'flex py-3 px-4 justify-between items-center border-b-1 border-[#D9D9D9] '>
                  <h2 className = 'font-sans font-semibold text-[#292929] text-xl '>Create New Task</h2>
                  <img src= {canceled} onClick ={() => setIsModalOpen(false)} className = 'w-7 h-7' alt=""/>
@@ -135,15 +135,15 @@ const ModalTask = ( {isModalOpen, setIsModalOpen}) => {
               <div className = 'p-4'>
                 <form action="" className = 'flex flex-col gap-4' onSubmit={handleSubmit}>
                    <div className = "flex  flex-col gap-1">
-                      <label htmlFor="" className = "font-sans text-[#111014] text-sm font-medium">Task Title</label>
+                      <label htmlFor="" className = "font-sans text-[#111014] text-sm font-medium">Task Title*</label>
                       <input type="text" name="" id="" className = "w-full border-1 border-[#959595] px-3 font-sans text-base md:text-sm focus:shadow-sm focus:border-1 focus:border-blue-600 focus:outline focus:outline-blue-600 font-normal text-[#878789]  rounded-sm py-2 " placeholder = "Enter Task Title" value = {title}  onChange={(e) => setTitle(e.target.value)} autoFocus />
                   </div>
                   <div className = "flex flex-col gap-1">
-                      <label htmlFor="" className = "font-sans text-[#111014] text-sm font-medium">Task Description</label> 
-                      <textarea name="" id="" cols="30" rows="4"  className = "w-full border-1 border-[#959595]  font-sans text-base md:text-sm focus:shadow-sm focus:border-1 focus:border-blue-600 focus:outline focus:outline-blue-600 font-normal py-2 px-3 text-[#878789]  rounded-sm resize-none "  value={description} onChange={(e) => setDescription(e.target.value)}></textarea>
+                      <label htmlFor="" className = "font-sans text-[#111014] text-sm font-medium">Task Description*</label> 
+                      <textarea name="" id="" cols="30" rows="3"  className = "w-full border-1 border-[#959595]  font-sans text-base md:text-sm focus:shadow-sm focus:border-1 focus:border-blue-600 focus:outline focus:outline-blue-600 font-normal py-2 px-3 text-[#878789]  rounded-sm resize-none "  value={description} onChange={(e) => setDescription(e.target.value)}></textarea>
                   </div>
                   <div className = "flex flex-col gap-1 ">
-                      <label htmlFor="" className = "font-sans text-[#111014] text-sm font-medium">Assign Persons</label>
+                      <label htmlFor="" className = "font-sans text-[#111014] text-sm font-medium">Assign Persons*</label>
                       <input type="text" name="" id="" className = "w-full border-1 border-[#959595] px-3 font-sans text-base md:text-sm focus:shadow-sm focus:border-1 focus:border-blue-600 focus:outline focus:outline-blue-600 font-normal text-[#878789]  rounded-sm py-2" placeholder = "Search for employee" value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)}/>
                          {suggestions.length > 0 && (
                            <div className="suggestions-list list-unstyled assigned-memb flex gap-2 flex-wrap " role="button">
@@ -170,18 +170,18 @@ const ModalTask = ( {isModalOpen, setIsModalOpen}) => {
                    </div>
                    <div className = "flex md:flex-row flex-col gap-4 "> 
                       <div className = "w-full md:w-1/2 flex flex-col gap-1">
-                          <label htmlFor="" className = "font-sans text-[#111014] text-sm font-medium">Start Date</label>
+                          <label htmlFor="" className = "font-sans text-[#111014] text-sm font-medium">Start Date*</label>
                           {/* <DatePicker className = 'w-full border-1 border-[#959595] px-3 font-sans text-sm outline-none font-normal text-[#878789]  rounded-sm py-2'   placeholderText = 'Select Date' selected = {startDate} value = {startDate} onChange={(e) => setStartDate(e.target.value)} /> */}
                           <input type="date" name="" id="" placeholder = "select Date" className = "w-full border-1 border-[#959595] px-3 font-sans text-base md:text-sm focus:shadow-sm focus:border-1 focus:border-blue-600 focus:outline focus:outline-blue-600 font-normal text-[#878789]  rounded-sm py-2" value={startDate} onChange={(e) => setStartDate(e.target.value)}/>
                        </div>
                        <div className = "w-full md:w-1/2 flex flex-col gap-1">
-                          <label htmlFor="" className = "font-sans text-[#111014] text-sm font-medium">End Date</label>
+                          <label htmlFor="" className = "font-sans text-[#111014] text-sm font-medium">End Date*</label>
                           {/* <DatePicker className = {`w-full border-1 border-[#959595] px-3 font-sans text-sm outline-none font-normal text-[#878789]  rounded-sm py-2`}  placeholderText = 'Select Date' selected = {endDate} value = {endDate} onChange={(e) => setEndDate(e.target.value)} /> */}
                           <input type="date" name="" id="" placeholder = "select Date" className = "w-full border-1 border-[#959595] px-3 font-sans text-base md:text-sm focus:shadow-sm focus:border-1 focus:border-blue-600 focus:outline focus:outline-blue-600 font-normal text-[#878789]  rounded-sm py-2" value={endDate} onChange={(e) => setEndDate(e.target.value)}/>
                        </div>
                     </div>
                     <div className = "flex flex-col gap-1">
-                       <label htmlFor="" className = "font-sans text-[#111014] text-sm font-medium">Task Status</label>
+                       <label htmlFor="" className = "font-sans text-[#111014] text-sm font-medium">Task Status*</label>
                        <select name="" id="" className = "w-full border-1 border-[#959595] px-3 font-sans text-base md:text-sm focus:shadow-sm focus:border-1 focus:border-blue-600 focus:outline focus:outline-blue-600 font-normal text-[#878789]  rounded-sm py-2 " value = {status} onChange={(e) => setStatus(e.target.value)}>
                          <option hidden selected >Select Status</option>
                          <option value="Planned" className= "labelss">Planned</option>

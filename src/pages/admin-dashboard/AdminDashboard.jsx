@@ -9,7 +9,7 @@ import '../../Style/AdminDashboard.css';
 import Navbar from '../../Layout/Navbar';
 import AuthContext from "../../context/AuthContext";
 import leftvisible from '../../assets/dock_to_left_20dp_ACACAC_FILL0_wght400_GRAD0_opsz20.svg';
-import Logout from '../../assets/logout_20dp_ACACAC_FILL0_wght400_GRAD0_opsz20.svg';
+import Logout from '../../assets/logout-04-stroke-rounded.svg';
 import 'simplebar-react/dist/simplebar.min.css';
 import SimpleBar from 'simplebar-react';
 import OpenContext from '../../context/OpenContext'
@@ -91,17 +91,17 @@ const AdminDashboard = () => {
                              </div>
                          </div>
                       </div>
-                      <div className = {`flex flex-col  ${open ? 'justify-between items-center rounded-lg bg-[#F1F2F3] lg:p-4 md:p-3' : 'justify-center items-center'} `} >
+                      <div className = {`flex flex-col  ${open ? 'justify-start items-cente rounded-lg bg-[#F1F2F3 lg:pY- md:py' : 'justify-center items-center'} `} >
                         {open ? (
-                          <div className = {`flex flex-col gap-4 h-full justify-betweeen `}>
+                          <div className = {`flex flex-col gap-5 h-full justify-between `}>
                              <div  className = {` flex items-center  ${open ? '' : ''}`}>
-                               <div onClick = {logout} className = 'cursor-pointer flex items-center gap-1'>
-                                 <img src= {Logout} className = 'w-5 h-5' alt=""/>
-                                 <p className = 'font-sans font-normal text-[0.92rem] text-[#8C8C8C]'>Logout</p>
+                               <div onClick = {logout} className = 'cursor-pointer bg-[#DCDCDC] rounded-xl p-2 flex items-center gap-1'>
+                                 <img src= {Logout} className = 'w-4 h-4' alt=""/>
+                                 <p className = 'font-sans font-normal text-sm text-[#696969]'>Logout</p>
                                </div>
                              </div>
-                             <div className = ' flex justify-center items-end'>
-                             <div className = 'flex gap-2 items-center h bg-white border-1 border-[#E0E0E0] rounded-lg py-2 px-2'>
+                             <div className = ' flex justify-start items-end'>
+                             <div className = 'flex gap-2 items-center h bg-white border-1 border-[#E0E0E0] rounded-xl py-2 px-3'>
                                <div className = " w-7 h-7 hover:border-3 hover:border-[#78808A] md:w-7 md:h-7 flex justify-center bg-[#3439CA] rounded-full items-center ">
                                  <span className = 'font-sans text-white font-medium text-xs'>{user && user?.email?.slice(0,2).toUpperCase()}</span>
                                </div>
