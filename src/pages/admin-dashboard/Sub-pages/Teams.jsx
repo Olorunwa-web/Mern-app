@@ -127,7 +127,7 @@ const Teams = () => {
                 <div className="w-full h-full  border-1 border-[#EEEEEE] p-[1rem] rounded-md">
                   <div className="flex justify-between pb-3 items-center border-b-1 border-[#0000001A]">
                     <div className = "flex flex-col  ">
-                      <h1 className = 'font-sans font-semibold text-[#404040] text-lg'> {dept?.name} Team </h1>
+                      <h1 className = 'font-sans font-semibold text-[#404040] text-[1.05rem]'> {dept?.name} Team </h1>
                       <p className = 'font-sans font-medium text-sm text-[#7F7F7F] '> {dept.members.length} Members</p>
                     </div>
                       <Link onClick = {()=> getDeptById(dept._id)} className = "font-sans font-medium text-sm text-[#3439CA]" >View All</Link>
