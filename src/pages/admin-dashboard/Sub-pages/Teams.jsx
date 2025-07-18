@@ -8,7 +8,8 @@ import axios from "axios"
 import arrowRightImg from "../../../assets/Stockholm-icons (1).svg";
 import "../../../Style/newteamstyle.css"
 import NewTeam from "../Sub-pages/NewTeam"
-
+import OpenContext from '../../../context/OpenContext'
+import { useContext } from 'react'
 
 
   
@@ -20,6 +21,7 @@ const Teams = () => {
     const [selectedDept, setSelectedDept] = useState(null);
     const [showModal, setShowModal] = useState(false);
     
+    const { open } = useContext(OpenContext)
 
     
     const [modalShow12, setModalShow12] = React.useState(false);
@@ -119,58 +121,58 @@ const Teams = () => {
                      </div>
 
                      <main className="teams-wrapper my-4">
-        <div className="container-fluid teams-wrapper-div">
-          <div className=" x row justify-content-between gap-5">
+          <div className={`w-full grid grid-cols-1 lg:grid-cols-2 gap-5 ${open ? "md:grid-col-1" : "md:grid-cols-2"}  `}>
             {dept?.map((dept) => {
               return (
-                <div className="col-lg-5  border p-3 teams-wrapper-map">
-                  <div className="d-flex justify-content-between align-items-center border-bottom border-1">
-                    <div className = "product">
-                      <h1> {dept?.name} Team </h1>
-                      <p> {dept.members.length} Members</p>
+                <div className="w-full h-full  border-1 border-[#EEEEEE] p-[1rem] rounded-md">
+                  <div className="flex justify-between pb-3 items-center border-b-1 border-[#0000001A]">
+                    <div className = "flex flex-col  ">
+                      <h1 className = 'font-sans font-semibold text-[#404040] text-lg'> {dept?.name} Team </h1>
+                      <p className = 'font-sans font-medium text-sm text-[#7F7F7F] '> {dept.members.length} Members</p>
                     </div>
-                      <Link onClick = {()=> getDeptById(dept._id)} className = "view-all" >View All</Link>
+                      <Link onClick = {()=> getDeptById(dept._id)} className = "font-sans font-medium text-sm text-[#3439CA]" >View All</Link>
                   </div>
-                  <div className = "mt-3">
+                  <div className = "my-4">
                   {dept.manager && (
-                    <div className="manager-info d-flex gap-2 ">
-                      <div className="teams-wrapper-employees-profile-pic">
+                    <div className="flex gap-2  items-center">
+                      <div>
                         <img
                           src={dept.manager.profileImage}
                           alt={`${dept.manager.fullName}'s profile`}
+                          className = 'w-9 h-9 rounded-full border-1 border-[#7F7F7F]'
                           />
                       </div>
                       <div>
-                        <div className="d-flex flex-column aisha">
-                          <h3 className="teams-wrapper-employees-span-">{dept.manager.fullName}</h3>
-                          <p className="teams-wrapper-employees-span-">Manager</p>
+                        <div className="flex flex-col ">
+                          <h3 className=" font-sans font-medium text-[0.95rem] text-[#050505]">{dept.manager.fullName}</h3>
+                          <p className="mt-[-2px] font-sans font-medium text-xs text-[#7F7F7F]">Manager</p>
                         </div>
                       </div>
                     </div>
                   )}
                   </div>
                   <div>
-                    <div className="teams-wrapper-employees">
+                    <div className="flex flex-col gap-4">
                       {dept?.members.map((employee) => {
                         return (
                           <div
                             key={employee._id}
-                            className="d-flex justify-content-between"
+                            className="flex justify-between items-center"
                           >
-                            <div className="d-flex align-items-center gap-2 my-">
-                              <div className="teams-wrapper-employees-profile-pic">
+                            <div className="flex items-center gap-2 ">
+                              <div className="">
                                 <img
                                   src={employee?.profileImage}
                                   alt=""
-                                  className=""
+                                  className="w-9 h-9  rounded-full border-1 border-[#7F7F7F]"
                                 />
                               </div>
-                              <div className="d-flex flex-column aishas">
-                                <h3 className="teams-wrapper-employees-span-">
+                              <div className="flex flex-col ">
+                                <h3 className="font-sans font-medium text-[0.95rem] text-[#050505]">
                                   {" "}
                                   {employee?.fullName}
                                 </h3>
-                                <p className="teams-wrapper-employees-span-">
+                                <p className="mt-[-2px] font-sans font-medium text-xs text-[#7F7F7F]">
                                   {" "}
                                   {employee?.jobTitle}{" "}
                                 </p>
@@ -190,7 +192,8 @@ const Teams = () => {
               );
             })}
           </div>
-        </div>
+        {/* <div className="  teams-wrapper-di">
+        </div> */}
         {/* modal fro single dept */}
         {/* <Modal show={showModal} onHide={() => setShowModal(false)} centered  size="md">
           <Modal.Header closeButton >

@@ -2,12 +2,12 @@
     font-family: var(--ff-DM-sans);
 }
 
-.x{
-    /* height: 15rem;
-    overflow-y: scroll; */
+/* .x{
+    height: 15rem;
+    overflow-y: scroll;
 
-}
-.teams-wrapper h4{
+} */
+/* .teams-wrapper h4{
     font-size: 22px;
     font-weight: 600;
     color: rgba(64, 64, 64, 1);
@@ -21,11 +21,11 @@
     font-size: 14px;
     font-weight: 500;
     color: rgba(52, 57, 202, 1);
-}
-.teams-wrapper-map{
+} */
+/* .teams-wrapper-map{
    border-radius: 6px;
-}
-.teams-wrapper-employees-profile-pic{
+} */
+/* .teams-wrapper-employees-profile-pic{
     min-height: 41px;
 }
 .teams-wrapper-employees-profile-pic img{
@@ -76,4 +76,4 @@
 .teams-wrapper-map{
     width: 46%;
 }
-}
+} */
