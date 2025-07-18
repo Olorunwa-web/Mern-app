@@ -139,13 +139,13 @@ const Teams = () => {
                         <img
                           src={dept.manager.profileImage}
                           alt={`${dept.manager.fullName}'s profile`}
-                          className = 'w-9 h-9 rounded-full border-1 border-[#7F7F7F]'
+                          className = 'w-8 h-8 rounded-full border-1 border-[#7F7F7F]'
                           />
                       </div>
                       <div>
                         <div className="flex flex-col ">
-                          <h3 className=" font-sans font-medium text-[0.95rem] text-[#050505]">{dept.manager.fullName}</h3>
-                          <p className="mt-[-2px] font-sans font-medium text-xs text-[#7F7F7F]">Manager</p>
+                          <h3 className=" font-sans font-medium text-[0.94rem] text-[#050505]">{dept.manager.fullName}</h3>
+                          <p className="mt-[-3px] font-sans font-medium text-xs text-[#7F7F7F]">Manager</p>
                         </div>
                       </div>
                     </div>
@@ -164,7 +164,7 @@ const Teams = () => {
                                 <img
                                   src={employee?.profileImage}
                                   alt=""
-                                  className="w-9 h-9  rounded-full border-1 border-[#7F7F7F]"
+                                  className="w-8 h-8  rounded-full border-1 border-[#7F7F7F]"
                                 />
                               </div>
                               <div className="flex flex-col ">
@@ -172,7 +172,7 @@ const Teams = () => {
                                   {" "}
                                   {employee?.fullName}
                                 </h3>
-                                <p className="mt-[-2px] font-sans font-medium text-xs text-[#7F7F7F]">
+                                <p className="mt-[-3px] font-sans font-medium text-xs text-[#7F7F7F]">
                                   {" "}
                                   {employee?.jobTitle}{" "}
                                 </p>
