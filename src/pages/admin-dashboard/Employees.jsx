@@ -197,8 +197,8 @@ const Employees = (props) => {
                                                <span className = "font-sans font-medium text-sm text-[#292929]">{`${firstName} ${lastName}`}</span>
                                           </td>
                                           <td className = '' ><span className = "font-sans font-medium text-sm text-[#292929] ">{email}</span></td>
-                                          <td className = ""><span className = "font-sans font-medium text-sm text-[#292929]" >{department?.name}</span></td>
-                                          <td className = ""><span className = "font-sans font-medium text-sm text-[#292929] " >{allemployees ?.department?.manager.firstName}</span></td>
+                                          <td className = ""><span className = "font-sans font-medium text-sm text-[#292929]" >{department?.name || "No Team"}</span></td>
+                                          <td className = ""><span className = "font-sans font-medium text-sm text-[#292929] " >{allemployees ?.department?.manager.firstName || "No Supervisor yet"}</span></td>
                                           {/* <td className = "table-cell pt-3"><span className = {`action-status ${employmentStatus.replace(/\s+/, "-").toLowerCase()}`}>{employmentStatus}</span></td> */}
                                           <td className = 'text-center'>
                                             <span className = {` font-inter font-regular text-sm rounded-full px-4 py-1
@@ -314,7 +314,7 @@ const Employees = (props) => {
                                           </div>
                                           <div className = "flex justify-between md:flex-col">
                                               <h3 className = 'font-sans font-normal text-sm text-[#747474]'>Department</h3>
-                                              <h6 className = "font-sans font-medium text-sm text-[#1A1A1A]">{selectedTask?.department?.name}</h6>
+                                              <h6 className = "font-sans font-medium text-sm text-[#1A1A1A]">{selectedTask?.department?.name || "No Department yet"}</h6>
                                           </div>
                                         </div>
                                        </div>
