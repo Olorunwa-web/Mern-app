@@ -4,15 +4,18 @@ import {leaveBoard} from '../../Taskboard'
 import '../../Style/Leaveboard.css'
 import temilade from '../../assets/Frame 23.svg'
 import { useMatch } from 'react-router-dom';
-import  Loader  from "../../utils/Loader";
+import  Loadings  from "../../utils/Loadings";
 import axios from "axios";
 import toast from "react-hot-toast"
 import { yupResolver } from "@hookform/resolvers/yup"
 import { useForm } from "react-hook-form"
 import * as yup from "yup";
 import {leaveSchema} from "../../lib/ValidationSchema"
-
-
+import OpenContext from '../../context/OpenContext'
+import { useContext } from 'react'
+import 'simplebar-react/dist/simplebar.min.css';
+import SimpleBar from 'simplebar-react';
+import dashboardimage from "../../assets/ellipsis-svgrepo-com.svg"
 
 
 
@@ -146,6 +149,7 @@ const LeaveBoard = () => {
     const [selectedLeave, setSelectedLeave] = useState(null);
     const [selectedEmployee, setSelectedEmployee] = useState(null);
 
+    const { open } = useContext(OpenContext)
 
 
     const [modalShow, setModalShow] = React.useState(false);
@@ -298,9 +302,9 @@ const LeaveBoard = () => {
 
       if (isLoading) {
         return (
-          <div className="vh-100 d-flex justify-content-center">
+          <div className="min-h-screen items-center flex justify-center">
             {" "}
-            <Loader />{" "}
+            <Loadings />{" "}
           </div>
         );
       }
@@ -320,86 +324,93 @@ const LeaveBoard = () => {
 
     return (
         <>
-           <main className = "summary-container mt-2">
-               <section>
-                  <div className = "d-flex align-items-center justify-content-between">
-                    <div>
-                      <h2 className = "task-h1">Leaveboard</h2>
-                      <h4 className = "dash-h4">Dashboard/Leaveboard</h4>
-                    </div>
-                    {/* <div>
-                      <button className = "request-btn" onClick={() => setModalShow(true)} >Request Leave</button>
-                    </div> */}
+           <main className = "px-3 md:px-0 lg:px-0 w-19/20 mx-auto max-w-full">
+               <section className = 'my-4'>
+                  <div className = "flex flex-col gap-1 my-6">
+                        <h1 className = 'font-sans font-medium text-xl text-[#161E54]'>Leaveboard</h1>
+                        <h4 className = 'font-sans font-medium text-base text-[#404040]'>Dashboard/Leaveboard</h4>
                   </div>
-                  <div className = "d-flex  justify-content-between taskboard-flexx d-lg-flex flex-wrap my-4 pb-2 ">
+                  <div className = "flex flex-col gap-6 md:gap-6 lg:gap- w-full md:flex-wrap md:flex-row lg:flex-row justify-between">
                       {Leaveboard.map((leave) => {
                           const {id,names,number} = leave
                           return(
-                              <div key = {id} className = "text-center taskboard-flex ">
-                                  <h4 className = "namess">{names}</h4>
-                                  <h1 className = "numbers">{number}</h1>
+                              <div key = {id} className = {` w-full text-center py-4 px-4 ${open ? 'md:w-[47%]  lg:w-[48%] xl:w-[23%] ' : 'md:w-[48%] lg:w-[23%] xl:w-[23%]'}   border-1 border-[#F1F2F3] rounded-[5px]`}>
+                                  <h4 className = "font-medium font-sans text-base text-[#2F2B2BB0]">{names}</h4>
+                                  <h1 className = "font-bold font-sans text-[2.2rem] text-[#1E1E1E]">{number}</h1>
                               </div>
                           )
                       })}
                   </div>
 
-                  <section className = "dashboard-task my-4">
-                    <div className = "employee-table pt-2 ">
-                    {/* <Table responsive = "lg" hover>
-                      <thead className = "threadd">
-                        <tr >
-                          <th className = "bg-light table-space ">
-                              <span className = "dash-bars ms-2">Name</span>
-                          </th>
-                          <th className = "table-sp bg-light">
-                              <span className = "dash-bars ">Leave Type</span>
-                          </th>
-                          <th className = "table-space bg-light">
-                              <span className = "dash-bars">Duration</span>
-                          </th>
-                          <th className = "table-space bg-light">
-                              <span className = "dash-bars">Days</span>
-                          </th>
-                          <th className = "text-center table-space bg-light">
-                              <span className = "dash-bars">Status</span>
-                          </th>
-                        </tr>
+                  <section className = "border-[0.5px] border-[#E4E8ED] rounded-lg my-4">
+                    <div className = "py-3 ">
+                    <SimpleBar forceVisible="x" autoHide={false} style={{ maxWidth: '100%' }}>
+                    <div className = "min-w-[1000px] w-full " >
+                     <table className=" table-auto w-full ">
+                     <thead className = " ">
+                        <tr className = 'text-left    '>
+                           <th className = 'whitespace-nowra py-2 bg-[#F7F9FB] rounded-ss-lg ps-4 font-inter font-medium text-base text-[#292929]'>
+                              Name
+                           </th>
+                           <th className = "whitespace-nowra py-2 bg-[#F7F9FB] font-inter font-medium text-base text-[#292929]">
+                             Leave Type
+                           </th>
+                           <th className = "whitespace-nowra py-2 bg-[#F7F9FB] font-inter font-medium text-base text-[#292929]">
+                             Duration
+                           </th>
+                           <th className = "whitespace-nowrap py-2 bg-[#F7F9FB] font-inter font-medium text-base text-[#292929]">
+                             Days
+                           </th>
+                           <th className = "whitespace-nowrap text-center  py-2 bg-[#F7F9FB] rounded-tr-lg font-inter font-medium text-base text-[#292929]">
+                             Status 
+                           </th>
+                           <th className = "whitespace-nowrap text-center  py-2 bg-[#F7F9FB] rounded-tr-lg font-inter font-medium text-base text-[#292929]">
+                             
+                           </th>
+                         </tr>
                       </thead>
-                      <tbody>
+                      <tbody className = 'divide-y divide-[#E4E8ED] '>
                       {data.map((leave) =>{
                            const { Days, fullName, endDate, startDate, leaveType, profileImage, status, id} = leave
                           return(   
                          <tr key= {id} className = "" onClick={() => handleRowClick(leave?.id)} role="button">
-                           <td className = "paps">
-                              <div className = "d-flex align-items-center gap-2 mt-1 ms-1 employ-head" >
-                                   <img src= {profileImage} alt="image-leave" className = "image-div c"/>
-                                   <span className = "names"  >{fullName}</span>
-                               </div>
-                           </td>
-                           <td  className = "pt-3">
-                             <div className = "leave-width">
-                                 <span className = "names">{leaveType} Leave</span> 
+                           <td className = " ps-4 py-2">
+                             <div className = 'flex gap-2 items-center'>
+                               <img src= {profileImage} alt="image-leave" className = "w-7 h-7 rounded-full"/>
+                               <span className = "font-sans font-medium text-sm text-[#292929]"  >{fullName}</span>
                              </div>
                            </td>
-                           <td className = "pt-3 ">
-                             <div className = "head-date">
-                                <p className = "start">Start: {startDate.slice(0,10)}</p>
-                                <p className = "end">End: {endDate.slice(0,10)}</p>
+                           <td  className = "">
+                               <span className = "font-sans font-medium text-sm text-[#292929]">{leaveType} leave</span> 
+                           </td>
+                           <td className = " whitespace-nowrap ">
+                             <div className = 'flex flex-col'>
+                                <span className = "font-inter font-normal text-sm text-[#292929]">Start: {startDate.slice(0,10)}</span>
+                                <span className = "font-inter font-normal text-sm text-[#8C8C8C]">End: {endDate.slice(0,10)}</span>
                              </div>
                            </td>
-                           <td className = "pt-3">
-                             <div className = "leave-days">
-                                <span className = "names">{Days} Days</span> 
-                             </div>
+                           <td className = "">
+                                <span className = "font-medium font-sans text-sm text-[#292929] ">{Days} Days</span> 
                            </td>
-                           <td className = "pt-3">
-                                 <p className = {`action-status ${status.replace(/\s+/, "-").toLowerCase()}`} >{status}</p>
+                           <td className = 'text-center'>
+                           <span className = {` font-inter font-regular text-sm rounded-full px-4 py-1
+                              ${status.toLowerCase() === "approved"  ? "bg-[#E5FFF7] text-[#0D805D]  " :
+                                status.toLowerCase() === "pending" ? "bg-[#FFF5E3] text-[#F29B07]" :
+                                status.toLowerCase() === "declined" ? "bg-[#F9E9E9]  text-[#F63838] " :
+                                 ""
+                                }`}>{status}</span>
+                           </td>
+                           <td className = ''>
+                              <img className = 'w-6 h-6' src= {dashboardimage} alt="" role = "button" onClick = {()=> handleOpenModal(_id)}  />
                            </td>
                          </tr>
                           )
                       })}
                      </tbody>
-                    </Table> */}
+                    </table>
+
+                      </div>
+                    </SimpleBar>
                     {/* <Modal
             show={showModal}
             onHide={() => setShowModal(false)}

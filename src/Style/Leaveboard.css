@@ -1,4 +1,4 @@
-.image-divs{
+/* .image-divs{
     width: 60px;
     height: 60px;
 }
@@ -151,13 +151,11 @@
 
 
 .gaps{
-    /* border: 1px solid; */
     width: 55%;
     gap: 34px;
 }
 
 .gapss{
-    /* border: 1px solid red; */
     width: 40%;
     gap: 34px;
 }
@@ -215,7 +213,6 @@
     
     .gapps{
         width: 100% !important;
-        /* justify-content: space-between; */
         gap: 120px !important;
 
 
@@ -267,7 +264,6 @@
     
     .gapps{
         width: 100% !important;
-        /* justify-content: space-between; */
         gap: 170px ;
 
 
@@ -275,7 +271,6 @@
 
     .gappss{
         width: 100% !important;
-        /* gap: 10px ; */
         justify-content: space-between ;
     }
 
@@ -327,16 +322,7 @@
 
     
 
-    /* .gaps{
-        width: 100% !important;
-        gap: 10px !important;
-        
-    }
-
-    .gapss{
-        width: 100% !important;
-        gap: 10px !important;
-    } */
+   
 
     .profile-h1{
         padding-left: 0 !important;
@@ -440,13 +426,11 @@
 
 @media (min-width:766px) and (max-width:991px){
     .gaps{
-        /* border: 1px solid; */
         width: 52%;
         gap: 20px;
     }
     
     .gapss{
-        /* border: 1px solid red; */
         width: 44%;
         gap: 20px;
     }
@@ -478,4 +462,4 @@
 }
 
 
-
+ */

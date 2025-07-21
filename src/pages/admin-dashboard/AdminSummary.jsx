@@ -75,6 +75,7 @@ const AdminSummary = () => {
 
 
     const getTasks = async ()=>{
+      
         try {
             const req = await axios.get("https://mern-backend-1-9jn6.onrender.com/api/task", {
                 headers:{
@@ -139,8 +140,7 @@ const AdminSummary = () => {
         }
       }
 
-      
-
+    
       const handleOpenModal = (_id) => {
         setIsOpen(true);        
         getTaskById(_id);         

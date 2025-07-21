@@ -17,7 +17,6 @@ import add from "../../assets/Stockholm-icons (8).svg";
 import ModalTask from '../../Components/ModalTask'
 
 const TaskBoard = () => {
-
     const [data2, setData2] = useState([])
     const token = localStorage.getItem("hr-token");
 
@@ -126,7 +125,7 @@ const TaskBoard = () => {
         setIsOpen(true);        
         getTaskById(_id);         
       };
-// ====================== api for create  new task  =======================================================
+// ====================== api for totalcounts  =======================================================
 
 
 
@@ -146,6 +145,7 @@ const TaskBoard = () => {
                          <button className = "bg-[#3439CA] cursor-pointer p-2 rounded-sm text-[#F3F2FB] font-medium text-sm font-neural " onClick= {() => setIsModalOpen(true)}  >New Task</button>  
                    </div>
                    </div>
+                   
                    <div className = 'my-6'>
                    <div className = " flex flex-col gap-7 md:gap-6 lg:gap- w-full md:flex-wrap md:flex-row lg:flex-row  justify-between ">
                        {Taskboard.map((taskss)=>{

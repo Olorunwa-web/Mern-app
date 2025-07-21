@@ -13,7 +13,7 @@ import { useContext } from 'react'
 import 'simplebar-react/dist/simplebar.min.css';
 import SimpleBar from 'simplebar-react';
 import cancel from '../../../assets/Stockholm-icons (11).svg';
-
+import Loadings from '../../../utils/Loadings'
   
 
 const Teams = () => {
@@ -21,6 +21,7 @@ const Teams = () => {
 
     const [selectedTeam , setselectedTeam] = useState(null)
     const [selectedDept, setSelectedDept] = useState(null);
+    const [loading, setLoading] = useState(true);
     const [showModal, setShowModal] = useState(false);
     const modalRef = useRef();
 
@@ -55,6 +56,7 @@ const Teams = () => {
 
     
     const getDepts = async () => {
+      
       try {
         const req = await axios.get(
           "https://mern-backend-1-9jn6.onrender.com/api/department/all-departments",
@@ -69,6 +71,7 @@ const Teams = () => {
       } catch (error) {
         console.log(error);
       }
+
     };
   
     
@@ -78,6 +81,7 @@ const Teams = () => {
     
     const getDeptById = async (id) => {
       try {
+        setLoading(true); //
         const res = await axios.get(`https://mern-backend-1-9jn6.onrender.com/api/department/departments/${id}`, {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -89,14 +93,13 @@ const Teams = () => {
         
       } catch (error) {
         console.log(error);
+      } finally {
+        setLoading(false);
       }
     };
 
 
-    const OpenModal = () => {
-      setShowModal(true);
-      getDeptById(dept._id)
-    };
+    
     
     
 
@@ -146,7 +149,7 @@ const Teams = () => {
                          </div>
                      </div>
 
-                     <main className="teams-wrapper my-4">
+                     <main className="teams-wrappe my-4">
           <div className={`w-full grid grid-cols-1 lg:grid-cols-2 gap-5 ${open ? "md:grid-cols-1" : "md:grid-cols-2"}  `}>
             {dept?.map((dept) => {
               return (
@@ -270,6 +273,8 @@ const Teams = () => {
 
                 </SimpleBar>
                </div>
+               ) : (
+                 <Loadings/>
             </div>
           )}
         {/* <div className="  teams-wrapper-di">
