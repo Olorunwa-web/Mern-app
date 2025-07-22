@@ -408,7 +408,7 @@ const onSubmit = async (data) => {
                       {Leaveboard.map((leave) => {
                           const {id,names,number} = leave
                           return(
-                              <div key = {id} className = {` w-full text-center py-4 px-4 ${open ? 'md:w-[47%]  lg:w-[48%] xl:w-[23%] ' : 'md:w-[48%] lg:w-[23%] xl:w-[23%]'}   border-1 border-[#F1F2F3] rounded-[5px]`}>
+                              <div key = {id} className = {` w-full text-center p-5 ${open ? 'md:w-[47%]  lg:w-[48%] xl:w-[23%] ' : 'md:w-[48%] lg:w-[23%] xl:w-[23%]'}   border-1 border-[#F1F2F3] rounded-[5px]`}>
                                   <h4 className = "font-medium font-sans text-base text-[#2F2B2BB0]">{names}</h4>
                                   <h1 className = "font-bold font-sans text-[2rem] text-[#1E1E1E]">{number}</h1>
                               </div>
