@@ -160,16 +160,6 @@ const LeaveBoard = () => {
     const modalRef = useRef();
     const [modalShow1, setModalShow1] = useState(false);
 
-    // ===============================================
-    // const [startDate, setStartDate] = useState("");
-    // const [endDate, setEndDate] = useState("");
-    // const [leavetypes, setLeavetype] = useState("");
-    // const [description, setDescription] = useState([]);
-
-
-    // ==============================================
-
-
     const token = localStorage.getItem("hr-token");
 
     // =========================================
@@ -232,7 +222,8 @@ const LeaveBoard = () => {
         const res = await req.json();
         console.log(res); // Log the response data
         if (res) {
-          fetchLeaves();
+          await getAllLeaves();
+          // fetchLeaves();
           toast.success(res.message);
           setShowModal(false);
         } else {
@@ -266,11 +257,12 @@ const LeaveBoard = () => {
         const res = await req.json();
         console.log(res); // Log the response data
         if (res) {
-          fetchLeaves();
+           await getAllLeaves();
           toast.success(res.message);
           setShowModal(false);
         } else {
           toast.error(res.message);
+          setModalShow1(false)
         }
       } catch (error) {
         console.error("Error approving leave request:", error);
@@ -359,8 +351,8 @@ const onSubmit = async (data) => {
     const res = await req.json();
     console.log(res);
     if (res.success) {
-      fetchLeaves();
-      getAllLeaves();
+      // fetchLeaves();
+      await getAllLeaves();
       setModalShow1(false)
       toast.success(res.message);
     } else {
@@ -513,7 +505,7 @@ const onSubmit = async (data) => {
                                          <p className = 'mt-[-8px] font-sans font-normal text-sm text-[#747474]'>{selectedLeave?.employee?.email}</p>
                                       </div>
                                    </div>
-                                   <div className = 'md:w-9/11 max-w-full'>
+                                   <div className = 'md:w-10/11 max-w-full'>
                                      <h4 className = 'my-3 font-sans font-semibold text-[#1A1A1A] text-lg '>Leave Details</h4>
                                      <div className = 'w-full flex flex-col gap-4 '>
                                        <div className = " flex w-full flex-col md:flex-row gap-4 md:gap-10  items-center justify-between ">
@@ -640,10 +632,7 @@ const onSubmit = async (data) => {
                 </section>
 
                </section>
-              {/* <RequestLeave
-       isOpen ={modalShow1}
-        Onclose = {() => setModalShow1(false)}
-      /> */}
+             
             </main> 
             
         </>
