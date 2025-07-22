@@ -16,6 +16,10 @@ import toast, { LoaderIcon } from "react-hot-toast";
 import add from "../../assets/Stockholm-icons (8).svg";
 import ModalTask from '../../Components/ModalTask'
 
+
+
+
+
 const TaskBoard = () => {
     const [data2, setData2] = useState([])
     const token = localStorage.getItem("hr-token");

@@ -21,6 +21,7 @@ import "react-datepicker/dist/react-datepicker.css";
 const ModalTask = ( {isModalOpen, setIsModalOpen}) => {
 
   if (!isModalOpen) return null;
+  const [data2, setData2] = useState([])
 
 
   const [title, setTitle] = useState([]);
@@ -103,6 +104,8 @@ const ModalTask = ( {isModalOpen, setIsModalOpen}) => {
         setStatus("");
         setSearchQuery("");
         setSuggestions([]);
+        setIsModalOpen(false);
+        getTasks();
       }
     } catch (error) {
       toast.error(error?.response?.data?.errMsg);
@@ -122,6 +125,8 @@ const ModalTask = ( {isModalOpen, setIsModalOpen}) => {
   }
   const btnText = isSubmitting ? <Loader/> : "Save";
 
+
+  
 
  
     return (
@@ -196,97 +201,7 @@ const ModalTask = ( {isModalOpen, setIsModalOpen}) => {
                 </form>
               </div>
             </div>
-            {/* <Modal
-            {...props}
-      size="md"
-      aria-labelledby="contained-modal-title-vcenter"
-      centered
-    >
-      <Modal.Header closeButton>
-      <Modal.Title className = "">
-          <div className = "title">
-            <h1 className = "create-h1">Create New Task</h1>
-          </div>
-      </Modal.Title>
-      </Modal.Header>
-      <Modal.Body>
-        <div className = " title">
-          <form onSubmit={handleSubmit}>
-            <div className = "mb-3">
-              <label htmlFor="" className = "labels">Task Title</label>
-              <input type="text" name="" id="" className = "w-100 add-input" placeholder = "Enter Task Title" value = {title}  onChange={(e) => setTitle(e.target.value)} autoFocus />
-            </div>
-            <div className = "mb-3">
-               <label htmlFor="" className = "labels">Task Description</label> 
-               <textarea name="" id="" cols="30" rows="4"  className = "textA"  value={description} onChange={(e) => setDescription(e.target.value)}></textarea>
-            </div>
-            <div className = "mb-3">
-               <label htmlFor="" className = "labels">Assign Persons</label>
-               <input type="text" name="" id="" className = "w-100 add-input" placeholder = "Search for employee" value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)}/>
-               {suggestions.length > 0 && (
-                <div className="suggestions-list list-unstyled assigned-memb d-flex gap-2 flex-wrap   " role="button">
-                  {suggestions.map((suggestion) => (
-                    <div className = "d-flex gap-2 align-items-center assigned-memberss mt-2  ">
-                    <span
-                      key={suggestion._id}
-                     className = "assigned-membe "
-                    >
-                      {suggestion.firstName} {suggestion.lastName} 
-                    </span>
-                    <span  onClick={() => handleAddMember(suggestion)} className = "" ><img src= {add} alt="" className = ""/></span>
-                   
-                    </div>
-                    
-                  ))}
-                </div>
-              )}
-               <div className="assigned-memb d-flex gap-2 flex-wrap">
-                {assignedMembers.map((member) => (
-                  <div className = "d-flex gap-1 align-items-center assigned-members mt-2  ">
-                  <span key={member._id} className="assigned-member">
-                    {member.firstName} {member.lastName}
-                  </span>
-                    <span
-                      onClick={() => handleRemoveMember(member)}
-                      className="text-danger "
-                    >
-                      <img src= {cancel} alt="cancel-btn"/>
-                    </span>
-                  </div>
-                ))}
-              </div>
-            </div>
-            <div className = "d-md-flex gap-4 mb-3"> 
-                <div className = "mobile">
-                  <label htmlFor="" className = "labels">Start Date</label>
-                  <input type="date" name="" id="" placeholder = "select Date" className = "w-100 add-input" value={startDate} onChange={(e) => setStartDate(e.target.value)}/>
-                </div>
-                <div className = "mobilee">
-                  <label htmlFor="" className = "labels">End Date</label>
-                  <input type="date" name="" id="" placeholder = "select Date" className = "w-100 add-input" value={endDate} onChange={(e) => setEndDate(e.target.value)}/>
-                </div>
-            </div>
-            <div className = "my-3">
-               <label htmlFor="" className = "labels">Task Status</label>
-               <select name="" id="" className = "w-100 select-input" value = {status} onChange={(e) => setStatus(e.target.value)}>
-                    <option disabled selected hidden >Select Status</option>
-                    <option value="Planned" className= "labelss">Planned</option>
-                    <option value="In progress" className = "labelss">In progress</option>
-                    <option value="Completed" className = "labelss">Completed</option>
-               </select>
-            </div>
-            <div className = "d-flex gap-3 mt-4 mb-4">
-                 <button className = "cancel" onClick = {reset}>Cancel</button>
-                 <button className = "save" type = "submit"  disabled = {setIsSubmitting}>{btnText}</button>
-           </div>
-          </form>
-        </div>
-        <ModalTasks
-        show={modalShow}
-        onHide={() => setModalShow(false)}
-      />
-      </Modal.Body>
-    </Modal> */}
+            
             </div>
         </>
     )

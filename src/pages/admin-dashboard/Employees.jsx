@@ -233,8 +233,8 @@ const Employees = (props) => {
                                     <section className = 'md:mt-11 mt-10 mx-3  md:mx-4'>
                                        <div className = "flex justify-between  items-center  " >
                                           <div>
-                                             <h3 className = ' font-sans font-medium text-base md:text-[1.1rem] text-[#0E0A2D] '><strong></strong> {selectedTask.firstName} {selectedTask.lastName}</h3>
-                                             <p className = 'mt-[-1px] font-sans font-normal text-sm text-[#747474]'><strong></strong> {selectedTask.email}</p>
+                                             <h3 className = ' font-sans font-medium text-base md:text-[1.1rem] text-[#0E0A2D] '> {selectedTask.firstName} {selectedTask.lastName}</h3>
+                                             <p className = 'mt-[-1px] font-sans font-normal text-sm text-[#747474]'> {selectedTask.email}</p>
                                          </div>
                                          <div className = 'border-1 flex gap-2 items-center justify-center border-[#D9D9D9] rounded-sm py-[4px] px-2'>
                                             <div className = 'w-[6px] h-[6px] rounded-full bg-[#3439CA]'></div>
