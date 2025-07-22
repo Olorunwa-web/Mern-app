@@ -58,7 +58,7 @@ const Settings = () => {
                         <div className = {`flex flex-col w-full ${open ? "md:flex-col gap-y-4 lg:flex-row ": "md:flex-row "} mt-3  md:justify-between`}>
                             <div className = {`w-full   ${open ? "lg:w-5/15 ": "md:w-5/15 "} `}>
                                 <h3 className = 'font-sans font-medium text-lg text-[#0E0A2D]'>Profile Information</h3>
-                                <p className = "font-sans font-medium text-base text-[#747474]">Edit your profile Information</p>
+                                <p className = "font-sans font-medium text-[0.97rem] text-[#747474]">Edit your profile Information</p>
                            </div>
                            <div className = {`w-full flex flex-col gap-4  ${open ? "lg:w-9/15 ": " md:w-9/15"}  pt-2`}>
                              <div className = 'flex flex-col gap-2'>
