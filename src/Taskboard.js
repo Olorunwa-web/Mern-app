@@ -156,7 +156,7 @@ export const Payroll = [
     {
         id:1,
         names:"Total Employees",
-        number:"134",
+        number:"1349",
         month:"Since last month",
         Icon: chart,
     },
@@ -170,14 +170,14 @@ export const Payroll = [
     {
         id:3,
         names:"Total Deductions",
-        number:"$300,000",
+        number:"$3,000,000",
         month:"Since last month",
         Icon: chart,
     },
     {
         id:4,
         names:"Total Net Salary",
-        number:"$300,000",
+        number:"$9,120,000",
         month:"Since last month",
         Icon: chart,
     },

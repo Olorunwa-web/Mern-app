@@ -5,7 +5,8 @@ import {payrolll} from '../../Taskboard'
 import Modalpay from '../../Components/Modalpay'
 import OpenContext from '../../context/OpenContext';
 import { useContext } from 'react'
-
+import 'simplebar-react/dist/simplebar.min.css';
+import SimpleBar from 'simplebar-react';
 
 const PayRoll = () => {
     const [modalShow, setModalShow] = useState(false);
@@ -26,7 +27,7 @@ const PayRoll = () => {
                        </div>
                     </div>
  
-                    <div className = "my-3 flex flex-col gap-7 md:gap-6 lg:gap- w-full md:flex-wrap md:flex-row lg:flex-row  justify-between  ">
+                    <div className = "my-5 flex flex-col gap-7 md:gap-6 lg:gap- w-full md:flex-wrap md:flex-row lg:flex-row  justify-between  ">
                         {Payroll.map((pay) =>{
                             const {id,names,number,month,Icon} = pay
                             return(
@@ -38,7 +39,7 @@ const PayRoll = () => {
                                      </div>
                                      <div >
                                         <h5 className = 'mb-1 font-sans font-medium text-xs text-[#3C3C3C]'>{month}</h5>
-                                        <div className = "w-15">
+                                        <div className = "w-14">
                                            <img src= {Icon} alt=""/>
                                         </div>
                                      </div>
@@ -48,68 +49,56 @@ const PayRoll = () => {
                         })}
                     </div>
 
-                    <section className = "employee-task my-4 ">
-                      <h1 className = "heading-4 pt-3  ps-3 ">Payroll Table</h1>
-                    <div className = "employee-table" >
-                    {/* <Table responsive = "lg" hover role = "button">
-                      <thead>
-                        <tr>
-                            <th  className = "bg-light"><span className = "dash-bar ms-2">Employee</span></th>
-                            <th  className = "bg-light"><span className = "dash-bar">Salary</span></th>
-                            <th  className = "bg-light"><span className = "dash-bar">Allowance</span></th>
-                            <th  className = "bg-light"><span className = "dash-bar">Deductions</span></th>
-                            <th  className = "bg-light"><span className = "dash-bar">Tax</span></th>
-                            <th className = "text-center bg-light "><span className = "dash-bar">Net Salary</span></th>
-                      
-                        </tr>
-                      </thead>
-                      <tbody>
-                      {payrolll.map((payee) =>{
-                          const{id,Images,Names,Salary,Allowance,Deduction,Tax,NetSalary} = payee
-                          return(   
-                         <tr key= {id}>
-                           <td >
-                               <div  className = "d-flex align-items-center gap-2 my-1 ms-2 pic-pay">
-                                   <img src= {Images} alt="image-employ"  className = "image-div "/>
-                                   <span className = "names pt-1">{Names}</span>
-                               </div>
-                           </td>
-                           <td  className = "pt-3">
-                               <div className = "pay-salary">
-                                 <span className = "names ">{Salary}</span> 
-                               </div>
-                           </td>
-                           <td className = "pt-3" > 
-                              <div className = "pay-allow">
-                                 <span className = "names">{Allowance}</span>
-                              </div>
-                           </td>
-                           <td className = "pt-3">
-                               <div className = "pay-ded">
-                                 <span className = "names">{Deduction}</span>
-                               </div>
-                           </td>
-                           <td className = "pt-3">
-                               <div className = "pay-tax">
-                                 <span className = "names">{Tax}</span>
-                               </div>
-                           </td>
-                           <td className = "text-center pt-3">
-                               <div className = "pay-netsalary">
-                                 <span className = "names ">{NetSalary}</span>
-                               </div>
-                           </td>
-                         </tr>
-                          )
-                      })}
-                     </tbody>
-                    </Table> */}
-                    </div>
+                    <section className = "my-7 border-[0.1px] border-[#E4E8ED] rounded-lg">
+                      <h1 className = "font-inter font-medium text-xl ps-4 py-2  text-[#161E54]">Payroll Table</h1>
+                      <SimpleBar forceVisible="x" autoHide={false} style={{ maxWidth: '100%' }}>
+                      <div className = "min-w-[1000px] w-full" >
+                        <table className=" table-auto w-full border-[0.5px] border-[#E4E8ED] rounded-lg ">
+                          <thead>
+                           <tr className = 'text-left bg-[#F7F9FB]'>
+                             <th  className = "whitespace-nowra py-2 ps-4 font-inter font-medium text-base text-[#292929]">Employee</th>
+                             <th  className = "py-2  font-inter font-medium text-base text-[#292929]">Salary</th>
+                             <th  className = "py-2  font-inter font-medium text-base text-[#292929]">Allowance</th>
+                             <th  className = " py-2  font-inter font-medium text-base text-[#292929]">Deductions</th>
+                             <th  className = " py-2 font-inter font-medium text-base text-[#292929]">Tax</th>
+                             <th className = " py-2 text-center font-inter font-medium text-base text-[#292929] ">Net Salary</th>
+                           </tr>
+                         </thead>
+                         <tbody  className = 'divide-y divide-[#E4E8ED] '>
+                          {payrolll.map((payee) =>{
+                             const{id,Images,Names,Salary,Allowance,Deduction,Tax,NetSalary} = payee
+                             return(   
+                               <tr key= {id}>
+                                 <td >
+                                   <div  className = "flex items-center gap-2 ps-4 py-2">
+                                     <img src= {Images} alt="image-employ"  className = " w-7 h-7"/>
+                                     <span className = "font-inter font-medium text-sm text-[#292929]">{Names}</span>
+                                   </div>
+                                 </td>
+                                 <td  className = "">
+                                    <span className = "font-inter font-medium text-sm text-[#292929] ">{Salary}</span> 
+                                 </td>
+                                 <td className = "" > 
+                                    <span className = "font-inter font-medium text-sm text-[#292929]">{Allowance}</span>
+                                 </td>
+                                 <td className = "">
+                                   <span className = "font-inter font-medium text-sm text-[#292929]">{Deduction}</span>
+                                 </td>
+                                 <td className = "">
+                                   <span className = "font-inter font-medium text-sm text-[#292929]">{Tax}</span>
+                                 </td>
+                                 <td className = "text-center">
+                                   <span className = "font-inter font-medium text-sm text-[#292929] ">{NetSalary}</span>
+                                </td>
+                              </tr>
+                            )
+                         })}
+                        </tbody>
+                       </table>
+                     </div>
+                      </SimpleBar>
                     </section>
-                    {/* <Modalpay
-        show={modalShow}
-        onHide={() => setModalShow(false)}
-      /> */}
+                   
                 </section>
             </main>
         </>

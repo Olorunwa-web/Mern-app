@@ -175,7 +175,7 @@ const TaskBoard = () => {
                    <div className = "min-w-[1000px] w-full"> 
                     <table  className=" table-auto w-full border-[0.5px] border-[#E4E8ED] rounded-lg ">
                       <thead className = " ">
-                        <tr className = 'text-left bg-[#F7F9FB]   '>
+                        <tr className = 'text-left bg-[#F7F9FB]'>
                           <th className = 'whitespace-nowra py-2 ps-4 font-inter font-medium text-base text-[#292929]'>
                               Task
                           </th>
