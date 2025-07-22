@@ -18,7 +18,7 @@ import "react-datepicker/dist/react-datepicker.css";
 
 
 
-const ModalTask = ( {isModalOpen, setIsModalOpen}) => {
+const ModalTask = ( {isModalOpen, setIsModalOpen, refreshTask}) => {
 
   if (!isModalOpen) return null;
   const [data2, setData2] = useState([])
@@ -105,7 +105,7 @@ const ModalTask = ( {isModalOpen, setIsModalOpen}) => {
         setSearchQuery("");
         setSuggestions([]);
         setIsModalOpen(false);
-        getTasks();
+        refreshTask();
       }
     } catch (error) {
       toast.error(error?.response?.data?.errMsg);
@@ -126,7 +126,7 @@ const ModalTask = ( {isModalOpen, setIsModalOpen}) => {
   const btnText = isSubmitting ? <Loader/> : "Save";
 
 
-  
+ 
 
  
     return (

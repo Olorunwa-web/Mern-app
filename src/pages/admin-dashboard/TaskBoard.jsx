@@ -308,7 +308,7 @@ const TaskBoard = () => {
                 </section>
 
                 {/*  */}
-                <ModalTask isModalOpen = {isModalOpen} setIsModalOpen = {setIsModalOpen} /> 
+                <ModalTask isModalOpen = {isModalOpen} setIsModalOpen = {setIsModalOpen} refreshTask={getTasks} /> 
 
                </section>
            </main>
