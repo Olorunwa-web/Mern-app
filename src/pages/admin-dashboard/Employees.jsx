@@ -11,7 +11,7 @@ import cancel from '../../assets/Stockholm-icons (11).svg';
 
 
 
-const Employees = (props) => {
+const Employees = () => {
     const Match = useMatch("/admin-dashboard/employees")
 
   const [employees, setEmployees] = useState([]);
@@ -219,7 +219,7 @@ const Employees = (props) => {
                         {/*  */}
 
                         {showModal && (
-                          <div className="fixed inset-0 px-3 md:px-0 bg-black/30  flex items-center justify-center z-50">
+                          <div className="fixed inset-0 px-3 md:px-0 bg-black/30 backdrop-blur-[1.4px]  flex items-center justify-center z-50">
                             <div ref= {modalRef} onClick={(e) => e.stopPropagation()} className="bg-white rounded-xl p-1 shadow-lg transform transition-all duration-100 ease-in-out   opacity-100 animate-modalFade w-full max-w-xl ">
                               <div>
                                 {selectedTask ? (
@@ -295,15 +295,15 @@ const Employees = (props) => {
           
                     </div>
                        <div className = "px-4 flex justify-between items-center container py-3">
-                          <div>
+                          <div className = 'hidden md:flex '>
                              <p className = "font-sans font-normal text-xs  md:text-sm text-[#878789]">10 Entries per pages</p>
                           </div>
                            <div>
-                             <p className = "font-sans font-normal text-xs md:text-sm text-[#878789]">Page {page} of {totalPages}</p>
+                             <p className = "font-sans font-normal text-sm md:text-sm text-[#878789]">Page {page} of {totalPages}</p>
                            </div>
                            <div className = "flex gap-2">
-                             <button className = "border-1 border-[#CFCFD0] p-1  md:p-2 rounded-sm font-sans font-normal text-xs  md:text-sm text-[#878789]" onClick = {handlePrev} disabled = {page === 1}>Previous</button>
-                             <button className = " border-1 border-[#CFCFD0] p-1 md:p-2 rounded-sm font-sans font-normal text-xs  md:text-sm text-[#878789]" onClick = {handleNext} disabled = {page === totalPages}>Next</button>
+                             <button className = "border-1 border-[#CFCFD0] p-2  md:p-2 rounded-sm font-sans font-normal text-xs  md:text-sm text-[#878789]" onClick = {handlePrev} disabled = {page === 1}>Previous</button>
+                             <button className = " border-1 border-[#CFCFD0] p-2 md:p-2 rounded-sm font-sans font-normal text-xs  md:text-sm text-[#878789]" onClick = {handleNext} disabled = {page === totalPages}>Next</button>
                            </div>
                         </div>
                     </section>

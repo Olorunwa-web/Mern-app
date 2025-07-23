@@ -158,24 +158,28 @@ export const sidebarLinkEmployee = [
     {
         id:1,
         Icon: dashboardImg,
+        active: dashboardActive,
         name: "Dashboard",
         path: "",
     },
     {
         id:2,
         Icon: taskboardImg,
+        active: taskboardActive,
         name: "Taskboard",
         path: "/admin-employee/taskboard",
     },
     {
         id:3,
         Icon: leaveboardImg,
+        active: leaveboardActive,
         name: "Leaveboard",
         path: "/admin-employee/leaveboard",
     },
     {
         id:4,
         Icon: settingsImg,
+        active: settingsActive,
         name: "Settings",
         path: "/admin-employee/settings",
     }

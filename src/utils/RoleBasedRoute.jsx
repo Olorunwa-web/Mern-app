@@ -1,7 +1,9 @@
 import React, { useContext } from 'react'
 import  AuthContext from '../context/AuthContext'
 import { Navigate, useLocation, useNavigate } from 'react-router-dom';
-import { SyncLoader } from 'react-spinners'
+import { SyncLoader } from 'react-spinners';
+
+
 const RoleBasedRoute = ({children, requiredRole}) => {
     const {user, isLoading} = useContext(AuthContext);
     const location = useLocation();
@@ -16,8 +18,10 @@ const RoleBasedRoute = ({children, requiredRole}) => {
         navigate(previousLocation);
         return;
     }
-
   return user ? children : <Navigate to= "/auth/sign-in"/>
 }
 
 export default RoleBasedRoute
+
+
+

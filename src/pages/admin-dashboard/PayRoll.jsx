@@ -31,7 +31,7 @@ const PayRoll = () => {
                         {Payroll.map((pay) =>{
                             const {id,names,number,month,Icon} = pay
                             return(
-                                <div key = {id} className = {` w-full  py-4 px-5 ${open ? 'md:w-[47%]  lg:w-[48%] xl:w-[23%] ' : 'md:w-[48%] lg:w-[23%] xl:w-[23%]'}   border-1 border-[#F1F2F3] rounded-[10px]`} >
+                                <div key = {id} className = {` w-full  py-3 px-5 ${open ? 'md:w-[47%]  lg:w-[48%] xl:w-[23%] ' : 'md:w-[48%] lg:w-[23%] xl:w-[23%]'}   border-1 border-[#F1F2F3] rounded-[10px]`} >
                                   <div className = 'flex flex-col gap-[5px]'>
                                      <div className = 'flex flex-col gap-1 '>
                                         <h3 className = "font-sans font-medium text-sm text-[#2F2B2BB0]">{names}</h3>

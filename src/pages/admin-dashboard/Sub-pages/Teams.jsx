@@ -159,7 +159,7 @@ const Teams = () => {
                       <h1 className = 'font-sans font-semibold text-[#404040] text-[1.05rem]'> {dept?.name} Team </h1>
                       <p className = 'font-sans font-medium text-sm text-[#7F7F7F] '> {dept.members.length} Members</p>
                     </div>
-                      <p onClick = {()=> {getDeptById(dept._id); setShowModal(true);}} className = "font-sans font-medium text-sm text-[#3439CA]" >View All</p>
+                      <p onClick = {()=> {getDeptById(dept._id); setShowModal(true);}} className = "font-sans cursor-pointer font-medium text-sm text-[#3439CA]" >View All</p>
                   </div>
                   <div className = "my-4">
                   {dept.manager && (
@@ -222,8 +222,8 @@ const Teams = () => {
             })}
           </div>
           {showModal && (
-            <div  className="fixed inset-0 px-4 md:px-0 bg-black/30 flex items-center justify-center z-50">
-               <div ref={modalRef} onClick={(e) => e.stopPropagation()} className="bg-white rounded-xl  shadow-lg transform transition-all duration-100 ease-in-out  opacity-100 animate-modalFade w-full max-w-xl ">
+            <div  className="fixed inset-0 px-4 md:px-0 backdrop-blur-[1.4px] bg-black/30 flex items-center justify-center z-50">
+               <div ref={modalRef} onClick={(e) => e.stopPropagation()} className="bg-white rounded-xl  shadow-lg transform transition-all duration-100 ease-in-out max-h-full overflow-y-auto  opacity-100 animate-modalFade w-full max-w-xl ">
                  <div className = " py-4 px-4 flex justify-between items-center">
                    <h2 className = ' font-sans font-semibold text-lg text-[#292929]'>{selectedDept?.name}</h2>
                    <img src= {cancel} onClick={() => setShowModal(false)} alt="" className =  'w-7 h-7'/>
@@ -270,11 +270,9 @@ const Teams = () => {
                        </tbody>
                     </table>
                   </div>
-
                 </SimpleBar>
                </div>
-               ) : (
-                 <Loadings/>
+               {/* */}
             </div>
           )}
         {/* <div className="  teams-wrapper-di">

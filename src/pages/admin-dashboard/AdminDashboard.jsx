@@ -2,8 +2,6 @@ import React, {useEffect, useState , useContext} from 'react'
 import {useNavigate} from "react-router-dom";
 import {sidebarLink} from '../../db';
 import Hrlogo from '../../assets/Frame 1000003286.svg';
-import arrowup from '../../assets/Vector.svg';
-import arrowdown from '../../assets/Vector (1).svg';
 import{ NavLink, Outlet, useLocation } from 'react-router-dom';
 import '../../Style/AdminDashboard.css';
 import Navbar from '../../Layout/Navbar';
@@ -12,7 +10,7 @@ import leftvisible from '../../assets/dock_to_left_20dp_ACACAC_FILL0_wght400_GRA
 import Logout from '../../assets/logout-04-stroke-rounded.svg';
 import 'simplebar-react/dist/simplebar.min.css';
 import SimpleBar from 'simplebar-react';
-import OpenContext from '../../context/OpenContext'
+import OpenContext from '../../context/OpenContext';
 
 
 const AdminDashboard = () => {
@@ -21,7 +19,6 @@ const AdminDashboard = () => {
   const { open, setOpen } = useContext(OpenContext);
   // const [isOpen, setisOpen] = useState(true);
 
-  const [isTrue, setisTrue] = useState(false)
 
   const [showWelcomeModal, setShowWelcomeModal] = useState(false);
 
@@ -100,13 +97,13 @@ const AdminDashboard = () => {
                                  <p className = 'font-sans font-normal text-sm text-[#696969]'>Logout</p>
                                </div>
                              </div>
-                             <div className = ' flex justify-start items-end'>
-                             <div className = 'flex gap-2 items-center h bg-white border-1 border-[#E0E0E0] rounded-xl py-2 px-3'>
-                               <div className = " w-7 h-7 hover:border-3 hover:border-[#78808A] md:w-7 md:h-7 flex justify-center bg-[#3439CA] rounded-full items-center ">
+                             <div className = 'w flex justify-start items-end'>
+                             <div className = 'flex gap-2 w-full items-center h bg-white border-1 border-[#E0E0E0] rounded-xl py-2 px-3'>
+                               <div className = " w-7 h-7 hover:border-3 hover:border-[#78808A] md:w-8 md:h-8 flex justify-center bg-[#3439CA] rounded-full items-center ">
                                  <span className = 'font-sans text-white font-medium text-xs'>{user && user?.email?.slice(0,2).toUpperCase()}</span>
                                </div>
                                <div className = 'flex flex-col gap-[3px]'>
-                                 <div className = ' mb-[-3px]'>
+                                 <div className = ' mb-[-1px]'>
                                    <span className = 'font-sans font-medium text-[#161E54] text-[0.94rem]'>{user && user?.firstName?.charAt(0).toUpperCase() + user?.firstName?.slice(1) }</span>
                                  </div>
                                  <p className = 'mt-[-5px] font-normal font-sans text-xs text-[#ACACAC]'>{user && user?.email}</p>
@@ -117,8 +114,8 @@ const AdminDashboard = () => {
                           
                           ) : (
                             <div className = 'flex flex-col gap-4 justify-center items-center mb-2'>
-                              <div onClick = {logout} className = ' flex justify-center rounded-md bg-[#F1F2F3] p-1 mx-1 items-center'> 
-                                <img src= {Logout} alt="" className = 'w-6 h-6'/>
+                              <div onClick = {logout} className = ' flex justify-center rounded-md bg-[#F1F2F3] p-2 mx-1 items-center'> 
+                                <img src= {Logout} alt="" className = 'w-5 h-5'/>
                               </div>
                               <div className = " w-7 h-7 hover:border-3 hover:border-[#78808A] md:w-8 md:h-8 flex justify-center bg-[#3439CA] rounded-full items-center ">
                                 <span className = 'font-sans text-white font-medium text-xs'>{user && user?.email?.slice(0,2).toUpperCase()}</span>

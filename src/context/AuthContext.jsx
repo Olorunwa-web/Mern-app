@@ -1,13 +1,17 @@
-import React,{createContext,useState,useEffect} from 'react'
+import React,{ createContext, useState, useEffect } from 'react'
 import axios from "axios";
 import { useContext } from 'react';
 
  const AuthContext = createContext();
+
 export const AuthProvider = ({children}) => {
   const [data,setData] = useState([])
     const [user, setUser] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
+
     const token = localStorage.getItem("hr-token");
+
+
     function login(user) {
       setUser(user);
     }
@@ -18,6 +22,26 @@ export const AuthProvider = ({children}) => {
       localStorage.removeItem("hr-token");
     };
   
+
+  //   const getCounts = async ()=>{
+
+  //     try {
+  //         const req = await axios.get("https://mern-backend-1-9jn6.onrender.com/api/count/count", {
+  //             headers:{
+  //                 Authorization: `Bearer ${token}`,
+  //             }
+  //         })
+  //         console.log(req.data.eventLenght);
+
+  //         setData(req.data.eventLenght)
+  //     } catch (error) {
+  //       console.error("getCounts error:", error?.response?.data || error.message);
+
+          
+  //     }
+  // }
+
+
     useEffect(()=>{
         const verifyUser = async () => {
           try {
@@ -34,6 +58,7 @@ export const AuthProvider = ({children}) => {
               
               if (request.data.success) {
                 setUser(request.data.user);
+                // getCounts();
               }
             } else {
               setUser(null);
@@ -49,6 +74,7 @@ export const AuthProvider = ({children}) => {
           }
         };
         verifyUser();
+        // getCounts()
       },[])
     
     
@@ -59,4 +85,4 @@ export const AuthProvider = ({children}) => {
   )
 }
 export const useAuth = () => useContext(AuthContext)
-export default AuthContext
+export default AuthContext;

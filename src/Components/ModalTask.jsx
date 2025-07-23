@@ -14,6 +14,7 @@ import cancel from "../assets/Stockholm-icons (10).svg"
 import canceled from '../assets/Stockholm-icons (11).svg';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import { useRef } from 'react'
 
 
 
@@ -22,7 +23,7 @@ const ModalTask = ( {isModalOpen, setIsModalOpen, refreshTask}) => {
 
   if (!isModalOpen) return null;
   const [data2, setData2] = useState([])
-
+const { modalRef } = useRef()
 
   const [title, setTitle] = useState([]);
   const [description, setDescription] = useState([]);
@@ -34,6 +35,24 @@ const ModalTask = ( {isModalOpen, setIsModalOpen, refreshTask}) => {
   const [suggestions, setSuggestions] = useState([]);
   const token = localStorage.getItem("hr-token");
   const [isSubmitting,setIsSubmitting] = useState(false)
+
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (modalRef.current && !modalRef.current.contains(event.target)) {
+        setIsModalOpen(false);
+      }
+    }
+
+    if (isModalOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+    } else {
+      document.removeEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [isModalOpen]);
 
 
   useEffect(() => {
@@ -131,7 +150,7 @@ const ModalTask = ( {isModalOpen, setIsModalOpen, refreshTask}) => {
  
     return (
         <>
-          <div  className="fixed inset-0 py-10  px-4 md:px-0 bg-black/30 flex items-center screen   justify-center z-50">
+          <div ref= {modalRef}  className="fixed inset-0 py-10 backdrop-blur-[1.4px] px-4 md:px-0 bg-black/30 flex items-center screen   justify-center z-50">
             <div onClick={(e) => e.stopPropagation()} className=" bg-white rounded-xl shadow-lg transform  max-h-full overflow-y-auto transition-all duration-100 ease-in-out opacity-100 animate-modalFade w-full max-w-lg ">
               <div className = 'flex py-3 px-4 justify-between items-center border-b-1 border-[#D9D9D9] '>
                  <h2 className = 'font-sans font-semibold text-[#292929] text-xl '>Create New Task</h2>

@@ -1,5 +1,4 @@
 import React from 'react'
-import arrowDown from '../assets/arrowDown.svg'
 import NotificationIcon from '../assets/Bell.svg'
 import messageIcon from '../assets/messageIcon.svg'
 import ladypic from '../assets/lady.svg'
@@ -32,6 +31,9 @@ const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
     const sidebarRef = useRef();
 
+    const [show, setShow] = useState(false);
+
+
     const [searchText, setSearchText] = useState("");
 
     const [profile, setProfile] = useState({});
@@ -53,10 +55,11 @@ const Navbar = () => {
             !sidebarRef.current.contains(event.target)
           ) {
             setIsOpen(false);
+            setShow(false);
           }
         };
     
-        if (isOpen) {
+        if (isOpen, show) {
           document.addEventListener("mousedown", handleClickOutside);
         } else {
           document.removeEventListener("mousedown", handleClickOutside);
@@ -65,16 +68,18 @@ const Navbar = () => {
         return () => {
           document.removeEventListener("mousedown", handleClickOutside);
         };
-      }, [isOpen]);
+      }, [isOpen, show]);
     
-      const handleLinkClick = () => {
-        setIsOpen(false);
-      };
-
+      
 
       const handleClear = () => {
         setSearchText("");
       };
+
+      
+    
+      const toggleBox = () => setShow(prev => !prev);
+
 
  
       useEffect(() => {
@@ -118,7 +123,7 @@ const Navbar = () => {
                      )}
                      <div
                       ref = {sidebarRef}
-                      className={`fixed top-0 right-0 min-h-screen  overflow-y-auto border-l-1 border-[#F1F1F1] w-[80%] bg-white z-50 transform transition-transform duration-200 ${isOpen ? "-translate-x-0" : "translate-x-full"}`}>
+                      className={`fixed top-0 left-0 min-h-screen  overflow-y-auto border-l-1 border-[#F1F1F1] w-[80%] bg-white z-50 transform transition-transform duration-200 ${isOpen ? "translate-x-0" : "-translate-x-full"}`}>
                         <SimpleBar style={{ maxHeight: '100vh'}}>
                          <div className = 'py-4 h-full flex flex-col justify-between gap-10 '>
                              <div className = 'flex flex-col gap-8'>
@@ -158,6 +163,7 @@ const Navbar = () => {
                                         key={id} 
                                         to={path}
                                         end 
+                                        onClick={() => setIsOpen(false)}
                                         >
                                         {({ isActive, isPending }) =>(
                                           <span
@@ -226,14 +232,32 @@ const Navbar = () => {
                           <img src= {messageIcon} alt="message-img" className = "w-6 h-6 md:w-5 md:w-5"/>
                         </div>
                      </div>
-                     <div className = "flex gap-2 relative px- rel items-center">
+                     <div className = "flex gap-2 group relative px- rel items-center">
                          {/* <div className = " w-8 h-8 hover:border-3 hover:border-[#78808A] md:w-9 md:h-9 flex justify-center bg-[#3439CA] rounded-full items-center ">
                              <span className = 'font-sans text-white font-normal text-sm'>{user && user?.email.slice(0,2).toUpperCase()}</span>
                          </div> */}
-                         <div className = " w-full cursor-pointer  h-full" >
+                         <div onClick = {toggleBox} className = " w-full cursor-pointer  h-full" >
                             <img src= {profile.profileImage || ladypic} alt="lady-pic" className = " w-10 h-10  md:w-9 md:h-9 rounded-full" />
                          </div>
                             <div className = 'w-2 h-2 p-1 border-2 border-white absolute right-0 bottom-0 bg-[#61ca53] rounded-full'></div>
+                            {(show || false )&& (
+                              <div className =  {`${show ? "block lg:hidden": "hidden"} group-hover:block lg:hidden block absolute w-40 bg-white top-11 right-0 border-1 border-[#F1F2F3] rounded-md`}>
+                                <div className = 'p-3 flex  items-center gap-2'>
+                                  <div className = 'relative borde'>
+                                    <div className = 'w-full flex relative h-full'>
+                                       <img src= {profile.profileImage || ladypic} alt="lady-pic" className = " w-9 h-9  md:w-9 md:h-9 rounded-full" />
+                                    </div>
+                                    <div className = 'w-2 h-2 p-1 border-2 border-white absolute left-8 top-7 transform -translate-x-1/2 -translate-y-1/2 bg-[#61ca53] rounded-full'></div>
+                                  </div>
+                                  <div className = 'flex flex-col'>
+                                    <div className = 'flex flex-col  '>
+                                      <span className = 'font-sans font-medium text-[#161E54] text-[0.97rem] '>{user && user?.firstName?.charAt(0).toUpperCase() + user.firstName?.slice(1) }</span>
+                                      <p className = 'mt-[-4px] font-normal font-sans text-sm text-[#78808A]'>{user && user.role}</p>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            )}
                          {/* <div className = 'flex flex-col lg:flex hidden'>
                              <div className = 'flex gap-1 mb-[-3px]'>
                                 <span className = 'font-sans font-medium text-[#161E54] text-[0.94rem]'>{user && user?.firstName?.charAt(0).toUpperCase() + user.firstName?.slice(1) }</span>

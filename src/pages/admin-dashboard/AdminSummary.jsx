@@ -244,7 +244,7 @@ const AdminSummary = () => {
                     {/*  */}
 
                     {isOpen && (
-                        <div className="fixed inset-0 px-4 md:px-0 bg-black/30 flex items-center justify-center z-50">
+                        <div className="fixed inset-0 px-4 md:px-0 backdrop-blur-[1.4px] bg-black/30 flex items-center justify-center z-50">
                         <div ref={modalRef} onClick={(e) => e.stopPropagation()} className="bg-white rounded-xl shadow-lg transform transition-all duration-100 ease-in-out  opacity-100 animate-modalFade w-full max-w-2xl ">
                           <div className = 'flex  py-3 px-4 justify-between items-center border-b-1 border-[#D9D9D9] '>
                             <h2 className = 'font-sans text-[#292929] font-semibold text-xl '>Task Details</h2>
