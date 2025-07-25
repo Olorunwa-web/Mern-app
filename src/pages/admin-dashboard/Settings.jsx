@@ -6,7 +6,7 @@ import { useForm } from "react-hook-form"
 import {settingsSchema} from "../../lib/ValidationSchema"
 import axios from "axios";
 import OpenContext from '../../context/OpenContext'
-import { useContext } from 'react'
+import { useContext } from 'react';
 
 
 const Settings = () => {

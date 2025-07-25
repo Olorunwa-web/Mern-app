@@ -153,7 +153,7 @@ const AdminSummary = () => {
             <main className = "px-3 md:px-0 lg:px-0 w-19/20 mx-auto max-w-full">
               <section className = ''>
                 <section className = "py-7">
-                    <h1 className = "mb-5 font-inter text-xl text-[#161E54] font-medium  ">Dashboard</h1>
+                    <h1 className = "mb-5 font-inter text-xl text-[#161E54] font-medium ">Dashboard</h1>
                     <div className = "flex flex-col gap-7 md:gap-6 lg:gap- w-full md:flex-wrap md:flex-row lg:flex-row  justify-between" >
                     {data.map((Dashboard)=>{
                         const { title, count} = Dashboard
@@ -164,7 +164,7 @@ const AdminSummary = () => {
                                         <h1 className = 'font-poppins font-semibold text-[1.7rem] text-[#1E1E1E]'>{count} </h1>
                                     </div>
                                     <div>
-                                      {title === "Total Employees" ?   <img src={peopleImg} className = 'w-15 h-15' alt="event-img" loading="lazy" /> :title === "Total Tasks" ? <img src={taskImg} alt="event-img" className = 'w-15 h-15' loading="lazy" /> :<img src={calenderImg} alt="event-img" className = 'w-15 h-15' loading="lazy" /> }
+                                      {title === "Total Employees" ?   <img src={peopleImg} className = 'w-14 h-14' alt="event-img" loading="lazy" /> :title === "Total Tasks" ? <img src={taskImg} alt="event-img" className = 'w-14 h-14' loading="lazy" /> :<img src={calenderImg} alt="event-img" className = 'w-14 h-14' loading="lazy" /> }
                                     </div>
                                 </div>
                                )  
@@ -178,10 +178,10 @@ const AdminSummary = () => {
                     <table  className=" table-auto w-full border-[0.5px] border-[#E4E8ED] rounded-lg ">
                       <thead className = " ">
                         <tr className = 'text-left bg-[#F7F9FB] rounded  '>
-                          <th className = 'whitespace-nowra py-2 ps-4 font-inter font-medium text-base text-[#292929]'>
+                          <th className = ' py-2 ps-4 font-inter font-medium text-base text-[#292929]'>
                               Task
                           </th>
-                          <th className = "whitespace-nowra py-2  font-inter font-medium text-base text-[#292929]">
+                          <th className = " py-2  font-inter font-medium text-base text-[#292929]">
                               Team
                           </th>
                           <th className = "whitespace-nowra py-2 font-inter font-medium text-base text-[#292929]">
@@ -208,13 +208,13 @@ const AdminSummary = () => {
                                {dashboards.assignedMembers.map((img)=>{
                                    return(
                                         <img src={img.profileImage} key = {img._id} alt=""  className = "inline-block h-6 w-6 rounded-full ring-2 ring-white"/>
-                                     )
-                                 })}
-                             </div>
+                                      )
+                                   })}
+                              </div>
                            </td>
                            <td className = ' flex flex-col whitespace-nowrap'>
                                  <span className = "font-inter font-normal text-sm text-[#292929]">Start: {startDate.slice(0, 10)}</span>
-                                 <span className = "font-inter font-normal text-sm text-[#8C8C8C]">End: {endDate.slice(0, 10)}</span>
+                                 <span className = " font-inter font-normal text-sm text-[#8C8C8C]">End: {endDate.slice(0, 10)}</span>
                            </td>
                            <td className = ' whitepsace-nowrap py-3 mx- text-center '>
                                {/* <span className = {`action-status ${status.replace(/\s+/, "-").toLowerCase()}`} >{status}</span> */}
@@ -245,7 +245,7 @@ const AdminSummary = () => {
 
                     {isOpen && (
                         <div className="fixed inset-0 px-4 md:px-0 backdrop-blur-[1.4px] bg-black/30 flex items-center justify-center z-50">
-                        <div ref={modalRef} onClick={(e) => e.stopPropagation()} className="bg-white rounded-xl shadow-lg transform transition-all duration-100 ease-in-out  opacity-100 animate-modalFade w-full max-w-2xl ">
+                         <div ref={modalRef} onClick={(e) => e.stopPropagation()} className="bg-white rounded-xl shadow-lg transform transition-all duration-100 ease-in-out  opacity-100 animate-modalFade w-full max-w-2xl ">
                           <div className = 'flex  py-3 px-4 justify-between items-center border-b-1 border-[#D9D9D9] '>
                             <h2 className = 'font-sans text-[#292929] font-semibold text-xl '>Task Details</h2>
                             <img src= {cancel} onClick={() => setIsOpen(false)} className = 'w-7 h-7' alt=""/>
@@ -283,7 +283,7 @@ const AdminSummary = () => {
                                 <div className = "flex w-full mb-2 flex-col md:flex-row gap-y-4  md:justify-between ">
                                     <div className =  "flex md:gap-  w-full md:w-5/9 items-cente justify-between  ">
                                        <span className = "font-sans font-normal text-sm  text-[#747474]">Assigned Member:</span>
-                                       <span className = "font-sans font-medium text-sm  text-[#1A1A1A]">{selectedTask.assignedMembers.map(member => `${member.firstName}`).join(', ')}</span>
+                                       <span className = "text-end font-sans font-medium text-sm  text-[#1A1A1A]">{selectedTask.assignedMembers.map(member => `${member.firstName}`).join(', ')}</span>
                                     </div>
                                     <div className =  "flex md:gap w-full  md:w-3/9 items-center justify-between ">
                                        <span className = "font-sans font-normal text-sm md:text-b text-[#747474]">Status:</span>

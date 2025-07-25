@@ -1,6 +1,5 @@
 import React, { useContext } from 'react'
 import {Link, useNavigate} from 'react-router-dom'
-import ModalX from '../../../Components/ModalX'
 import { yupResolver } from "@hookform/resolvers/yup"
 import { useForm } from "react-hook-form"
 import * as yup from "yup";
@@ -117,10 +116,7 @@ const Accountaccess = () => {
                     <button className = "w-full md:w-40 py-2 bg-[#3439CA] rounded-sm font-medium   text-base md:text-sm text-[#F3F2FB]" type = "submit" onClick={() => setModalShow(true)} >Save & Continue</button>
                 </div>
                 </section>
-                      <ModalX
-        show={modalShow}
-        onHide={() => setModalShow(false)}
-      />
+                      
                 </form>
             </main>
         </>

@@ -1,5 +1,5 @@
 import React,{useContext, useEffect} from 'react'
-import {sidebarLinkEmployee} from "../../db"
+import { sidebarLinkEmployee } from "../../db"
 import Hrlogo from "../../assets/Frame 1000003286.svg"
 import arrowup from '../../assets/Vector.svg'
 import arrowdown from '../../assets/Vector (1).svg'

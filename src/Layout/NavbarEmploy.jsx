@@ -1,12 +1,10 @@
 import React from 'react'
-import arrowDown from '../assets/arrowDown.svg'
 import NotificationIcon from '../assets/Bell.svg'
 import searchIcon from '../assets/searchIcon.svg'
 import messageIcon from '../assets/messageIcon.svg'
 import ladypic from '../assets/Ellipse 2158.svg'
 import '../Style/Navbar.css'
 import { useState } from 'react' 
-import OffcanvasEmploy from "../Components/OffcanvasEmploy"
 import {Link} from 'react-router-dom'
 import AuthContext from "../context/AuthContext"
 import {useNavigate, NavLink} from "react-router-dom"
@@ -18,7 +16,7 @@ import closemenu from '../assets/close_32dp_000000_FILL0_wght400_GRAD0_opsz40.sv
 import Hrlogo from '../assets/Frame 1000003286.svg';
 import handwave from '../assets/waving-hand-svgrepo-com.svg';
 import Logout from '../assets/logout_20dp_ACACAC_FILL0_wght400_GRAD0_opsz20.svg';
-import {sidebarLink} from '../db';
+import { sidebarLinkEmployee } from '../db';
 import 'simplebar-react/dist/simplebar.min.css';
 import SimpleBar from 'simplebar-react';
 import axios from "axios";
@@ -155,7 +153,7 @@ const NavbarEmploy = () => {
                            <div className = "px-4 my-2 flex flex-col gap-5">
                              <h3 className = 'font-medium text-xs font-sans text-[#9A9FA5]'>MAIN MENU</h3>
                                <div className = {`flex flex-col gap-[1.4rem]`}>
-                                 {sidebarLink.map((sidebarLinks)=>{
+                                 {sidebarLinkEmployee.map((sidebarLinks)=>{
                                      const {id,path,Icon,name, active} = sidebarLinks
                                      return(
                                         <NavLink   
@@ -222,8 +220,14 @@ const NavbarEmploy = () => {
                         </div>
                     )}
                 </form>
+                <div className = ' flex items-center gap-1 block md:hidden'>
+                    <div>
+                        <span className = 'font-sans font-medium text-[#161E54] text-lg'>Hi, <span className = 'font-sans font-medium text-[#161E54] text-lg'>{user && user?.firstName?.charAt(0).toUpperCase() + user.firstName.slice(1) }</span></span>
+                    </div>
+                    <img src= {handwave} className = 'w-6 h-6 mt-[-2px]' alt=""/>
+                </div>
                  <div className = "flex gap-4 items-center ">
-                     <div className = 'flex gap-4 bg-[#F7F9FA] py-[3px] px-[7px] border-1 border-[#E0E0E0]  rounded-full'>
+                     <div className = 'hidden md:flex flex gap-4 bg-[#F7F9FA] py-[3px] px-[7px] border-1 border-[#E0E0E0]  rounded-full'>
                        <div className = ' hidde md:bloc '>
                           <img src= {NotificationIcon} alt="notification-img" className = "w-6 h-6 md:w-5 md:w-5"/>
                        </div>
@@ -235,6 +239,7 @@ const NavbarEmploy = () => {
                          {/* <div className = " w-8 h-8 hover:border-3 hover:border-[#78808A] md:w-9 md:h-9 flex justify-center bg-[#3439CA] rounded-full items-center ">
                              <span className = 'font-sans text-white font-normal text-sm'>{user && user?.email.slice(0,2).toUpperCase()}</span>
                          </div> */}
+                         
                          <div onClick = {toggleBox} className = " w-full cursor-pointer  h-full" >
                             <img src= {profile.profileImage || ladypic} alt="lady-pic" className = " w-10 h-10  md:w-9 md:h-9 rounded-full" />
                          </div>
@@ -273,37 +278,7 @@ const NavbarEmploy = () => {
                  </div>
                 </div>
             </nav>
-             {/* <nav className = "d-flex justify-content-between navbar-container">
-                <div className = "d-md-none">
-                {['start'].map((placement, idx) => (
-        <OffcanvasEmploy key={idx} placement={placement} name={placement} />
-      ))}
-                </div>
-                <form className = "nav-form">
-                    <input type="search" name="" id="" placeholder = "Search" className = "inputs"/>
-                 </form>
-                 <div className = "d-flex gap-4 align-items-center d-none d-md-flex">
-                     <div>
-                         <img src= {NotificationIcon} alt="notification-img" className = "d-none d-lg-block"/>
-                     </div>
-                     <div>
-                         <img src= {messageIcon} alt="message-img" className = "d-none d-lg-block"/>
-                     </div>
-                     <div className = "d-flex gap-2 align-items-center">
-                         <img src= {ladypic} alt="lady-pic" className = "d-none d-md-block "/>
-                         <div className = "pt-">
-                             <Dropdown className = "d-none d-lg-block dropdown">
-                                 <Dropdown.Toggle variant="none" id="dropdown-basic" className = "heading-2">
-                                 {user && user.firstName}
-                                 </Dropdown.Toggle>
-                             <Dropdown.Menu className = "w-25">
-                               <Dropdown.Item href="#/action-1" className = "logout" onClick = {logout}>Logout</Dropdown.Item>
-                             </Dropdown.Menu>
-                           </Dropdown>
-                         </div>
-                     </div>
-                 </div>
-            </nav> */}
+            
         </>
     )
 }

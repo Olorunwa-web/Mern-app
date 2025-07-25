@@ -1,7 +1,5 @@
 import React, {useEffect, useContext} from 'react'
 import '../Style/Taskboard.css'
-import ModalTasks from '../Components/ModalTasks'
-import tickcircle from '../assets/tick-circle.svg'
 import {useState} from 'react'
 import { yupResolver } from "@hookform/resolvers/yup"
 import { useForm } from "react-hook-form"
